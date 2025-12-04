@@ -1,4 +1,4 @@
-
+/* 
 const products = [
     {
         code: 'C002',
@@ -38,5 +38,4 @@ products.forEach((product, index) => {
     `;
     productList.appendChild(col);
 });
-
-/* Ver */
+ */
