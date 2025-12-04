@@ -5,8 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/productos.css">
+      <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+
+  <header>
+        <div class="header-logo">
+            <img>
+        </div>
+        <nav>
+            <ul>
+                <li>Inicio</li>
+                <li>Productos</li>
+                <li>Quiénes somos</li>
+            </ul>
+            <div class="language-menu">
+                <ul>
+                    <li>EUS</li>
+                    <li>ENG</li>
+                </ul>
+            </div>
+            <div class="basket-btn">  <!-- botón para ir al carrito -->
+                    <img>
+            </div>
+        </nav>
+    
+    </header>
+       <div class="containerform">
+         
+            <form class="filtro">
+                <!-- Búsqueda por texto -->
+                <label for="buscar">Buscar:</label>
+                <input type="text" id="buscar" name="buscar" placeholder="¿Que estas buscando?">
+
+                <!-- Categoría -->
+                <label for="categoria">Categoría:</label>
+                <select id="categoria" name="categoria">
+                    <option value="">Todas</option>
+                    <option value="camisas">camisas</option>
+                    <option value="zapatos">zapatos</option>
+                    <option value="bolsos">bolsos</option>
+                    <option value="pantalones">pantalones</option>
+                </select>
+
+                <!-- Orden -->
+                <label for="orden">Ordenar por:</label>
+                <select id="orden" name="orden">
+                    <option value="recientes">Más recientes</option>
+                    <option value="precioAsc">Precio: menor a mayor</option>
+                    <option value="precioDesc">Precio: mayor a menor</option>
+                    <option value="nombre">Nombre</option>
+                </select>
+
+                <button type="submit">Filtrar</button>
+            </form>
+      </div>
+
+
+<!--PRODUCTOS-->
+
         <div class="container">
 
 

@@ -1,14 +1,88 @@
+     
+     
      .caja {
             display: inline-block;
-            width: 150px;
-            height: 150px;
+            width: 400px;
+            height: 500px;
             background-color: rgb(19, 98, 124);
-            margin: 10px 0;
+            margin: 30px 0;
             border: 2px solid #333;
+            border-radius: 15px;
+         
         }
 
+
+    .containerform {
+            width: 100%;
+            background-color: #af0b0b;   
+            padding: 10px;                
+            border-radius: 10px;         
+            box-sizing: border-box;      
+       justify-content: center;
+        }
+    
+
+
+
     .container {
+            width: 100%;
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-around;
             align-items: center;
+        }
+    
+
+    .filtro label {
+        font-weight: bold;
+        margin-left: 50px;
+        
+        }
+
+
+    .filtro input,
+    .filtro select {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #999;
+        }
+
+
+    .filtro button {
+        padding: 8px;
+        background: #13627c;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        }
+
+
+    .filtro button:hover {
+        background: #0f5167;
+        }
+        footer {
+            background-color:#E2FFB4;
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-info {
+            font-family: "Overpass Mono";
+            font-size: 1rem;
+            margin: 5rem;
+            color: black;
+        }
+
+        .endfooter {
+            background-color: black;
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            color: white;
+            font-family: "Overpass Mono";
+            font-size: 0.8rem;
         }
