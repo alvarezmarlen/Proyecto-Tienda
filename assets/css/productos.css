@@ -58,14 +58,14 @@
 
 
         /*--CAJA DONDE IRIAN LOS PRODUCTOS--> */
-    .container {
+    #container {
     display: grid;
     grid-template-columns:repeat(4, 1fr);
     padding: 1rem;
     font-family: "Overpass Mono";
     }
 
-    #caja {
+    .card {
     margin: 2rem;
     border: 1px solid black;
     padding: 1rem;
@@ -73,7 +73,7 @@
     flex-direction: column;   /* Alinea verticalmente */
     align-items: center;      /* Centra todo */
     justify-content: space-between; /* Mantiene el texto abajo */
-    height: 350px;            /* MISMA altura para todas las cards */   
+    height: 400px;            /* MISMA altura para todas las cards */   
     }
 
     .caja-img{
@@ -84,7 +84,7 @@
     cursor: pointer;
     }
 
-    #caja:hover .caja-img {
+    .card:hover .caja-img {
     transform: scale(1.1); /* La imagen se agranda */
     }
     .caja-informacion {
