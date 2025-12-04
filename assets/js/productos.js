@@ -39,3 +39,4 @@ products.forEach((product, index) => {
     productList.appendChild(col);
 });
 
+/* Ver */
