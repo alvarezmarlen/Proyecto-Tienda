@@ -1,41 +1,47 @@
-/* 
 const products = [
     {
-        code: 'C002',
-        name: 'Collar dije Fresa con abalorios',
-        price: 8,
-        image: '/assets/img/CollarFrutilla-abalorios02.png'
+        code: '0',
+        name: 'Bolso Azul',
+        price: 35,
+        image: '/assets/img/bolsos/bolso-azul.jpg'
     },
     {
-        code: 'C005',
-        name: 'Collar dije azul',
-        price: 12,
-        image: '/assets/img/AretesRojos-PerlasBlancas6.png'
+        code: '1',
+        name: 'Bolso Marron',
+        price: 65,
+        image: '/assets/img/bolsos/bolso-marron.jpg'
+    },
+    {
+        code: '2',
+        name: 'Bolso Blanco',
+        price: 25,
+        image: '/assets/img/bolsos/bolso-media-luna-suave.jpg'
     },
         {
-        code: 'C006',
-        name: 'Pulcera dije Fresa con hojas',
-        price: 12,
-        image: '/assets/img/PulceraFrutilla02.png'
+        code: '3',
+        name: 'Mochila Azul',
+        price: 45,
+        image: '/assets/img/bolsos/mochila-azul.jpg'
     }
 ];
 
 
-const productList = document.getElementById('caja');
+const productList = document.getElementById('container');
 
 products.forEach((product, index) => {
     const col = document.createElement('div');
     col.className = 'col';
-    col.innerHTML = `<div class="card" style="width: 18rem;">
-                        <img src="${product.image}" class="card-img-top" alt="${product.name}">
-                        <div class="card-body">
-                            <h5 class="card-title">${product.name}</h5>
-                            <p><strong>€ ${product.price}</strong></p>
-                        </div>
-                    </div>
-    
+    col.innerHTML = `
+                    <div class="card">
+                        <figure>
+                            <img class="caja-img" src="${product.image}" alt="${product.name}">
+                            <figcaption class="caja-informacion">
+                                <h5>${product.name}</h5>
+                                <p><strong>€ ${product.price}</strong></p>
+                            </figcaption>
+                        </figure>
+                    </div>   
     
     `;
     productList.appendChild(col);
 });
- */
