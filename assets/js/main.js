@@ -8,16 +8,7 @@
                         "stock": "true"
                         },
 
-<<<<<<< HEAD
-
-
-
-
-] ` */
-
-=======
                         
->>>>>>> 590e37e5037e536220d8137da32ea41c5e82ebd5
 const articulosJSON =[{"produtID": 0,
                         "categoria": "bolsos",
                         "productName": "Bolso Azul",
