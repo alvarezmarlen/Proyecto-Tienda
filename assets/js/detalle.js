@@ -1,4 +1,3 @@
-import { articulosJSON } from './main.js';
 //numero de articulos
         let numero = 0;
 
@@ -6,9 +5,10 @@ import { articulosJSON } from './main.js';
         let compra = {        
                 };
 
-        const articulo = JSON.parse(localStorage.getItem('productoSeleccionado'));
-       /* const productID=7;
-        const articulo= articulosJSON[productID];*/
+
+
+       const articulo = JSON.parse(localStorage.getItem('productoSeleccionado'));
+
 
 
         document.getElementById("categoria").textContent = articulo.categoria;
