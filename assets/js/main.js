@@ -8,9 +8,8 @@
                         "stock": true
                         },
                         ] ` */
-
-                        
-export const articulosJSON =[{"produtID": 0,
+        
+ export const articulosJSON =[{"produtID": 0,
                         "categoria": "bolsos",
                         "productName": "Bolso Azul",
                         "imagen": "../assets/img/bolsos/bolso-azul.jpg",

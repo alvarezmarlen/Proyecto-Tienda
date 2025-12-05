@@ -1,3 +1,4 @@
+import { articulosJSON } from './main.js';
 //numero de articulos
         let numero = 0;
 
