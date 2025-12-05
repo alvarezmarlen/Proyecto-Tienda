@@ -55,7 +55,7 @@
             modal.style.display="block";
 
             // asignar valores a compra y almacenarlo en localstorage
-            compra.id=1;
+            compra.id=articulo.produtID;
             compra.cantidad = numero;
             compra.precio=25;
             let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
