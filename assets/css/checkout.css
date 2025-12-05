@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Overpass+Mono:wght@300..700&family=Pacifico&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HEADER */
+
+header {
+    background-color: #7fbd1b;
+    display: flex;
+    align-items: center;
+    height: 6rem;
+}
+
+.header-logo {
+    padding-left: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.header-logo img {
+    width: 30%;
+    height: 30%;
+    border-radius: 50%;
+    margin: 0.4rem;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: space-between;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+nav ul li {
+    padding: 0.5rem;
+    font-family: "Montserrat";
+    font-size: 1.2rem;
+}
+
+.language-menu {
+    margin-left: auto;
+    padding-right: 2.5rem;
+}
+
+.language-menu ul {
+    display: flex;
+    gap: 0.3rem;
+}
+
+/* MAIN */
+
+
+/* FOOTER */
+
+
+footer {
+    background-color:#E2FFB4;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.page-info {
+    font-family: "Overpass Mono";
+    font-size: 1rem;
+    margin: 5rem;
+    color: black;
+}
+
+.endfooter {
+    background-color: black;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-family: "Overpass Mono";
+    font-size: 0.8rem;
+}
