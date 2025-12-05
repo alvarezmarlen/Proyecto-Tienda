@@ -9,15 +9,16 @@
 
        const articulo = JSON.parse(localStorage.getItem('productoSeleccionado'));
 
-
-
+       
         document.getElementById("categoria").textContent = articulo.categoria;
-        document.getElementById("categoria").href = "../pages/"+articulo.categoria+".html";
-
+        
+        
         let imagen = document.getElementById('foto');
         imagen.src = "../assets/"+articulo.imagen;
         imagen.alt = articulo.productName;
 
+
+        //cuadro de informacion
         document.getElementById("cuadro").innerHTML="<h2>" + articulo.productName+ "</h2>"
                                                         +"<p> descripcion: " + articulo.descripcion+"</p>"
                                                         +"<p> talla: " + articulo.talla+"</p>"
