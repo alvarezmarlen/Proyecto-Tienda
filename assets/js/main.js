@@ -13,8 +13,9 @@
 
 
 ] ` */
+ 
 
-const articulosJSON =[{"produtID": 0,
+export const articulosJSON =[{"produtID": 0,
                         "categoria": "bolsos",
                         "productName": "Bolso Azul",
                         "imagen": "img/bolsos/bolso-azul.jpg",

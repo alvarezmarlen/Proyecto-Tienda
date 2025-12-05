@@ -28,13 +28,13 @@
     }
 ]; */
 
-import { products } from '../js/main.js';
+import { articulosJSON } from './main.js';
 
 
 
 const productList = document.getElementById('container');
 
-products.forEach((product, index) => {
+articulosJSON.forEach((product, index) => {
     const col = document.createElement('div');
     col.className = 'col';
     col.innerHTML = `
