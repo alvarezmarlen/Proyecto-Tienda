@@ -51,3 +51,4 @@ articulosJSON.forEach((product, index) => {
     `;
     productList.appendChild(col);
 });
+

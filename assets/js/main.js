@@ -10,7 +10,7 @@
                         ] ` */
 
                         
-const articulosJSON =[{"produtID": 0,
+export const articulosJSON =[{"produtID": 0,
                         "categoria": "bolsos",
                         "productName": "Bolso Azul",
                         "imagen": "../assets/img/bolsos/bolso-azul.jpg",
@@ -219,7 +219,7 @@ const articulosJSON =[{"produtID": 0,
                         {"produtID": 20,
                         "categoria": "zapatos",
                         "productName": "Zapatillas azules sin cordones",
-                        "imagen": "../assets/img/zapatos/zapatilla-sin-cordones.jpg",
+                        "imagen": "../assets/img/zapatos/zapatillas-sin-cordones.jpg",
                         "precio": 35,
                         "descripcion": "Zapatillas de color azul sin cordones",
                         "talla": "44",
@@ -237,3 +237,5 @@ const articulosJSON =[{"produtID": 0,
                         },
 
 ] 
+
+/* para solucionar */
