@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>detalle de producto</title>
+    <link rel="stylesheet" href="../assets/css/Detalle.css">
+</head>
+
+<body>
+    <a href="productos.html">Productos</a>
+    <a href="camisas.html">camisas</a>
+    <!-- tarjeta del producto -->
+    <div class="contenedor">
+    <!--imagen-->
+        <img src="" class="foto" id="foto" alt="imagen producto">
+        <div>
+    <!--informacion-->
+            <div class="cuadro">
+                <h2 id="nombre">nombre del producto</h2>
+                <p id="descripcion">descripcion</p>
+                <p id="talla">talla</p>
+                <p id="precio">precio</p>
+            </div>
+    <!--añadir al carrito-->
+            <div class="cuadro">
+                <h2>cantidad:</h2>
+                <div class="cuadro">
+                    <button id="botonsumar" style="display: inline;">+</button>
+                    <p id="cantidad" style="display: inline;">cantidad</p>
+                    <button id="botonrestar" style="display: inline;">-</button>
+                </div>
+                <br>
+                <button id="abrirmodal">añadir al carrito</button>
+              
+            </div>
+        </div>
+    </div>
+
+<!--  Modal -->
+<div id="modal" class="modal">
+
+  <div class="modal-content">
+    <div style="margin: auto; border-style: solid; width: 80%;">
+        <p>Has añadido un producto al carrito</p>
+        <a href="nnn.html">ir a carrito</a>
+        <button id="borrarcarrito">Borrar carrito</button>
+        <button id="cerrarmodal">Seguir comprando</button>
+    </div>
+  </div>
+
+
+</div>
+    
+    
+
+ <script src="../assets/js/detalle.js"></script>
+
+</body>
+</html>
