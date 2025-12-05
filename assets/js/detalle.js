@@ -5,22 +5,23 @@
         let compra = {        
                 };
 
-        // articulo de prueba
-        const articulo = {
-            "nombre": "camisa azul",
-            "imagen": "../img/camisa.jpg",
-            "id": 1,
-            "tipo": "camisa",
-            "descripcion":"camisa de color azul",
-            "talla": "l",
-            "precio":20,
-            "stock": 3,
-            };
 
-        document.getElementById("nombre").textContent = articulo.nombre;
-        document.getElementById("descripcion").textContent= "descripcion: " + articulo.descripcion;
-        document.getElementById("talla").textContent= "talla: " + articulo.talla;    
-        document.getElementById("precio").textContent= "precio: " + articulo.precio + " €";
+        const productID=0;
+        const articulo= articulosJSON[productID];
+
+
+        document.getElementById("categoria").textContent = articulo.categoria;
+        document.getElementById("categoria").href = "../pages/"+articulo.categoria+".html";
+
+        let imagen = document.getElementById('foto');
+        imagen.src = "../assets/img/bolsos/bolso-azul.jpg";
+        imagen.alt = articulo.productName;
+
+        document.getElementById("cuadro").innerHTML="<h2>" + articulo.productName+ "</h2>"
+                                                        +"<p> descripcion: " + articulo.descripcion+"</p>"
+                                                        +"<p> talla: " + articulo.talla+"</p>"
+                                                        +"<p> precio: " + articulo.precio+" €</p>"
+                                                        +"<p> stock: " + articulo.stock+"</p>"
 
         // botones de añadir y restar un producto
         const botonsumar = document.getElementById("botonsumar");

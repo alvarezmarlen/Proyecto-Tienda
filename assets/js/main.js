@@ -14,7 +14,7 @@
 
 ] ` */
 
-const articulosJSON =`[{"produtID": 0,
+const articulosJSON =[{"produtID": 0,
                         "categoria": "bolsos",
                         "productName": "Bolso Azul",
                         "imagen": "img/bolsos/bolso-azul.jpg",
@@ -77,4 +77,4 @@ const articulosJSON =`[{"produtID": 0,
 
                         
 
-] `
+] 
