@@ -14,7 +14,7 @@
         document.getElementById("categoria").href = "../pages/"+articulo.categoria+".html";
 
         let imagen = document.getElementById('foto');
-        imagen.src = "../assets/img/bolsos/bolso-azul.jpg";
+        imagen.src = "../assets/"+articulo.imagen;
         imagen.alt = articulo.productName;
 
         document.getElementById("cuadro").innerHTML="<h2>" + articulo.productName+ "</h2>"
