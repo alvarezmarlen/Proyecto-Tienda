@@ -1,4 +1,7 @@
-const products = [
+
+
+
+/* const products = [
     {
         code: '0',
         name: 'Bolso Azul',
@@ -23,7 +26,10 @@ const products = [
         price: 45,
         image: '/assets/img/bolsos/mochila-azul.jpg'
     }
-];
+]; */
+
+import { products } from '../js/main.js';
+
 
 
 const productList = document.getElementById('container');
@@ -34,10 +40,10 @@ products.forEach((product, index) => {
     col.innerHTML = `
                     <div class="card">
                         <figure>
-                            <img class="caja-img" src="${product.image}" alt="${product.name}">
+                            <img class="caja-img" src="${product.imagen}" alt="${product.productName}">
                             <figcaption class="caja-informacion">
-                                <h5>${product.name}</h5>
-                                <p><strong>€ ${product.price}</strong></p>
+                                <h5>${product.productName}</h5>
+                                <p><strong>€ ${product.precio}</strong></p>
                             </figcaption>
                         </figure>
                     </div>   
