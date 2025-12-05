@@ -1,5 +1,5 @@
 .cuadro {
-    min-width: 300px;
+    width: 50%;
     border-style: solid;
     padding: 10px;
 }
@@ -16,8 +16,9 @@
 .foto {
     width: 400px;
     height: auto;
+    object-fit: contain;
     border-style: solid;
-    background-color: antiquewhite;
+    background-color: aquamarine;
 }
 
 .modal {

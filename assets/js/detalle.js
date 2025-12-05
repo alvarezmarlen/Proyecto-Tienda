@@ -6,9 +6,9 @@ import { articulosJSON } from './main.js';
         let compra = {        
                 };
 
-
-        const productID=0;
-        const articulo= articulosJSON[productID];
+        const articulo = JSON.parse(localStorage.getItem('productoSeleccionado'));
+       /* const productID=7;
+        const articulo= articulosJSON[productID];*/
 
 
         document.getElementById("categoria").textContent = articulo.categoria;
@@ -33,12 +33,11 @@ import { articulosJSON } from './main.js';
 
         function sumar (){
             numero=numero+1;
-            console.log (numero); 
+            if (numero>articulo.stock) { numero=articulo.stock };
             document.getElementById("cantidad").innerHTML=numero;
         }
         function restar (){
             if (numero>=1) {numero=numero-1};
-            console.log (numero); 
             document.getElementById("cantidad").innerHTML=numero;
         }
 
