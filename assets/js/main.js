@@ -78,3 +78,8 @@ const articulosJSON =`[{"produtID": 0,
                         
 
 ] `
+
+
+
+
+

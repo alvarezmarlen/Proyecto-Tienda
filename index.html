@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Tienda Vintage</title>
+    <script>
+        const url = "https://jsonplaceholder.typicode.com/todos/1";
+        fetch(url)
+            .then(response => response.json())
+            .then(data => console.log(data));
+    </script>
 </head>
 <body>
     <header>
@@ -27,9 +33,21 @@
                     <img>
             </div>
         </nav>
-    
+
     </header>
-    
+    <section class="image-carousel">
+        <div class="carousel">
+                <img src="assets/img/fondos/carrusel-1.jpeg">
+                <img src="assets/img/fondos/carrusel-2.jpeg">   
+                <img src="assets/img/fondos/carrusel-3.jpeg">
+                <img src="assets/img/fondos/carrusel-4.jpeg">
+                <img src="assets/img/fondos/carrusel-5.jpeg">
+        </div> 
+            
+    </section>            
+   
+   
+   
     <main>
         <section class="cover">
             <h1>RetroDenda</h1>
