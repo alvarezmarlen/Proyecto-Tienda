@@ -1,56 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>detalle de producto</title>
     <link rel="stylesheet" href="../assets/css/Detalle.css">
-     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 
 </head>
 
 <body>
 
- <header>
-    <div class="header-logo">
-        <img src="/assets/img/Logoretrodenda-provisional.webp" alt="Logo RetroDenda">
-    </div>
-    <nav>
-        <ul>
-            <li>Inicio</li>
-            <li>Productos</li>
-            <li>Quiénes somos</li>
-        </ul>
-        <div class="language-menu">
+    <!--barra navegacion-->
+    <header>
+        <div class="header-logo">
+            <img src="/assets/img/Logoretrodenda-provisional.webp" alt="Logo RetroDenda">
+        </div>
+        <nav>
             <ul>
-                <li>EUS</li>
-                <li>ENG</li>
+                <li>Inicio</li>
+                <li>Productos</li>
+                <li>Quiénes somos</li>
             </ul>
-        </div>
-        <div class="basket-btn">
-            <img src="/assets/img/" alt="Carrito">
-        </div>
-    </nav>
-</header>
+            <div class="language-menu">
+                <ul>
+                    <li>EUS</li>
+                    <li>ENG</li>
+                </ul>
+            </div>
+            <div class="basket-btn">
+                <img src="/assets/img/" alt="Carrito">
+            </div>
+        </nav>
+    </header>
 
+    <!-- el reloj -->
+    <div id="reloj">fgdgfgd</div>
 
 
     <a href="productos.html">Volver a productos</a>
-    <a href="" id="categoria"></a>
+    <p style="display:inline" id="categoria"></p>
 
 
     <!-- tarjeta del producto -->
+    <h2>Tu producto</h2>
     <div class="contenedor">
-    <!--imagen-->
+        <!--imagen-->
         <img src="" class="foto" id="foto" alt="">
-        
+
         <div>
             <!--informacion-->
             <div class="cuadro" id="cuadro">
-               <!--<h2 id="nombre">nombre del producto</h2>
-                <p id="descripcion">descripcion</p>
-                <p id="talla">talla</p>
-                <p id="precio">precio</p> -->
             </div>
             <!--añadir al carrito-->
             <div class="cuadro">
@@ -61,33 +62,35 @@
                     <button id="botonrestar" style="display: inline;">-</button>
                 </div>
                 <br>
-                <button id="abrirmodal">añadir al carrito</button>
-              
+                <button id="añadir">añadir al carrito</button>
+
             </div>
         </div>
     </div>
 
-<!--  Modal -->
-<div id="modal" class="modal">
 
-  <div class="modal-content">
-    <div style="margin: auto; border-style: solid; width: 80%;">
-        <p>Has añadido un producto al carrito</p>
-        <a href="nnn.html">ir a carrito</a>
-        <br>
-        <button id="borrarcarrito">Borrar carrito</button>
-        <button id="cerrarmodal">Seguir comprando</button>
+    <!--recomendaciones-->
+    <h2>tambien te podría gustar</h2>
+    <div class="contenedor2" id="contenedor2">
+
     </div>
-  </div>
+
+    <!-- Cuadro modal -->
+    <div id="modal" class="modal">
+
+        <div class="modal-content">
+            <div style="margin: auto; border-style: solid; width: 80%;">
+                <p id="infocompra"></p>
+                <a href="nnn.html">ir a carrito</a>
+                <br>
+                <button id="borrarcarrito">borrar carrito</button>
+                <button id="seguircompra">Seguir comprando</button>
+            </div>
+        </div>
+    </div>
 
 
-</div>
-    
-    
-
-
-
-
+    <!--footer-->
     <footer>
         <div class="footer-logo"></div>
         <div class="page-info">
@@ -99,10 +102,11 @@
     </div>
 
 
- <script src="../assets/js/main.js"></script>
- <script type="module" src="../assets/js/detalle.js"></script>
+    <!--javascript-->
+    <script type="module" src="../assets/js/detalle.js"></script>
+    <script src="../assets/js/fecha.js"></script>
+
+
 </body>
-
-
 
 </html>

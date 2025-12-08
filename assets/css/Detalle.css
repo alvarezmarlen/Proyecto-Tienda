@@ -1,3 +1,4 @@
+/*tarjeta del producto*/
 .cuadro {
     width: 50%;
     border-style: solid;
@@ -21,6 +22,7 @@
     background-color: aquamarine;
 }
 
+/*cuadro modal*/
 .modal {
     display: none;
     position: fixed;
@@ -32,6 +34,7 @@
     overflow: auto;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
 }
 
 .modal-content {
@@ -42,8 +45,40 @@
     width: 80%;
 }
 
+/*recomendaciones*/
+.contenedor2 {
+    display: flex;
+    justify-content: space-between;
+    border-style: solid;
+    padding: 10px;
+    max-width: 900px;
+    margin: auto;
+
+}
+.foto2 {
+    width: 200px;
+    height: auto;
+    object-fit: contain;
+    border-style: solid;
+    background-color: aquamarine;
+}
+
+
+/* mediaqueries*/
 @media (max-width: 600px) {
     .contenedor{
         flex-direction: column;
     }
+        .contenedor2{
+        flex-wrap: wrap;
+    }
+
+}
+
+@media (max-width: 800px) {
+
+    .contenedor2{
+        flex-wrap: wrap;
+    }
+
 }
