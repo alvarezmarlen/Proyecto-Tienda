@@ -135,3 +135,9 @@
         color: #1bc58b;
         cursor: pointer;        
     }
+
+  @media screen and (max-width: 945px) {
+  #pop-up {
+    display: none;
+  }
+}
