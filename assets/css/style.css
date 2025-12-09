@@ -127,7 +127,6 @@ main {
     border-radius: 1rem;
     margin: 0.5rem;
     object-fit: cover;
-    filter: saturate(175%);
 }
 .iconos {
     width: 2rem;
@@ -140,7 +139,7 @@ main {
     flex-direction: column;
     transform: translateY(0px);
     margin-bottom: 9px;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(8px);
     background-color: rgba(63, 106, 138, 0.21);
     display: flex;
     align-items: center;
@@ -150,41 +149,31 @@ main {
 .texto h1 {
     font-family: "Pacifico";
     text-shadow: 0px 0px 15px black;
-    padding-top: 2.5rem;
     color: white;
     font-weight: 300;
     font-size: 6rem;
-}
+    }
 
 .texto  h4 {
     font-family: "Overpass Mono";
     text-align: center;
-    font-size: 0;
+    font-size: 1.8rem;
+    color: white;
+    margin-top: -1rem;
     font-weight: 300;
 }
 
 .imagenes .texto {
-    width: 600px;
-    height: 100px;
-    transition: 1s;
+    width: 40%;
+    height: 200px;
+    margin-bottom: 5rem;
 }
 
-.imagenes:hover .texto{
-    transition: height 1s, transform 1s, background-color 1s ;
-    transform: translateY(-10px);
-    height: 300px;
-
-}
-.imagenes:hover .texto h4{
-    color: white;
-    transition: font-size 0s .2s linear;
-    font-size: 1.4rem;
-    text-shadow: 0px 0px 10px #000000;
-}
 .puntos{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: -5rem;
 }
 .puntos p{
     font-size: 100px;
@@ -196,7 +185,7 @@ main {
     font-weight: 700;
     margin-left: 10px;
     margin-right: 10px;
-    color: #5e17eb;
+    color: #7fbd1b;
 }
 
 
@@ -226,3 +215,4 @@ footer {
     font-family: "Overpass Mono";
     font-size: 0.8rem;
 }
+

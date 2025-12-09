@@ -42,27 +42,11 @@
 
 
     <main>
-        <section class="carrusel">
-            <button class="iconos" id="atras" aria-label="Imagen anterior">
-                <img class="img-iconos" id="atras" src="assets/img/fondos/atras.svg" alt="atras">
-            </button>
-            <figure class="imagenes">
-                <div id="img">
-                    <img class="img" src="assets/img/fondos/carrusel-1.jpeg" alt="imagen 1">
-                </div>
-                <section id="texto" class="texto">
-                    <h1>RetroDenda</h1>
-                    <h4>Estilo retro, actitud moderna.</h4>
-                    <div class="time-and-date">
-                    </div>
-                </section>
-            </figure>
-            <button class="iconos" id="adelante" aria-label="Imagen siguiente">
-                <img class="img-iconos" src="assets/img/fondos/adelante.svg" alt="adelante">
-            </button>
-        </section>
+        <!-- AQUI ESTOY COLOCANDO LA LINEA QUE LLAMA AL MODAL -->
+        <div id="modal-container"></div>
 
-        <section class="puntos" id="puntos"></section>
+        <!-- AQUI ESTOY COLOCANDO LA LINEA QUE LLAMA AL CARRUSEL -->
+        <section id="carrusel-container"></section>
 
 
 
@@ -80,28 +64,23 @@
                 <img>
             </div>
         </section>
-
-        <!-- AQUI ESTOY COLOCANDO LA LINEA QUE LLAMA AL MODAL -->
-        <div id="modal-container"></div>
-
     </main>
 
     <footer>
-
-        <div class="footer-logo">
-
-        </div>
+        <div class="footer-logo"></div>
         <div class="page-info">
             <p>Contáctanos en nuestras redes sociales:</p>
         </div>
+        <div class="endfooter"><p>(c) 2025 Hilos i</p></div>
     </footer>
 
-    <div class="endfooter">
-        <p>(c) 2025 Hilos i</p>
-    </div>
 
-    <script src="assets/js/modal.js"></script>
+
+
+
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/modal.js"></script>
+    <script src="assets/js/carrusel.js"></script>
 </body>
 
 </html>
