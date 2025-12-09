@@ -8,6 +8,10 @@
 
 
 
+/* HEADER */
+
+
+
 header {
     background-color: #7fbd1b;
     display: flex;
@@ -28,6 +32,11 @@ header {
     margin: 0.4rem;
 }
 
+
+
+/* NAV */
+
+
 nav {
     display: flex;
     flex-direction: row;
@@ -38,14 +47,24 @@ nav {
 nav ul {
     display: flex;
     list-style: none;
-    gap: 1.5rem;
+
 }
 
 nav ul li {
-    padding: 0.5rem;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    padding: 1rem;
     font-family: "Montserrat";
     font-size: 1.2rem;
 }
+
+
+
+
+/* LANGUAGE MENU */
+
+
+
 
 .language-menu {
     margin-left: auto;
@@ -118,6 +137,38 @@ h1 {
     margin: 5rem;
     color: white;
 }
+
+/* CAROUSEL */
+
+.carousel {
+    position: relative;  /* para que los hijos se posicionen dentro */
+    width: 100%;
+    height: 60vh;        /* altura del carrusel */
+    overflow: hidden;    /* recorta lo que se salga del contenedor */
+}
+
+.carousel img {
+   
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   
+    opacity: 0;        
+    transition: opacity 1s ease-in-out;
+    z-index:0;
+}
+
+.carousel img.active {
+    opacity: 1;        
+}
+
+
+
+
+/* FOOTER */
+
+
 
 footer {
     background-color:#E2FFB4;
