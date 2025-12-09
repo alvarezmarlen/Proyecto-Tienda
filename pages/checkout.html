@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RetroDenda</title>
     <link rel="stylesheet" href="/assets/css/checkout.css">
 </head>
+
 <body>
-    
+
     <header>
         <div class="header-logo">
             <img src="assets/img/Logoretrodenda-provisional.webp">
@@ -24,15 +26,68 @@
                     <li>ENG</li>
                 </ul>
             </div>
-            <div class="basket-btn">  <!-- botón para ir al carrito -->
-                    <img>
+            <div class="basket-btn"> <!-- botón para ir al carrito -->
+                <img>
             </div>
         </nav>
-    
+
     </header>
-
+    <!--Formulario de compra-->
     <main>
+        <h1>Formulario de compra </h1>
+      
 
+        <div class="formCompra">
+              <!--Formulario Cliente-->
+            <div class="formCliente">
+
+                <h4>Datos del Cliente</h4>
+
+                <form action="" class="formCliente" id="formCliente" method="post">
+
+                    <Label for="imputNombre">Nombre:</Label>
+                    <input type="text" name="nombre" id="nombre" placeholder="Ingresa tu Nombre">
+
+                    <Label for="imputApellido">Apellido:</Label>
+                    <input type="text" name="apellido" id="apellido" placeholder="Ingresa tu Apellido">
+
+                    <Label for="imputMail">Correo electrónico:</Label>
+                    <input type="email" name="email" id="email" placeholder="Ingresa tu e-mail">
+
+                    <Label for="imputTfno">Teléfono:</Label>
+                    <input type="tel" name="tfno" id="tfno" placeholder="Ingresa tu Teléfono">
+                    
+                </form>
+
+            </div>
+            <!--Formulario Envio-->
+            <div class="formEnvio">
+
+                <h4>Datos de Envio</h4>
+
+                <form action="" class="formEnvio" id="formEnvio" method="post">
+
+                    <Label for="imputPais">Pais / Región:</Label>
+                    <input type="text" name="pais" id="pais" placeholder="Ingresa tu Pais">
+
+                    <Label for="imputDireccion">Dirección:</Label>
+                    <input type="text" name="direccion" id="direccion" placeholder="Ingresa tu Dirección">
+
+                    <Label for="imputCiudad">Ciudad:</Label>
+                    <input type="text" name="ciudad" id="ciudad" placeholder="Ingresa tu Ciudad">
+
+                    <Label for="imputCP">Código postal:</Label>
+                    <input type="number" name="cp" id="cp" placeholder="Código postal">
+
+                    <Label for="imputProvincia">Provincia:</Label>
+                    <input type="text" name="ciudad" id="ciudad" placeholder="Ingresa tu Ciudad">
+                    
+
+                    <button type="submit">Enviar Formulario</button>
+                </form>
+
+            </div>
+        </div>
 
     </main>
 
@@ -46,12 +101,13 @@
         </div>
 
         <div class="endfooter">
-        <p>(c) 2025 Hilos i</p>
+            <p>(c) 2025 Hilos i</p>
         </div>
 
     </footer>
 
-    
+
 
 </body>
+
 </html>
