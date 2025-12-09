@@ -3,30 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/productos.css">
+    <title>Tienda Vintage - Productos</title>
+    <link rel="stylesheet" href="/assets/css/productos.css">
+      <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-        <div class="container">
+<header>
+    <div class="header-logo">
+        <img src="/assets/img/Logoretrodenda-provisional.webp" alt="Logo RetroDenda">
+    </div>
+    <nav>
+        <ul>
+            <li>Inicio</li>
+            <li>Productos</li>
+            <li>Quiénes somos</li>
+        </ul>
+        <div class="language-menu">
+            <ul>
+                <li>EUS</li>
+                <li>ENG</li>
+            </ul>
+        </div>
+        <div class="basket-btn">
+            <img src="/assets/img/" alt="Carrito">
+        </div>
+    </nav>
+</header>
+
+       <div class="containerform">
+         
+            <form class="filtro">
+                <!-- Búsqueda por texto -->
+                <label for="buscar">Buscar:</label>
+                <input type="text" id="buscar" name="buscar" placeholder="¿Que estas buscando?">
+
+                <!-- Categoría -->
+                <label for="categoria">Categoría:</label>
+                <select id="categoria" name="categoria">
+                    <option value="">Todas</option>
+                    <option value="camisas">camisas</option>
+                    <option value="zapatos">zapatos</option>
+                    <option value="bolsos">bolsos</option>
+                    <option value="pantalones">pantalones</option>
+                </select>
+
+                <!-- Orden -->
+                <label for="orden">Ordenar por:</label>
+                <select id="orden" name="orden">
+                    <option value="recientes">Más recientes</option>
+                    <option value="precioAsc">Precio: menor a mayor</option>
+                    <option value="precioDesc">Precio: mayor a menor</option>
+                   
+                </select>
+
+                <button type="submit">Filtrar</button>
+            </form>
+      </div>
 
 
-            <div class="caja"></div>
-            
-            
-            <div class="caja"></div>
-        
-        
-            <div class="caja"></div>
-            
-            
-            <div class="caja"></div>
-            
-            
-            
-            <div class="caja"></div>
+<!--PRODUCTOS-->
+        <section id="container">
+        </section>
 
-        </div> 
-            
-    
+
+
+
+        <footer>
+    <div class="footer-logo"></div>
+    <div class="page-info">
+        <p>Contáctanos en nuestras redes sociales:</p>
+    </div>
+</footer>
+<div class="endfooter">
+    <p>&copy; 2025 Hilos i</p>
+</div>
+
+<script src="/assets/js/productos.js"></script>
 </body>
 </html>

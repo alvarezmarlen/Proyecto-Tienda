@@ -6,8 +6,10 @@
     box-sizing: border-box;
 }
 
+
+
 header {
-    background-color: #E2FFB4;
+    background-color: #7fbd1b;
     display: flex;
     align-items: center;
     height: 6rem;
