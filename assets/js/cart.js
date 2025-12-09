@@ -21,10 +21,6 @@ const DOMbotonVaciar = document.querySelector('#btn-empty');
 // // 2. FUNCIONES
 
 
-// (seguramente todo esto tendrá que ser actualizado con los nombres de
-// las variables y las funciones que haya usado el resto del equipo
-// en sus secciones)
-
 function renderizarCarrito() {
     DOMitems.textContent = '';
     carrito.forEach((info) => {  
@@ -130,6 +126,7 @@ function renderizarCarrito() {
         }
 
         localStorage.setItem("carrito", JSON.stringify(carrito));
+        renderizarCarrito();
         
     }
 
@@ -141,13 +138,22 @@ function renderizarCarrito() {
         if (producto.cantidad > 1) {
             producto.cantidad--;
         } else {
-            
+            carrito = carrito.filter(item => item.productID !== id);
         }
 
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        renderizarCarrito();
+
+    }
+
+        function eliminarItem(event) {
+            const id = parseInt(event.target.dataset.id);
+            carrito = carrito.filter(item => item.productID !== id);
+        }
 
         localStorage.setItem("carrito", JSON.stringify(carrito));
-        
-    }
+        renderizarCarrito();
+    
 
 renderizarCarrito();
 
