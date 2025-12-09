@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--  MEJORAR EL SEO -->
-    <meta name="description" content="Tienda de ropa vintage con prendas únicas. Moda retro, auténtica y sostenible que marca tu estilo. Ofertas exclusivas.">
+    <meta name="description"
+        content="Tienda de ropa vintage con prendas únicas. Moda retro, auténtica y sostenible que marca tu estilo. Ofertas exclusivas.">
     <link rel="shortcut icon" href="assets/img/Logoretrodenda-provisional.webp" type="image/x-icon">
     <script src="https://kit.fontawesome.com/384e83612b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/modal.css">
@@ -12,6 +14,7 @@
     <title>RetroDenda | Ropa Vintage y Retro</title>
 
 </head>
+
 <body>
     <header>
         <div class="header-logo">
@@ -30,38 +33,39 @@
                     <li><a href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
                 </ul>
             </div>
-            <div class="basket-btn">  <!-- botón para ir al carrito -->
-                    <img>
+            <div class="basket-btn"> <!-- botón para ir al carrito -->
+                <img>
             </div>
         </nav>
-    </header>          
-   
-   
-   
+    </header>
+
+
+
     <main>
         <section class="carrusel">
-            <button class="carrusel-control prev" aria-label="Imagen anterior">
-                <img src="assets/img/icono_atras.png" alt="imagen flecha atras">
+            <button class="iconos" id="atras" aria-label="Imagen anterior">
+                <img class="img-iconos" id="atras" src="assets/img/fondos/atras.svg" alt="atras">
             </button>
             <figure class="imagenes">
-                <img src="assets/img/carrusel-1.jpeg" alt="">
-                <img src="assets/img/carrusel-2.jpeg" alt="">
-                <img src="assets/img/carrusel-3.jpg" alt="">
-                <img src="assets/img/carrusel-4.jpeg" alt="">
-                <img src="assets/img/carrusel-5.jpeg" alt="">
+                <div id="img">
+                    <img class="img" src="assets/img/fondos/carrusel-1.jpeg" alt="imagen 1">
+                </div>
+                <section id="texto" class="texto">
+                    <h1>RetroDenda</h1>
+                    <h4>Estilo retro, actitud moderna.</h4>
+                    <div class="time-and-date">
+                    </div>
+                </section>
             </figure>
-            <button class="carrusel-control prev" aria-label="Imagen siguiente">
-                <img src="assets/img/icono_adelante.png" alt="imagen flecha siguiente">
-            </button>             
-        </section> 
-
-        <section class="cover">
-            <h1>RetroDenda</h1>
-            <h4>Estilo retro, actitud moderna.</h4>
-            <div class="time-and-date">
-            </div>            
+            <button class="iconos" id="adelante" aria-label="Imagen siguiente">
+                <img class="img-iconos" src="assets/img/fondos/adelante.svg" alt="adelante">
+            </button>
         </section>
-        
+
+        <section class="puntos" id="puntos"></section>
+
+
+
 
         <section class="products-viewer">
             <h2>Productos destacados</h2>
@@ -73,12 +77,12 @@
         <section class="workshop-viewer">
             <h2>Nuestro taller</h2>
             <div class="workshop-gallery">
-                <img>                
+                <img>
             </div>
         </section>
 
         <!-- AQUI ESTOY COLOCANDO LA LINEA QUE LLAMA AL MODAL -->
-         <div id="modal-container"></div>
+        <div id="modal-container"></div>
 
     </main>
 
@@ -99,4 +103,5 @@
     <script src="assets/js/modal.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>

@@ -73,29 +73,6 @@ main {
     font-family: "Montserrat";
 }
 
-.cover {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    margin: 17rem;
-    gap: 0.1rem;
-}
-
-h1 {
-    font-family: "Pacifico";
-    font-size: 8rem;
-    margin: 0;
-    padding: 0;
-}
-
-.cover h4 {
-    font-family: "Overpass Mono";
-    text-align: center;
-    font-size: 1.8rem;
-    margin: 0;
-    padding: 0;
-}
-
 .products-viewer {
     background-color: #FFC59C;
     width: 100%;
@@ -137,12 +114,89 @@ h1 {
     width: 100%;
     height: 100vh;
 }
-
 .imagenes {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: end;
+}
+.img{
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.85);
+    height: 36rem;
+    width: 71rem;
+    border-radius: 1rem;
+    margin: 0.5rem;
+    object-fit: cover;
+    filter: saturate(175%);
+}
+.iconos {
+    width: 2rem;
+    background-color: transparent;
+    border: 0px ;
+}
+.texto {
+    overflow: hidden;
+    position: absolute;
+    flex-direction: column;
+    transform: translateY(0px);
+    margin-bottom: 9px;
+    backdrop-filter: blur(20px);
+    background-color: rgba(63, 106, 138, 0.21);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+}
+.texto h1 {
+    font-family: "Pacifico";
+    text-shadow: 0px 0px 15px black;
+    padding-top: 2.5rem;
+    color: white;
+    font-weight: 300;
+    font-size: 6rem;
+}
+
+.texto  h4 {
+    font-family: "Overpass Mono";
+    text-align: center;
+    font-size: 0;
+    font-weight: 300;
+}
+
+.imagenes .texto {
+    width: 600px;
+    height: 100px;
+    transition: 1s;
+}
+
+.imagenes:hover .texto{
+    transition: height 1s, transform 1s, background-color 1s ;
+    transform: translateY(-10px);
+    height: 300px;
+
+}
+.imagenes:hover .texto h4{
+    color: white;
+    transition: font-size 0s .2s linear;
+    font-size: 1.4rem;
+    text-shadow: 0px 0px 10px #000000;
+}
+.puntos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.puntos p{
+    font-size: 100px;
+    font-weight: 500;
+    margin-top: -50px;
+    color: black;
+}
+.puntos .bold{
+    font-weight: 700;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #5e17eb;
 }
 
 
