@@ -3,7 +3,7 @@
 // // 1. VARIABLES
 
 
-// (provisional:)
+// (provisional, hace falta agregar las cantidades en stock para que el programa funcione:)
 
 const articulosSeleccionados = [
     
@@ -131,15 +131,15 @@ function renderizarCarrito() {
         btnSumar.addEventListener('click', aumentarCantidad);         
 
         const cantidadEnCarrito = document.createElement('span');
-        cantidadEnCarrito.textContent = articulosSeleccionados.cantidad;   //  de momento el array no tiene cantidad. esto se deberá arreglar cuando el resto del equipo actualice la mini base de datos.
+        cantidadEnCarrito.textContent = info.cantidad;   //  de momento el array no tiene cantidad. esto se deberá arreglar cuando el resto del equipo actualice la mini base de datos.
         cantidadEnCarrito.classList.add('quantity-display')   // habrá que crear esta clase también
         
 
         // (extraer el precio subtotal de la cantidad seleccionada del mismo producto)
         const miProductoSubtotal = document.createElement('p');
-        const cantidad = 
+        const cantidad = info.cantidad;
         miProductoSubtotal.textContent = (info.precio * cantidad).toFixed(2) + '€';
-        miProductoSubtotal.classLiss.add('item-subtotal')       // (hay que crear esta clase en .css)   
+        miProductoSubtotal.classList.add('item-subtotal')       // (hay que crear esta clase en .css)   
 
 
         // (botón para eliminar todos los items del mismo producto)
@@ -158,9 +158,9 @@ function renderizarCarrito() {
     miProductoCard.appendChild(miProductoPrecio);
     
     miProductoCard.appendChild(btnRestar);
-    miProductoCard.appendChild(btnSumar)
     miProductoCard.appendChild(cantidadEnCarrito);
-
+    miProductoCard.appendChild(btnSumar);
+    
     miProductoCard.appendChild(miProductoSubtotal);
     miProductoCard.appendChild(btnEliminar);
 
@@ -169,10 +169,10 @@ function renderizarCarrito() {
 
 
         
-    }
+    });
 
 
-)}
+}
 
 
 
