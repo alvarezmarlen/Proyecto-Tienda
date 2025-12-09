@@ -10,12 +10,7 @@
     <link rel="stylesheet" href="assets/css/modal.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>RetroDenda | Ropa Vintage y Retro</title>
-    <script>
-        const url = "https://jsonplaceholder.typicode.com/todos/1";
-        fetch(url)
-            .then(response => response.json())
-            .then(data => console.log(data));
-    </script>
+
 </head>
 <body>
     <header>
@@ -24,42 +19,49 @@
         </div>
         <nav>
             <ul>
-                <li>Inicio</li>
-                <li>Productos</li>
-                <li>Quiénes somos</li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="pages/productos.html">Productos</a></li>
+                <li><a href="#">Quiénes somos</a></li>
             </ul>
             <div class="language-menu">
                 <ul>
                     <li>EUS</li>
                     <li>ENG</li>
+                    <li><a href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
                 </ul>
             </div>
             <div class="basket-btn">  <!-- botón para ir al carrito -->
                     <img>
             </div>
         </nav>
-
-    </header>
-    <section class="image-carousel">
-        <div class="carousel">
-                <img src="assets/img/fondos/carrusel-1.jpeg">
-                <img src="assets/img/fondos/carrusel-2.jpeg">   
-                <img src="assets/img/fondos/carrusel-3.jpeg">
-                <img src="assets/img/fondos/carrusel-4.jpeg">
-                <img src="assets/img/fondos/carrusel-5.jpeg">
-        </div> 
-            
-    </section>            
+    </header>          
    
    
    
     <main>
+        <section class="carrusel">
+            <button class="carrusel-control prev" aria-label="Imagen anterior">
+                <img src="assets/img/icono_atras.png" alt="imagen flecha atras">
+            </button>
+            <figure class="imagenes">
+                <img src="assets/img/carrusel-1.jpeg" alt="">
+                <img src="assets/img/carrusel-2.jpeg" alt="">
+                <img src="assets/img/carrusel-3.jpg" alt="">
+                <img src="assets/img/carrusel-4.jpeg" alt="">
+                <img src="assets/img/carrusel-5.jpeg" alt="">
+            </figure>
+            <button class="carrusel-control prev" aria-label="Imagen siguiente">
+                <img src="assets/img/icono_adelante.png" alt="imagen flecha siguiente">
+            </button>             
+        </section> 
+
         <section class="cover">
             <h1>RetroDenda</h1>
             <h4>Estilo retro, actitud moderna.</h4>
             <div class="time-and-date">
             </div>            
         </section>
+        
 
         <section class="products-viewer">
             <h2>Productos destacados</h2>
