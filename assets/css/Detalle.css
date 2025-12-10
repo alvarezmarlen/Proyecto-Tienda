@@ -71,8 +71,13 @@
 
 }
 
-.foto2 {
+.cuadrofoto2 {
     width: 25%;
+    overflow: hidden;
+}
+
+.foto2 {
+    width: 100%;
     height: auto;
     object-fit: contain;
     border-style: solid;
