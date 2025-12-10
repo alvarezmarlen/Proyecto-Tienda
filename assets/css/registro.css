@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Overpass+Mono:wght@300..700&family=Pacifico&display=swap');
 
 * {
     margin: 0;
@@ -88,12 +89,13 @@ nav ul li {
 
 .registro h2{
     margin-bottom:2rem;
-    font-family:"Pacifico" cursive;
+    font-family:"Pacifico" ;
 }
 
 .registro-form{
     background:white;
     padding:2rem;
+    
     border-radius:15px;
     width:350px;
     box-shadow:0px 0px 30px rgba(0,0,0,.4);
@@ -141,28 +143,69 @@ nav ul li {
 
 
 
-footer {
-    background-color:#E2FFB4;
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
+footer{
+    background-color:#7fbd1b;
 }
 
-.page-info {
-    font-family: "Overpass Mono";
-    font-size: 1rem;
-    margin: 5rem;
+.footer-container{
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer a{
     color: black;
+    text-decoration: none;
 }
 
-.endfooter {
-    background-color: black;
-    width: 100%;
-    height: auto;
+.footer-container section{
+    width: 30%;
+}
+
+.footer-section-1{
     display: flex;
     justify-content: center;
-    color: white;
-    font-family: "Overpass Mono";
-    font-size: 0.8rem;
+    align-items: center;
+    flex-direction: column;
+}
+.title-page{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: -3rem;
+    font-size: 2rem;
+    }
+
+.footer-section-2{
+    display: flex;
+    justify-content: flex-end;
+}
+.footer-section-2>div{
+    width: 60%;
+}
+.footer-section-2 ul li{
+    list-style: none;
+    text-align: start;
+    font-weight: 300;
+    font-size: 1.1rem;
+    line-height: 2.5rem;
+}
+
+.footer-section-3{
+    text-align: center;
+    justify-items: center;
+}
+.footer-socials{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.footer-socials i {
+    font-size: 1.5rem;
+}
+
+.footer-section-3 p{
+    padding-bottom: 1rem;
 }
