@@ -72,37 +72,6 @@ main {
     align-items: center;
     font-family: "Montserrat";
 }
-
-.products-viewer {
-    background-color: #FFC59C;
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-}
-
-.products-viewer h2 {
-    font-family: "Pacifico";
-    font-size: 2rem;
-    margin: 5rem;
-    color: white;
-}
-
-.workshop-viewer {
-    background-color: #F2E7D5;
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-}
-
-.workshop-viewer h2 {
-    font-family: "Pacifico";
-    font-size: 2rem;
-    margin: 5rem;
-    color: white;
-}
-
 /*-------------------------------------------------------
         AQUI DEBO AGREGAR STYLE DEL CARRUSEL
 ------------------------------------------------------ */
@@ -189,30 +158,106 @@ main {
 }
 
 
-/* FOOTER */
-footer {
-    background-color:#E2FFB4;
+
+.products-viewer {
+    background-color: #FFC59C;
     width: 100%;
     height: auto;
     display: flex;
     justify-content: center;
 }
 
-.page-info {
-    font-family: "Overpass Mono";
-    font-size: 1rem;
+.products-viewer h2 {
+    font-family: "Pacifico";
+    font-size: 2rem;
     margin: 5rem;
-    color: black;
+    color: white;
 }
 
-.endfooter {
-    background-color: black;
+.workshop-viewer {
+    background-color: #F2E7D5;
     width: 100%;
     height: auto;
     display: flex;
     justify-content: center;
+}
+
+.workshop-viewer h2 {
+    font-family: "Pacifico";
+    font-size: 2rem;
+    margin: 5rem;
     color: white;
-    font-family: "Overpass Mono";
-    font-size: 0.8rem;
+}
+
+
+
+/* ---------------------------------------------------------
+    STYLE DEL   FOOTER 
+------------------------------------------------------------*/
+footer{
+    background-color:#7fbd1b;
+}
+
+.footer-container{
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer a{
+    color: black;
+    text-decoration: none;
+}
+
+.footer-container section{
+    width: 30%;
+}
+
+.footer-section-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.title-page{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: -3rem;
+    font-size: 2rem;
+    }
+
+.footer-section-2{
+    display: flex;
+    justify-content: flex-end;
+}
+.footer-section-2>div{
+    width: 60%;
+}
+.footer-section-2 ul li{
+    list-style: none;
+    text-align: start;
+    font-weight: 300;
+    font-size: 1.1rem;
+    line-height: 2.5rem;
+}
+
+.footer-section-3{
+    text-align: center;
+    justify-items: center;
+}
+.footer-socials{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.footer-socials i {
+    font-size: 1.5rem;
+}
+
+.footer-section-3 p{
+    padding-bottom: 1rem;
 }
 
