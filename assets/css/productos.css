@@ -1,11 +1,10 @@
-   @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Overpass+Mono:wght@300..700&family=Pacifico&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Overpass+Mono:wght@300..700&family=Pacifico&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+    * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+     }
 
 
 
@@ -17,7 +16,7 @@
          padding: 10px;
          border-radius: 10px;
          box-sizing: border-box;
-         justify-content: center;
+         display: flex;
      }
 
 
@@ -97,11 +96,6 @@
      .filtro button:hover {
          background: #0f5167;
      }
-
-
-
-
-
 
 
 
