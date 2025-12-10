@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Vintage - Productos</title>
+
+      <link rel="stylesheet" href="/assets/css/registro.css">
+</head>
+<body>
+<header>
+    <div class="header-logo">
+        <img src="/assets/img/Logoretrodenda-provisional.webp" alt="Logo RetroDenda">
+    </div>
+    <nav>
+        <ul>
+            <li>Inicio</li>
+            <li>Productos</li>
+            <li>Quiénes somos</li>
+            <li class="active">Registro</li>
+        </ul>
+        <div class="language-menu">
+            <ul>
+                <li>EUS</li>
+                <li>ENG</li>
+            </ul>
+        </div>
+        <div class="basket-btn">
+            <img src="/assets/img/" alt="Carrito">
+        </div>
+    </nav>
+</header>
+
+<main class="registro">
+
+    <h2>Unete a nuestra tienda</h2> 
+
+    <form class="registro-form" action="/register" method="POST">
+
+    <label for="nombre">Nombre completo</label>
+    <input id="nombre" type="text" name="nombre" placeholder="Tu nombre" required>
+
+    <label for="email">Email</label>
+    <input id="email" type="email" name="email" placeholder="tu@gmail.com" required>
+
+    <label for="password">Password</label>
+    <input id="password" type="password" name="password" placeholder="********" required>
+
+    <button type="submit">Registrarme</button>
+
+    <p class="login-text">
+        ¿Ya tienes cuenta?
+        <a href="/login">Inicia sesión</a>
+    </p>
+</form>
+
+
+</main>
+
+
+
+<footer>
+    <div class="footer-logo"></div>
+    <div class="page-info">
+        <p>Contáctanos en nuestras redes sociales:</p>
+    </div>
+</footer>
+<div class="endfooter">
+    <p>&copy; 2025 Hilos i</p>
+</div>
+
+<script src="/assets/js/productos.js"></script>
+</body>
+</html>
