@@ -61,41 +61,93 @@ main {
     background-color: white;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
     font-family: "Montserrat";
+    gap: 2rem;
+    padding: 3rem 5vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+
 }
+
+.cart-items,
+.cart-summary {
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: 0 10px 25px rgba (0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 50rem;
+    box-sizing: border-box;
+}
+
 
 .cart-items {
     background-color: #FFC59C;
-    width: auto;
-    height: auto;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
 }
 
 .cart-items h2 {
     font-family: "Pacifico";
     font-size: 2rem;
-    margin: 5rem;
+    margin: 0 0 1.5rem 0;
     color: white;
+    text-align: left;
 }
 
 .cart-summary {
     background-color: #F2E7D5;
-    width: auto;
-    height: auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
+    gap: 1.5rem;
 }
 
 .cart-summary h2 {
     font-family: "Pacifico";
     font-size: 2rem;
-    margin: 5rem;
+    margin: 0 0 1.5rem 0;
+    color: #4a2e2a;
+    text-align: left;
+}
+
+.btn-empty,
+.btn-checkout {
+    border: none;
+    border-radius: 999px;
+    padding: 0.8rem 1.8rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.2s ease;
+}
+
+/* Vaciar: rojo suave */
+.btn-empty {
+    background-color: #E57373;
     color: white;
 }
+
+.btn-empty:hover {
+    background-color: #D32F2F;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(211, 47, 47, 0.4);
+}
+
+/* Checkout: color principal verde/contrastado */
+.btn-checkout {
+    background-color: #E2FFB4;   /* tu verde */
+    color: #2E3A21;
+}
+
+.btn-checkout:hover {
+    background-color: #d2f29a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(120, 150, 80, 0.4);
+}
+
+
 
 /* FIN DE LA SECCIÓN PRINCIPAL */
 
