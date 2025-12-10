@@ -1,40 +1,36 @@
-
-
-
-/* const products = [
-    {
-        code: '0',
-        name: 'Bolso Azul',
-        price: 35,
-        image: '/assets/img/bolsos/bolso-azul.jpg'
-    },
-    {
-        code: '1',
-        name: 'Bolso Marron',
-        price: 65,
-        image: '/assets/img/bolsos/bolso-marron.jpg'
-    },
-    {
-        code: '2',
-        name: 'Bolso Blanco',
-        price: 25,
-        image: '/assets/img/bolsos/bolso-media-luna-suave.jpg'
-    },
-        {
-        code: '3',
-        name: 'Mochila Azul',
-        price: 45,
-        image: '/assets/img/bolsos/mochila-azul.jpg'
-    }
-]; */
-
 import { articulosJSON } from './main.js';
 
 
+/* accedemos al boton por id y añadimos un escuchador*/
+const botonf = document.getElementById("botonfiltro");
+botonf.addEventListener("click", obtenerValor);
 
+
+/* filtramos articulosJson */
+function obtenerValor() {
+    let valorSeleccionado = "zapatos";
+    const selectElement = document.getElementById("categoria");
+
+    valorSeleccionado = selectElement.value;
+
+
+    const articulosfiltrados = articulosJSON.filter(filtrado);
+
+    function filtrado(articulo) {
+        if (valorSeleccionado=="todas"){ return true} else{
+        return articulo.categoria == valorSeleccionado;}
+    }  
+
+
+
+// obtenemos el elemento contenedor por su id
 const productList = document.getElementById('container');
 
-articulosJSON.forEach((product, index) => {
+// sobreescribimos lo que haya dentro
+productList.innerHTML="";
+
+// generamos las tarjetas
+articulosfiltrados.forEach((product, index) => {
     const col = document.createElement('div');
     col.className = 'col';
     col.innerHTML = `
@@ -49,6 +45,19 @@ articulosJSON.forEach((product, index) => {
                     </div>   
     
     `;
+    // añadimos un escuchador a la tarjeta y al hacer click almacenamos el producto en localstorage
+    col.querySelector('.card').addEventListener('click', () => {
+        localStorage.setItem('productoSeleccionado', JSON.stringify(product));
+        window.location.href = 'detalle.html'; 
+    });
+
+    //añadimos las tarjetas al contenedor
     productList.appendChild(col);
 });
+
+}
+
+
+
+
 

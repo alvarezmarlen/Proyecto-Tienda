@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--  MEJORAR EL SEO -->
+    <meta name="description"
+        content="Tienda de ropa vintage con prendas únicas. Moda retro, auténtica y sostenible que marca tu estilo. Ofertas exclusivas.">
+    <link rel="shortcut icon" href="assets/img/Logoretrodenda-provisional.webp" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/384e83612b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/modal.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Tienda Vintage</title>
+    <title>RetroDenda | Ropa Vintage y Retro</title>
+
 </head>
+
 <body>
     <header>
         <div class="header-logo">
@@ -13,30 +22,34 @@
         </div>
         <nav>
             <ul>
-                <li>Inicio</li>
-                <li>Productos</li>
-                <li>Quiénes somos</li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="pages/productos.html">Productos</a></li>
+                <li><a href="#">Quiénes somos</a></li>
             </ul>
             <div class="language-menu">
                 <ul>
                     <li>EUS</li>
                     <li>ENG</li>
+                    <li><a href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
                 </ul>
             </div>
-            <div class="basket-btn">  <!-- botón para ir al carrito -->
-                    <img>
+            <div class="basket-btn"> <!-- botón para ir al carrito -->
+                <img>
             </div>
         </nav>
-    
     </header>
-    
+
+
+
     <main>
-        <section class="cover">
-            <h1>RetroDenda</h1>
-            <h4>Estilo retro, actitud moderna.</h4>
-            <div class="time-and-date">
-            </div>            
-        </section>
+        <!-- AQUI ESTOY COLOCANDO LA LINEA QUE LLAMA AL MODAL -->
+        <div id="modal-container"></div>
+
+        <!-- AQUI ESTOY COLOCANDO LA LINEA QUE LLAMA AL CARRUSEL -->
+        <section id="carrusel-container"></section>
+
+
+
 
         <section class="products-viewer">
             <h2>Productos destacados</h2>
@@ -48,27 +61,61 @@
         <section class="workshop-viewer">
             <h2>Nuestro taller</h2>
             <div class="workshop-gallery">
-                <img>                
+                <img>
             </div>
         </section>
-
     </main>
 
+    <!-- -------------------------------------------------------------------------------------------
+            DESDE AQUI COMIENZA EL FOOTER 
+-------------------------------------------------------------------------------------------------->
     <footer>
+        <div class="footer-container">
+            <section class="footer-section-1">
+                <div>
+                    <h4 class="title-page">RetroDenda</h4>
+                    <figure class="header-logo">
+                        <img src="assets/img/Logoretrodenda-provisional.webp" alt="">
+                    </figure>
+                </div>  
+            </section>
 
-        <div class="footer-logo">
-
+            <section class="footer-section-2">
+                <div>
+                    <ul>
+                        <li> <i class="fa-solid fa-angle-right"></i> <a href="/pages/legal.html#cookies">Cookies</a></li>
+                        <li> <i class="fa-solid fa-angle-right"></i> <a href="/pages/legal.html#aviso">Aviso Legal</a></li>
+                        <li> <i class="fa-solid fa-angle-right"></i> <a href="/pages/legal.html#privacidad">Privacidad</a></li>
+                    </ul>
+                </div>
+            </section>
         </div>
-        <div class="page-info">
-            <p>Contáctanos en nuestras redes sociales:</p>
-        </div>
+        <section class="footer-section-3">
+            <div class="footer-socials">
+                <div style="border-right: #FFC59C 4px solid;padding-right: 1rem;">
+                    <a href="https://www.facebook.com/?locale=es_ES" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+                <div style="border-right: #FFC59C 4px solid;padding-right: 1rem;">
+                    <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <div style="border-right: #FFC59C 4px solid;padding-right: 1rem;">
+                    <a href="https://x.com/?lang=es" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+                <div style="border-right: #FFC59C 4px solid;padding-right: 1rem;">
+                    <a href="https://www.youtube.com/?app=desktop&hl=es" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <div>
+                    <a href="https://www.tiktok.com/" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            <p>Copyright 2025 | Hilos i</p>
+        </section>
     </footer>
 
-    <div class="endfooter">
-        <p>(c) 2025 Hilos i</p>
-    </div>
 
 
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/modal.js"></script>
+    <script src="assets/js/carrusel.js"></script>
 </body>
 </html>
