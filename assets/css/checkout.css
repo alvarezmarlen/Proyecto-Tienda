@@ -59,16 +59,32 @@ nav ul li {
 
 /* MAIN */
 
-body {
+main {
     background-color:white 
 
 }
 
+h1 {
+    text-align: center;
+    font-family: pacifico;
+}
+
+form {
+    margin: 0%;
+    width: 400px;
+
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+
+}
 .formCompra {
-    width: 90%;
+    width: 50%;
     margin: auto;
     display: flex;
     border: black;
+    padding: 1rem;
+    display: flex;
     
 
 }
