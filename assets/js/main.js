@@ -228,7 +228,7 @@
                         {"produtID": 21,
                         "categoria": "zapatos",
                         "productName": "Zapatos negros de vestir",
-                        "imagen": "../assets/img/zapatos/zapatilla-blanca.png",
+                        "imagen": "../assets/img/zapatos/zapatos-vestir.png",
                         "precio": 75,
                         "descripcion": "Zapatos negros de vestir ",
                         "talla": "42",
