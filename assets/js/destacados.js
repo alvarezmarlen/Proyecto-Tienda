@@ -23,6 +23,6 @@ articulosJSON.forEach((productDestacados, index) => {
     
     `;
         //añadimos las tarjetas al contenedor
-    productDestacadosList(tarjeta);
+    productDestacadosList.appendChild(tarjeta);
     });
 
