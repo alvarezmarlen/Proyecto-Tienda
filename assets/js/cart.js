@@ -17,18 +17,18 @@ if (carrito.length === 0) {
 {                       "productID": 0,
                         "categoria": "bolsos",
                         "productName": "Bolso Azul",
-                        "imagen": "../assets/img/bolsos/bolso-azul.jpg",
+                        "imagen": "../assets/img/bolsos/bolso-azul.png",
                         "precio": 35,
                         "descripcion": "Bolso azul con tres espacios",
                         "talla": "pequeno",
-                        "stock": 2,
+                        "stock": 10,
                         "cantidad": 1,
                         },
 
                         {"productID": 1,
                         "categoria": "bolsos",
                         "productName": "Bolso Marron",
-                        "imagen": "../assets/img/bolsos/bolso-marron.jpg",
+                        "imagen": "../assets/img/bolsos/bolso-marron.png",
                         "precio": 65,
                         "descripcion": "Bolso marron con asa color beige",
                         "talla": "grande",
@@ -39,11 +39,11 @@ if (carrito.length === 0) {
                         {"productID": 2,
                         "categoria": "bolsos",
                         "productName": "Bolso Blanco",
-                        "imagen": "../assets/img/bolsos/bolso-media-luna-suave.jpg",
+                        "imagen": "../assets/img/bolsos/bolso-media-luna-suave.png",
                         "precio": 25,
                         "descripcion": "Bolso blanco con forma de media luna",
                         "talla": "mediano",
-                        "stock": 1,
+                        "stock": 100,
                         "cantidad": 1,
                         },
 
@@ -79,6 +79,7 @@ const divisa = '€'
 const DOMitems = document.querySelector('#cart-items');
 const DOMtotal = document.querySelector('#total');
 const DOMbotonVaciar = document.querySelector('#btn-empty');
+const DOMbotonCheckout = document.querySelector('#btn-checkout');
 
 
 
@@ -222,7 +223,31 @@ function renderizarCarrito() {
 
     }
 
+
+        if (DOMbotonVaciar) {
+            DOMbotonVaciar.addEventListener('click', () => {
+                carrito = [];
+                localStorage.removeItem('carrito');
+            renderizarCarrito();
+            })
+        }
+
+
+
+        DOMbotonCheckout.addEventListener("click", () => {
+            if (carrito.length === 0) {
+                alert("Tu carrito está vacío.");
+                return;
+            }
+            window.location.href = "/pages/checkout.html";
+            
+        });
+
 renderizarCarrito();
+
+
+
+
 
 
 
