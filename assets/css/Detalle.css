@@ -12,6 +12,10 @@ h2 {
     margin: 1rem;
 }
 
+body {
+    background-color: #f4f8f1;
+}
+
 .boton {
   background-color: #9c5847;
   color: white;    
@@ -54,6 +58,7 @@ h2 {
 
 /*tarjeta del producto*/
 .contenedor {
+    background-color: white;
     display: flex;
     width: 70%;
     border-style: solid;
@@ -122,6 +127,7 @@ h2 {
 
 /*recomendaciones*/
 .contenedor2 {
+    background-color: white;
     display: flex;
     justify-content: center;
     border-style: solid;
