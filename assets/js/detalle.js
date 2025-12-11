@@ -119,11 +119,15 @@ function filtrarcategoria(producto) {
 
 for (let i = 0; i < 4; i++) {
     const nodoimg = document.createElement("img");
+         const nododiv = document.createElement("div");
+         nododiv.setAttribute("class", "cuadrofoto2");
     nodoimg.setAttribute("src", `../assets/${similares[i].imagen}`);
     nodoimg.setAttribute("class", "foto2")
     nodoimg.addEventListener("click", function () {
         localStorage.setItem('productoSeleccionado', JSON.stringify(similares[i]));
         window.location.href = 'detalle.html';
     });
-    contenedor2.appendChild(nodoimg);
+
+    nododiv.appendChild(nodoimg);
+    contenedor2.appendChild(nododiv);
 }

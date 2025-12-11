@@ -31,7 +31,7 @@ window.addEventListener("DOMContentLoaded", function(){
 
     this.setTimeout(function() {
         modal.showModal();
-    }, 2000);
+    }, 7000);
 
     cerrarModal.addEventListener("click", function() {
         modal.close()
