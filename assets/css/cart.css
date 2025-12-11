@@ -70,83 +70,116 @@ main {
     box-sizing: border-box;
 
 }
-
-.cart-items,
-.cart-summary {
-    border-radius: 1.5rem;
-    padding: 2rem;
-    box-shadow: 0 10px 25px rgba (0, 0, 0, 0.08);
-    width: 100%;
-    max-width: 50rem;
-    box-sizing: border-box;
-}
-
-
+/* ============================
+   CONTENEDOR DE LA COLUMNA IZQUIERDA
+   ============================ */
 .cart-items {
-    background-color: #FFC59C;
-    display: flex;
-    flex-direction: column;
+    width: 60%;
+    padding: 2rem;
 }
 
-.cart-items h2 {
-    font-family: "Pacifico";
-    font-size: 2rem;
-    margin: 0 0 1.5rem 0;
-    color: white;
-    text-align: left;
-}
-
-.cart-summary {
-    background-color: #F2E7D5;
+/* ============================
+   TARJETA INDIVIDUAL DEL PRODUCTO
+   ============================ */
+.cart-item {
     display: flex;
-    flex-direction: column;
-    align-items: stretch;
+    align-items: center;
     gap: 1.5rem;
+    background-color: #ffffff;
+    border: 2px solid #FFD2B3;
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
+
+    /* Sombra suave */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+
+    /* Para que el contenido no se rompa */
+    flex-wrap: wrap;
 }
 
-.cart-summary h2 {
-    font-family: "Pacifico";
-    font-size: 2rem;
-    margin: 0 0 1.5rem 0;
-    color: #4a2e2a;
-    text-align: left;
+/* ============================
+   IMAGEN DEL PRODUCTO
+   ============================ */
+.cart-items-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
-.btn-empty,
-.btn-checkout {
+/* ============================
+   NOMBRE DEL PRODUCTO
+   ============================ */
+.cart-items-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #444;
+    width: 180px;
+}
+
+/* ============================
+   PRECIO UNITARIO
+   ============================ */
+.cart-items-precio {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* ============================
+   CONTROLES DE CANTIDAD
+   ============================ */
+.quantity-button {
+    background-color: #FFB07C;
     border: none;
-    border-radius: 999px;
-    padding: 0.8rem 1.8rem;
-    font-size: 0.95rem;
-    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    font-size: 1.2rem;
+    border-radius: 6px;
     cursor: pointer;
-    transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.2s ease;
-}
-
-/* Vaciar: rojo suave */
-.btn-empty {
-    background-color: #E57373;
     color: white;
+    font-weight: bold;
+    transition: background-color 0.2s;
 }
 
-.btn-empty:hover {
-    background-color: #D32F2F;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(211, 47, 47, 0.4);
+.quantity-button:hover {
+    background-color: #ff9855;
 }
 
-/* Checkout: color principal verde/contrastado */
-.btn-checkout {
-    background-color: #E2FFB4;   /* tu verde */
-    color: #2E3A21;
+.quantity-display {
+    padding: 0.3rem 0.8rem;
+    background-color: #FFF3E6;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
-.btn-checkout:hover {
-    background-color: #d2f29a;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(120, 150, 80, 0.4);
+/* ============================
+   SUBTOTAL
+   ============================ */
+.item-subtotal {
+    margin-left: auto;
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
 }
 
+/* ============================
+   BOTÓN ELIMINAR
+   ============================ */
+.remove-btn {
+    background-color: #ff6b6b;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: background-color 0.2s;
+}
+
+.remove-btn:hover {
+    background-color: #e44b4b;
+}
 
 
 /* FIN DE LA SECCIÓN PRINCIPAL */
