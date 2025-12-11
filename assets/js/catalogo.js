@@ -18,6 +18,7 @@ articulosJSON.forEach((product, index) => {
                             <figcaption class="caja-informacion">
                                 <h5>${product.productName}</h5>
                                 <p><strong>€ ${product.precio}</strong></p>
+                                <button class="agregar" id="agregar-carrito">Agregar al carrito</button>
                             </figcaption>
                         </figure>
                     </div>   
@@ -28,6 +29,10 @@ articulosJSON.forEach((product, index) => {
         localStorage.setItem('productoSeleccionado', JSON.stringify(product));
         window.location.href = 'detalle.html'; 
     });
+// ⬅️ ESTO EVITA que active el click de la tarjeta
+    col.querySelector('.agregar').addEventListener('click', function(event) {
+        event.stopPropagation();
+    })
 
     productList.appendChild(col);
 });
