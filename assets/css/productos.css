@@ -1,10 +1,11 @@
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Overpass+Mono:wght@300..700&family=Pacifico&display=swap');
 
-    * {
-         margin: 0;
-         padding: 0;
-         box-sizing: border-box;
-     }
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Overpass Mono", monospace;
+    }
 
 
 
@@ -15,88 +16,117 @@
          background-color: #af0b0b;
          padding: 10px;
          border-radius: 10px;
+         box-sizing: border-box;
          display: flex;
      }
 
 
 
      /*--CAJA DONDE IRIAN LOS PRODUCTOS--> */
-     #container {
-         display: grid;
-         grid-template-columns: repeat(4, 1fr);
-         padding: 1rem;
-         font-family: "Overpass Mono";
-     }
+    #container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 1rem;
+        font-family: "Overpass Mono";        
+    }
 
-     .card {
-         margin: 2rem;
-         border: 1px solid black;
-         padding: 1rem;
-         display: flex;
-         flex-direction: column;
-         /* Alinea verticalmente */
-         align-items: center;
-         /* Centra todo */
-         justify-content: space-between;
-         /* Mantiene el texto abajo */
-         height: 400px;
-         /* MISMA altura para todas las cards */
-     }
+    .card {
+        border: 3px dotted #7fbd1b;
+        margin: 2rem;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        /* Alinea verticalmente */
+        align-items: center;
+        /* Centra todo */
+        justify-content: space-between;
+        /* Mantiene el texto abajo */
+        height: 450px;
+        /* MISMA altura para todas las cards */
+        background-color: #FFC59C;
+        border-radius: 0.7rem;
+    }
 
-     .caja-img {
-         width: 100%;
-         height: 300px;
-         /* Todas las imágenes con la misma altura */
-         object-fit: cover;
-         /* Recorta la imagen sin deformarla */
-         transition: transform 0.4s ease;
-         /* Suaviza la animación */
-         cursor: pointer;
-     }
+    .caja-img {
+        width: 100%;
+        height: 300px;
+        /* Todas las imágenes con la misma altura */
+        transition: transform 0.4s ease;
+        /* Suaviza la animación */
+        cursor: pointer;
+        border-radius: 0.7rem;
+    }
 
-     .card:hover .caja-img {
-         transform: scale(1.1);
-         /* La imagen se agranda */
-     }
+    .card:hover .caja-img {
+        transform: scale(1.1);
+        /* La imagen se agranda */
+    }
 
-     .caja-informacion {
-         text-align: center;
-         margin-top: 1rem;
-     }
+    .caja-informacion {
+        text-align: center;
+        margin-top: 1rem;
+        text-shadow: 0px 0px 1rem black;
+    }
 
+    .agregar {
+        width: 70%;
+        height: 3rem;
+        border-radius: 2rem;
+        margin-top: 0.5rem;
+        background-color: #7fbd1b;
+        color: white;
+        border: #7fbd1b;
+        cursor: pointer;
+    }
 
-     /*--FORMULARIO DE FILTROS--> */
+    .agregar:hover{
+        box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
 
-     .filtro label {
-         font-weight: bold;
-         margin-left: 50px;
-
-     }
-
-
-     .filtro input,
-     .filtro select {
-         padding: 5px;
-         border-radius: 5px;
-         border: 1px solid #999;
-     }
-
-
-     .filtro button {
-         padding: 8px;
-         background: #13627c;
-         color: white;
-         border: none;
-         border-radius: 5px;
-         cursor: pointer;
-     }
-
-
-     .filtro button:hover {
-         background: #0f5167;
-     }
+    }
 
 
 
+    /*--FORMULARIO DE FILTROS--> */
+    .filtro label {
+        font-weight: bold;
+        margin-left: 50px;
+    }
 
+
+    .filtro input,
+    .filtro select {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #999;
+    }
+
+    .filtro button {
+        padding: 8px;
+        background: #13627c;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .filtro button:hover {
+        background: #0f5167;
+    }
+
+#botonfiltro{
+    border-radius: 0.5rem;
+    width: 5%;
+    margin-left: 0.5rem;
+    background: transparent;
+}
+#botonfiltro:hover{
+    background-color: white;
+}
+
+#reloj{
+    margin: 0.3rem 2rem;
+    font-weight: bold;
+    color: #1f4068;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
 

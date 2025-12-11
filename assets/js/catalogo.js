@@ -1,36 +1,14 @@
 import { articulosJSON } from './main.js';
 
-
-/* accedemos al boton por id y añadimos un escuchador*/
-const botonf = document.getElementById("botonfiltro");
-botonf.addEventListener("click", obtenerValor);
-
-
-/* filtramos articulosJson */
-function obtenerValor() {
-    let valorSeleccionado = "zapatos";
-    const selectElement = document.getElementById("categoria");
-
-    valorSeleccionado = selectElement.value;
-
-
-    const articulosfiltrados = articulosJSON.filter(filtrado);
-
-    function filtrado(articulo) {
-        if (valorSeleccionado=="todas"){ return true} else{
-        return articulo.categoria == valorSeleccionado;}
-    }  
-
-
-
+/* ----------------------------------------------------------------------
+    CON ESTE CODIGO GENERO el codigo QUE ALOJARA TODOS LOS PRODUCTOS
+------------------------------------------------------------------------*/
 // obtenemos el elemento contenedor por su id
 const productList = document.getElementById('container');
 
-// sobreescribimos lo que haya dentro
-productList.innerHTML="";
 
 // generamos las tarjetas
-articulosfiltrados.forEach((product, index) => {
+articulosJSON.forEach((product, index) => {
     const col = document.createElement('div');
     col.className = 'col';
     col.innerHTML = `
@@ -40,19 +18,24 @@ articulosfiltrados.forEach((product, index) => {
                             <figcaption class="caja-informacion">
                                 <h5>${product.productName}</h5>
                                 <p><strong>€ ${product.precio}</strong></p>
+                                <button class="agregar" id="agregar-carrito">Agregar al carrito</button>
                             </figcaption>
                         </figure>
                     </div>   
     
     `;
-    // añadimos un escuchador a la tarjeta y al hacer click almacenamos el producto en localstorage
+    // 🔥 Click para ir al detalle
     col.querySelector('.card').addEventListener('click', () => {
         localStorage.setItem('productoSeleccionado', JSON.stringify(product));
         window.location.href = 'detalle.html'; 
     });
+// ⬅️ ESTO EVITA que active el click de la tarjeta
+    col.querySelector('.agregar').addEventListener('click', function(event) {
+        event.stopPropagation();
+    })
 
-    //añadimos las tarjetas al contenedor
     productList.appendChild(col);
 });
 
-}
+
+
