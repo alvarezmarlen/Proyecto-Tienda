@@ -100,8 +100,8 @@ main {
 }
 .img{
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.85);
-    height: 36rem;
-    width: 71rem;
+    height: 60rem;
+    width: 120rem;
     border-radius: 1rem;
     margin: 0.5rem;
     object-fit: cover;
