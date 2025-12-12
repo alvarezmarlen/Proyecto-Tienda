@@ -97,8 +97,8 @@ function renderizarCarrito() {
         miProductoCard.classList.add('cart-item');
 
         // (extraer el nombre)
-        const miProductoName = document.createElement('h5')   // (esto me obliga a que los nombres vayan en un h5, don't forget)
-        miProductoName.classList.add('cart-items-name');   // hay que crear esta clase en .css para estilizar los nombres de los productos
+        const miProductoName = document.createElement('h5')   
+        miProductoName.classList.add('cart-items-name');   
         miProductoName.textContent = info.productName;
 
         // (extraer la foto)
@@ -119,7 +119,7 @@ function renderizarCarrito() {
         btnRestar.textContent = '-';
         btnRestar.classList.add('quantity-button');
         btnRestar.dataset.id = info.productID;
-        btnRestar.addEventListener('click', disminuirCantidad);         // habrá que crear este evento
+        btnRestar.addEventListener('click', disminuirCantidad);        
 
         const btnSumar = document.createElement('button');
         btnSumar.textContent = '+';
@@ -129,23 +129,22 @@ function renderizarCarrito() {
 
         const cantidadEnCarrito = document.createElement('span');
         cantidadEnCarrito.textContent = info.cantidad;
-        cantidadEnCarrito.classList.add('quantity-display')   //  habrá que crear esta clase también
+        cantidadEnCarrito.classList.add('quantity-display')  
         
 
         // (extraer el precio subtotal de la cantidad seleccionada del mismo producto)
         const miProductoSubtotal = document.createElement('p');
         const cantidad = info.cantidad;
         miProductoSubtotal.textContent = (info.precio * cantidad).toFixed(2) + ' €';
-        miProductoSubtotal.classList.add('item-subtotal')       // (hay que crear esta clase en .css)   
+        miProductoSubtotal.classList.add('item-subtotal')  
 
 
         // (botón para eliminar todos los items del mismo producto)
         const btnEliminar = document.createElement('button');
         btnEliminar.textContent = 'Eliminar del carrito' ;
-        btnEliminar.classList.add('remove-btn');     // (hay que crear esta clase)
+        btnEliminar.classList.add('remove-btn');   
         btnEliminar.dataset.id = info.productID;
-        btnEliminar.addEventListener('click', eliminarItem);    // habrá que crear este evento
-
+        btnEliminar.addEventListener('click', eliminarItem);  
 
     ////////////////
     // // MONTAR LAS TARJETAS
