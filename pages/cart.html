@@ -46,10 +46,16 @@
         <section class="cart-summary">
     
             <h2>Resumen</h2>
-            <p>Total: <span id="total"></span> €</p>
+            
+            <div class="summary-total">
+                <span class="summary-label">Total:</span>
+                <div  class="summary-amount">
+                <span id="total"></span> <p>€</p>
+                </div>
+            </div>
+            
             <button id="btn-empty">Vaciar el carrito</button>
-            <button id="btn-checkout">Proceder al pago</button>      <!-- cómo procede al checkout este botón, es un href o es una función de javascript? -->
-  
+            <button id="btn-checkout">Proceder al pago</button>
         </section>
 
     </main>
