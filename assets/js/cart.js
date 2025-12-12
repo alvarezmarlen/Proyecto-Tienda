@@ -10,7 +10,7 @@
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-
+/*
 if (carrito.length === 0) {
     carrito = [
 
@@ -73,7 +73,7 @@ if (carrito.length === 0) {
     ];
     
 }
-
+*/
 
 const divisa = '€'
 const DOMitems = document.querySelector('#cart-items');
