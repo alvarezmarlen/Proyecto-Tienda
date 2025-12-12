@@ -75,9 +75,9 @@ main {
 #reloj{
     margin: 1rem 2rem;
     font-weight: bold;
-    color: #7fbd1b;
+    color: #1c2572;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-    font-size: 1.3rem;
+    font-size: 1.5rem;
 }
 /*-------------------------------------------------------
         AQUI DEBO AGREGAR STYLE DEL CARRUSEL
