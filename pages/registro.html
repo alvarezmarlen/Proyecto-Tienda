@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <script src="https://kit.fontawesome.com/384e83612b.js" crossorigin="anonymous"></script>
-    <title>Tienda Vintage - Productos</title>
+    <title>RetroDenda | Registro</title>
+    <link rel="shortcut icon" href="/assets/img/Logoretrodenda-provisional.webp" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/style.css"> 
      <link rel="stylesheet" href="/assets/css/registro.css">
    
@@ -19,18 +20,27 @@
         <ul>
             <li><a href="../index.html">Inicio</a></li>
             <li><a href="../pages/productos.html">Productos</a></li>
-            <li><a href="#">Quiénes somos</a></li>
-            <li><a href="../pages/registro.html">Registro</a></li>
+           
         </ul>
         <div class="language-menu">
             <ul>
-                <li><a href="#"><i class="fa-solid fa-circle-user"></i></a></li>
+                
+                <li class="user-menu">
+                    <a href="#"><i class="fa-solid fa-circle-user"></i></a>
+                    <div class="dropdown">
+                        <a href="/registro.html">Registrarte</a>
+                        <a href="/login.html">Iniciar sesión</a>
+                    </div>
+                </li>
+
                 <li><a href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
 
                 <li>EUS</li>
                 <li>ENG</li>
                 
             </ul>
+
+
         </div>
         <div class="basket-btn">
             <img>
@@ -42,13 +52,13 @@
 
     <h2>Unete a nuestra tienda</h2> 
 
-    <form class="registro-form" action="/register" method="POST">
+    <form class="registro-form" >
 
-    <label for="nombre">Nombre completo</label>
-    <input id="nombre" type="text" name="nombre" placeholder="Tu nombre" required>
+    <label for="nombre">Nombre </label>
+    <input id="nombre" type="text" name="nombre" placeholder="Nombre" required>
 
     <label for="email">Email</label>
-    <input id="email" type="email" name="email" placeholder="tu@gmail.com" required>
+    <input id="email" type="email" name="email" placeholder="@gmail.com" required>
 
     <label for="password">Password</label>
     <input id="password" type="password" name="password" placeholder="********" required>
@@ -57,9 +67,34 @@
 
     <p class="login-text">
         ¿Ya tienes cuenta?
+        <br>
         <a href="/login">Inicia sesión</a>
     </p>
+
+
+
+
+
+
+
 </form>
+
+<!-- Modal Inicio de Sesión -->
+<div id="loginModal" class="modal hidden">
+    <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+        <h2>Iniciar Sesión</h2>
+        <form id="loginForm">
+            <label for="loginEmail">Email:</label>
+            <input type="email" id="loginEmail" name="loginEmail" placeholder="tu@gmail.com" required>
+
+            <label for="loginPassword">Contraseña:</label>
+            <input type="password" id="loginPassword" name="loginPassword" placeholder="********" required>
+
+            <button type="submit">Iniciar sesión</button>
+        </form>
+    </div>
+</div>
 
 
 </main>
@@ -109,6 +144,11 @@
         </section>
     </footer>
 
-<script src="/assets/js/productos.js"></script>
+<script src="/assets/js/registro.js"></script>
+
+
+
+
+
 </body>
 </html>

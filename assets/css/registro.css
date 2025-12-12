@@ -11,8 +11,7 @@
 
 
 
-
-
+/*REGISTRO EXITOSO*/
 
 
 
@@ -74,6 +73,112 @@
 }
 
 
+.user-menu {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown oculto por defecto con transición */
+.user-menu .dropdown {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 110%; /* ligeramente separado del icono */
+    left: 0;
+    background-color: white;
+    min-width: 150px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    flex-direction: column;
+    transform: translateY(-10px); /* comienza ligeramente arriba */
+    transition: all 0.3s ease;   /* transición suave */
+    z-index: 100;
+}
+
+.user-menu .dropdown a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: black;
+    display: block;
+    
+}
+
+.user-menu .dropdown a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Mostrar el dropdown al hacer hover con animación */
+.user-menu:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* baja suavemente */
+}
+
+
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    width: 300px;
+    max-width: 90%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.modal-content input {
+    margin-top: 0.5rem;
+    padding: 0.6rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.modal-content button {
+    margin-top: 1rem;
+    padding: 0.7rem;
+    border-radius: 8px;
+    border: none;
+    background: #7fbd1b;
+    color: white;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background: #6aa314;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
 
 
 
