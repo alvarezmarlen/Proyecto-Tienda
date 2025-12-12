@@ -11,13 +11,14 @@
 
      /*--CAJA QUE RODEA EL FORMULARIO DE FILTROS Y PRODUCTOS--> */
 
-    .containerform {
-        width: 100%;
-        background: linear-gradient(to bottom, #ffc595, #7fbd1b );
-        padding: 10px;
-        border-radius: 10px;
-        display: flex;
-    }
+     .containerform {
+         width: 100%;
+         background-color: #af0b0b;
+         padding: 10px;
+         border-radius: 10px;
+         box-sizing: border-box;
+         display: flex;
+     }
 
 
 

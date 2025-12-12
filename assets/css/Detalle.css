@@ -1,11 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Overpass+Mono:wght@300..700&family=Pacifico&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Overpass Mono", monospace;}
+
+h2 {
+    font-family: "Pacifico";
+    font-size: 2rem;
+    margin: 1rem;
+}
+
+body {
+    background-color: #f4f8f1;
+}
+
+.boton {
+  background-color: #9c5847;
+  color: white;    
+  border: none;       
+  border-radius: 0.5rem;  
+  padding: 0.8rem 1.2rem; 
+  font-size: 1rem; 
+  cursor: pointer;          
+  text-decoration: none;    
+  margin: 0.8rem;  
+}
+
+.boton2 {
+  background-color: #9c5847;
+  color: white;    
+  border: none;       
+  border-radius: 0.5rem;  
+  padding: 0.8rem 1.2rem; 
+  font-size: 1rem; 
+  cursor: pointer;          
+  text-decoration: none;    
+  margin: 0.8rem;  
+  width: 100%;
+}
+
+.boton3 {
+  background-color: #9c5847;
+  color: white;    
+  border: none;       
+  border-radius: 0.5rem;  
+  padding: 0.8rem 1.2rem; 
+  font-size: 1rem; 
+  cursor: pointer;          
+  text-decoration: none;    
+  margin: 0.8rem;  
+  width: 100%;
+  display:block;
+}
+
+
 /*tarjeta del producto*/
 .contenedor {
+    background-color: white;
     display: flex;
-    width: 80%;
+    width: 70%;
     border-style: solid;
-    padding: 20px;
+    border-width: 0.1rem;
+    border-color: rgb(170, 169, 169);
+    padding: 1rem;
     margin: auto;
-    gap: 20px;
+    gap: 1rem;
+    border-radius: 0.8rem;
+    box-shadow: 0.3rem 0.3rem 0.8rem 0.1rem rgba(148, 110, 99, 0.5);
 }
 
 .cuadrofoto {
@@ -24,16 +87,16 @@
 .cuadroinfo {
     width: 50%;
     height: 100px;
-    border-style: solid;
     height: auto;
+ 
 }
 
 .cuadrotexto {
     width: 100%;
-    padding: 20px;
-    height: 100px;
-    border-style: solid;
-    height: auto;
+    padding: 1.2rem;
+    background-color: #7fbd1b;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 /*cuadro modal*/
@@ -55,19 +118,28 @@
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+    width: 50%;
+    border-radius: 10px;
+    display:flex;
+    justify-content: center;
+     box-shadow: 0.3rem 0.3rem 0.8rem 0.1rem rgba(12, 11, 11, 0.5);
 }
 
 /*recomendaciones*/
 .contenedor2 {
+    background-color: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     border-style: solid;
-    padding: 10px;
+    border-radius: 0.8rem;
+    padding: 1rem;
     width: 80%;
-    gap: 20px;
+    gap: 1rem;
     margin: auto;
+    margin-bottom: 2rem;
+    border-width: 0.1rem;
+    border-color: rgb(170, 169, 169);
+    box-shadow: 0.3rem 0.3rem 0.8rem 0.1rem rgba(148, 110, 99, 0.5);
 
 }
 
@@ -86,9 +158,10 @@
 
 
 /* mediaqueries*/
-@media (max-width: 600px) {
+@media (max-width: 748px) {
     .contenedor {
         flex-direction: column;
+        width: 95%;
     }
 
     .contenedor2 {
@@ -103,12 +176,13 @@
         width: 100%;
     }
 
-}
-
-@media (max-width: 800px) {
-
     .contenedor2 {
-        flex-wrap: wrap;
+        width: 95%;
+        padding: 1rem;
     }
+    .cuadrofoto2 {
+    width: 45%;
+}
 
 }
+

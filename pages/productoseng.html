@@ -4,24 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>detalle de producto</title>
-    <link rel="stylesheet" href="../assets/css/Detalle.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
-
+    <script src="https://kit.fontawesome.com/384e83612b.js" crossorigin="anonymous"></script>
+    <title>Tienda Vintage - Productos</title>
+    <link rel="stylesheet" href="/assets/css/productos.css">
+       <link rel="stylesheet" href="/assets/css/style.css">       
 </head>
 
 <body>
-
-    <!--barra navegacion-->
-     <header>
+  <header>
         <div class="header-logo">
             <img src="/assets/img/Logoretrodenda-provisional.webp" alt="Logo RetroDenda">
         </div>
         <nav>
             <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="../pages/productos.html">Productos</a></li>
-                <li><a href="#">Quiénes somos</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../pages/productos.html">Products</a></li>
+                <li><a href="#">Team</a></li>
             </ul>
             <div class="language-menu">
                 <ul>
@@ -36,70 +34,32 @@
         </nav>
     </header>  
 
-    <!-- el reloj -->
-
-        <br>
     <div id="reloj">fgdgfgd</div>
-    <br>
 
-  <select id="idioma">
-  <option value="" disabled selected>Selecciona idioma</option>
-  <option value="eng">eng</option>
-  <option value="esp">esp</option>
-</select>
+    <div class="containerform">
 
-    <!-- tarjeta del producto -->
-    <h2>Tu producto</h2>
+        <form class="filtro">
 
-    <div style="margin-left:1rem; margin-bottom: 1.5rem;">
-        <a href="productos.html" style="text-decoration: none;">Volver a productos</a>
-        <p style="display:inline; background-color: #9c5847; color: rgb(255, 255, 255);" id="categoria"></p>
-    </div>
+            <label for="categoria">Categoría:</label>
+            <select id="categoria" name="categoria">
+                <option value="todas">Todas</option>
+                <option value="camisas">camisas</option>
+                <option value="zapatos">zapatos</option>
+                <option value="bolsos">bolsos</option>
+                <option value="pantalones">pantalones</option>
+            </select>
 
-    <div class="contenedor">
-        <!--imagen-->
-        <div class="cuadrofoto">
-            <img src="" class="foto" id="foto" alt="">
-        </div>
-        <div class="cuadroinfo">
-            <!--informacion-->
-            <div class="cuadrotexto" id="cuadro">
-            </div>
-            <!--botones-->
-            <div class="cuadrotexto">
-                <h2>Cantidad:</h2>
-                <div>
-                    <button id="botonrestar" class="boton">-</button>
-                    <p id="cantidad" style="display: inline;">cantidad</p>
-                    <button id="botonsumar" class="boton">+</button>                    
-                </div>
-                <br>
-                <button id="añadir" class="boton2">añadir al carrito</button>
 
-            </div>
-        </div>
+        </form>
+
+        <button id="botonfiltro">Filtrar</button>
     </div>
 
 
-    <!--recomendaciones-->
-    <h2>Tambien te podría gustar</h2>
-    <div class="contenedor2" id="contenedor2">
+    <!--PRODUCTOS-->
+    <section id="container">
+    </section>
 
-    </div>
-
-    <!-- Cuadro modal -->
-    <div id="modal" class="modal">
-
-        <div class="modal-content">
-            <div>
-                <p id="infocompra"></p>
-                <a href="nnn.html" class="boton3">ir a carrito</a>
-                <br>
-                <button id="borrarcarrito" class="boton">borrar carrito</button>
-                <button id="seguircompra" class="boton">Seguir comprando</button>
-            </div>
-        </div>
-    </div>
 
 
  <!-- -------------------------------------------------------------------------------------------
@@ -149,12 +109,10 @@
     </footer>
 
 
-    <!--javascript-->
-    <script type="module" src="../assets/js/detalle.js"></script>
+
+    <script type="module" src="../assets/js/productos.js"></script> 
+    <script type="module" src="../assets/js/catalogo.js"></script>
     <script src="../assets/js/fecha.js"></script>
-    <script src="../assets/js/traduccion.js"></script>
-
-
 </body>
 
 </html>
