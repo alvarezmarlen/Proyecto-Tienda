@@ -3,9 +3,6 @@ const carruselContainer = document.getElementById('carrusel-container');
 
 carruselContainer.innerHTML = `
         <section class="carrusel">
-            <button class="iconos" id="atras" aria-label="Imagen anterior">
-                <img class="img-iconos" id="atras" src="assets/img/fondos/atras.svg" alt="atras">
-            </button>
             <figure class="imagenes">
                 <div id="img">
                     <img class="img" src="assets/img/fondos/carrusel-1.jpeg" alt="imagen 1">
@@ -18,6 +15,10 @@ carruselContainer.innerHTML = `
             <button class="iconos" id="adelante" aria-label="Imagen siguiente">
                 <img class="img-iconos" src="assets/img/fondos/adelante.svg" alt="adelante">
             </button>
+            <button class="iconos" id="atras" aria-label="Imagen anterior">
+                <img class="img-iconos" src="assets/img/fondos/atras.svg" alt="atras">
+            </button>
+
         </section>
         <section class="puntos" id="puntos"></section>
 `;
