@@ -70,5 +70,7 @@ function posicionCarrusel() {
         }
     }    
 }
-
-
+/* Agregue este codigo nuevo para que las imagenes se muevan sola por 3s */
+setInterval(function() {
+    adelante.click();
+}, 3000);
