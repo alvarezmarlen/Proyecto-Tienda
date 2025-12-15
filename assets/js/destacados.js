@@ -31,11 +31,6 @@ destacados.forEach(function(product)  {
         window.location.href = 'pages/detalle.html';
     });
 
-    // Click en el botón → Agregar al carrito
-    tarjeta.querySelector('.agregar').addEventListener('click', function(event) {
-        event.stopPropagation();
-        agregarAlCarritoYRedirigir(product);
-    });
 
     productDestacadosList.appendChild(tarjeta);
 });

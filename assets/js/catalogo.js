@@ -29,11 +29,7 @@ articulosJSON.forEach((product, index) => {
         localStorage.setItem('productoSeleccionado', JSON.stringify(product));
         window.location.href = 'detalle.html'; 
     });
-// Click en el botón → Agregar al carrito
-    col.querySelector('.agregar').addEventListener('click', function(event) {
-        event.stopPropagation();
-        agregarAlCarritoYRedirigir(product);
-    })
+
 
     productList.appendChild(col);
 });
@@ -63,8 +59,7 @@ function agregarAlCarritoYRedirigir(product) {
         }
     }
     
-    // Crear objeto compra COMPLETO (como lo necesita car.js)
-if (!productoExiste) {
+  if (!productoExiste) {
         // Si no se encontró el producto en el bucle, lo agregamos como una nueva compra
         let Compra = {
             productID: product.produtID,
