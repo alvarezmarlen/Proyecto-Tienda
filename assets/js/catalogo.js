@@ -1,8 +1,6 @@
 import { articulosJSON } from './main.js';
 
-/* ----------------------------------------------------------------------
-    CON ESTE CODIGO GENERO el codigo QUE ALOJARA TODOS LOS PRODUCTOS
-------------------------------------------------------------------------*/
+
 // obtenemos el elemento contenedor por su id
 const productList = document.getElementById('container');
 
@@ -24,12 +22,12 @@ articulosJSON.forEach((product, index) => {
                     </div>   
     
     `;
-    // 🔥 Click para ir al detalle
+    // Click para ir al detalle
     col.querySelector('.card').addEventListener('click', () => {
         localStorage.setItem('productoSeleccionado', JSON.stringify(product));
         window.location.href = 'detalle.html'; 
     });
-// Click en el botón → Agregar al carrito
+// ESTO EVITA que active el click de la tarjeta
     col.querySelector('.agregar').addEventListener('click', function(event) {
         event.stopPropagation();
         agregarAlCarritoYRedirigir(product);
@@ -37,6 +35,63 @@ articulosJSON.forEach((product, index) => {
 
     productList.appendChild(col);
 });
+
+// Función para agregar al carrito
+function agregarAlCarritoYRedirigir(product) {
+    // Obtener carrito actual
+// Intentamos obtener el carrito del localStorage. Si no existe, usamos "[]" para que JSON.parse no falle.
+    let carritoData = localStorage.getItem("carrito");
+    let carrito = JSON.parse(carritoData || "[]");
+    
+    let productoExiste = false;
+
+    for (let i = 0; i < carrito.length; i++) {
+        if (carrito[i].productID === product.produtID) {
+
+            // Si existe: Aumentar cantidad
+            carrito[i].cantidad = carrito[i].cantidad + 1;
+            
+            // Verificar que no supere el stock
+            if (carrito[i].cantidad > product.stock) {
+                carrito[i].cantidad = product.stock; // Limitar al stock máximo
+            }
+            
+            productoExiste = true;
+            break; // Salir del bucle for, ya encontramos y actualizamos el producto
+        }
+    }
+    
+  if (!productoExiste) {
+        // Si no se encontró el producto en el bucle, lo agregamos como una nueva compra
+        let Compra = {
+            productID: product.produtID,
+            categoria: product.categoria,
+            productName: product.productName,
+            imagen: product.imagen,
+            precio: product.precio,
+            descripcion: product.descripcion,
+            talla: product.talla,
+            stock: product.stock,
+            cantidad: 1 // La cantidad inicial es 1
+        };
+        carrito.push(Compra);
+    };
+    
+     // Guardar en localStorage
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    
+    // Redirigir al carrito
+    window.location.href = 'cart.html';
+}
+
+
+
+
+
+
+
+
+// PROPUESTA NUEVA INCORPORADA
 
 // Función para agregar al carrito
 function agregarAlCarritoYRedirigir(product) {
@@ -86,7 +141,4 @@ if (!productoExiste) {
     // Redirigir al carrito
     window.location.href = 'cart.html';
 }
-
-
-
 

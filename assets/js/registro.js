@@ -1,30 +1,32 @@
-// Abrir modal al hacer click en "Iniciar sesión"
-const loginLink = document.querySelector('a[href="/login.html"]'); // o tu selector exacto
+const loginLinks = document.querySelectorAll('.open-login');
 const loginModal = document.getElementById('loginModal');
 const closeModal = document.getElementById('closeModal');
 
-loginLink.addEventListener('click', function(e) {
-    e.preventDefault();
-    loginModal.classList.remove('hidden');
+// Abrir modal desde CUALQUIER "Iniciar sesión"
+loginLinks.forEach(link => {
+    link.addEventListener('mousedown', function (e) {
+        e.preventDefault();
+        loginModal.classList.remove('hidden');
+    });
 });
 
-// Cerrar modal
-closeModal.addEventListener('click', function() {
+// Cerrar modal con la X
+closeModal.addEventListener('click', function () {
     loginModal.classList.add('hidden');
 });
 
-// Cerrar modal al hacer click fuera del contenido
-window.addEventListener('click', function(e) {
+// Cerrar al hacer click fuera
+window.addEventListener('click', function (e) {
     if (e.target === loginModal) {
         loginModal.classList.add('hidden');
     }
 });
 
-// Opcional: manejar submit
+// Submit login
 const loginForm = document.getElementById('loginForm');
-loginForm.addEventListener('submit', function(e) {
+loginForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    alert("Iniciaste sesión con éxito!"); // reemplazar con lógica real
+    alert("¡Iniciaste sesión con éxito!");
     loginModal.classList.add('hidden');
     loginForm.reset();
 });
