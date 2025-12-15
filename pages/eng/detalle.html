@@ -4,21 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/384e83612b.js" crossorigin="anonymous"></script>
-    <title>Tienda Vintage - Productos</title>
-    <link rel="stylesheet" href="/assets/css/productos.css">
-       <link rel="stylesheet" href="/assets/css/style.css">       
+    <title>detalle de producto</title>
+    <link rel="stylesheet" href="../../assets/css/Detalle.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+
 </head>
 
 <body>
-  <header>
+
+    <!--barra navegacion-->
+     <header>
         <div class="header-logo">
             <img src="/assets/img/Logoretrodenda-provisional.webp" alt="Logo RetroDenda">
         </div>
         <nav>
             <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../pages/productos.html">Products</a></li>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="productos.html">Store</a></li>
                 <li><a href="#">Team</a></li>
             </ul>
             <div class="language-menu">
@@ -34,32 +36,68 @@
         </nav>
     </header>  
 
-    <div id="reloj">fgdgfgd</div>
-
-    <div class="containerform">
-
-        <form class="filtro">
-
-            <label for="categoria">Categoría:</label>
-            <select id="categoria" name="categoria">
-                <option value="todas">Todas</option>
-                <option value="camisas">camisas</option>
-                <option value="zapatos">zapatos</option>
-                <option value="bolsos">bolsos</option>
-                <option value="pantalones">pantalones</option>
-            </select>
 
 
-        </form>
 
-        <button id="botonfiltro">Filtrar</button>
+  <select id="idioma">
+    <option value="" disabled selected>Select languaje</option>
+  <option value="eng">eng</option>
+  <option value="esp">esp</option>
+</select>
+
+
+    <!-- tarjeta del producto -->
+    <h2>your product</h2>
+
+    <div style="margin-left:1rem; margin-bottom: 1.5rem;">
+        <a href="productos.html" style="text-decoration: none;">Return to products</a>
+        <p style="display:inline; background-color: #9c5847; color: rgb(255, 255, 255);" id="categoria"></p>
+    </div>
+
+    <div class="contenedor">
+        <!--imagen-->
+        <div class="cuadrofoto">
+            <img src="" class="foto" id="foto" alt="">
+        </div>
+        <div class="cuadroinfo">
+            <!--informacion-->
+            <div class="cuadrotexto" id="cuadro">
+            </div>
+            <!--botones-->
+            <div class="cuadrotexto">
+                <h2>Amount:</h2>
+                <div>
+                    <button id="botonrestar" class="boton">-</button>
+                    <p id="cantidad" style="display: inline;">cantidad</p>
+                    <button id="botonsumar" class="boton">+</button>                    
+                </div>
+                <br>
+                <button id="añadir" class="boton2">add to the cart</button>
+
+            </div>
+        </div>
     </div>
 
 
-    <!--PRODUCTOS-->
-    <section id="container">
-    </section>
+    <!--recomendaciones-->
+    <h2>you might also like</h2>
+    <div class="contenedor2" id="contenedor2">
 
+    </div>
+
+    <!-- Cuadro modal -->
+    <div id="modal" class="modal">
+
+        <div class="modal-content">
+            <div>
+                <p id="infocompra"></p>
+                <a href="cart.html" class="boton3">go to cart</a>
+                <br>
+                <button id="borrarcarrito" class="boton">delete cart</button>
+                <button id="seguircompra" class="boton">Continue shopping</button>
+            </div>
+        </div>
+    </div>
 
 
  <!-- -------------------------------------------------------------------------------------------
@@ -80,8 +118,8 @@
                 <div>
                     <ul>
                         <li> <i class="fa-solid fa-angle-right"></i> <a href="/pages/legal.html#cookies">Cookies</a></li>
-                        <li> <i class="fa-solid fa-angle-right"></i> <a href="/pages/legal.html#aviso">Aviso Legal</a></li>
-                        <li> <i class="fa-solid fa-angle-right"></i> <a href="/pages/legal.html#privacidad">Privacidad</a></li>
+                        <li> <i class="fa-solid fa-angle-right"></i> <a href="/pages/legal.html#aviso">Legal Notice</a></li>
+                        <li> <i class="fa-solid fa-angle-right"></i> <a href="/pages/legal.html#privacidad">Privacy</a></li>
                     </ul>
                 </div>
             </section>
@@ -109,10 +147,12 @@
     </footer>
 
 
+    <!--javascript-->
+    <script type="module" src="../../assets/js/detalle.js"></script>
+    <script src="../../assets/js/fecha.js"></script>
+    <script src="../../assets/js/traduccion.js"></script>
 
-    <script type="module" src="../assets/js/productos.js"></script> 
-    <script type="module" src="../assets/js/catalogo.js"></script>
-    <script src="../assets/js/fecha.js"></script>
+
 </body>
 
 </html>
