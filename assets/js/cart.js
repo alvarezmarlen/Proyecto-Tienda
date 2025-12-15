@@ -7,6 +7,8 @@ import { articulosJSON } from './main.js';
 
 let carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
 
+carrito = aCarritoMinimo(carrito);
+guardarCarrito();
 
 // INICIO DEL ADAPTADOR DE CARRITO EN LOCAL STORAGE DESDE CATÁLOGO, DESTACADOS Y DETALLE //
 
