@@ -31,9 +31,23 @@ destacados.forEach(function(product)  {
         window.location.href = 'pages/detalle.html';
     });
 
+    // Click en el botón → NO ir al detalle
+    tarjeta.querySelector('.agregar').addEventListener('click', function(event) {
+        event.stopPropagation();
+        agregarAlCarritoYRedirigir(product);
+        console.log('Producto para agregar:', product);
+        // Aquí tu compañero agrega el código del carrito
+    });
 
     productDestacadosList.appendChild(tarjeta);
 });
+
+
+
+
+
+// AQUÍ EMPIEZA LA PROPUESTA NUEVA DE FUNCIÓN
+
 
 // Función para agregar al carrito
 function agregarAlCarritoYRedirigir(product) {
