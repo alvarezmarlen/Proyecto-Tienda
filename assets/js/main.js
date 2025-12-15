@@ -16,7 +16,7 @@
                         "precio": 35,
                         "descripcion": "Bolso azul con tres espacios",
                         "talla": "pequeno",
-                        "stock": 2
+                        "stock": 5
                         },
 
                         {"produtID": 1,
@@ -26,7 +26,7 @@
                         "precio": 65,
                         "descripcion": "Bolso marron con asa color beige",
                         "talla": "grande",
-                        "stock": 3
+                        "stock": 7,
                         },
 
                         {"produtID": 2,
@@ -36,7 +36,7 @@
                         "precio": 25,
                         "descripcion": "Bolso blanco con forma de media luna",
                         "talla": "mediano",
-                        "stock": 1
+                        "stock": 10,
                         },
 
                         {"produtID": 3,
@@ -46,7 +46,7 @@
                         "precio": 45,
                         "descripcion": "Mochila azul para ir al monte",
                         "talla": "mediano",
-                        "stock": 1
+                        "stock": 10,
                         },
 
                         {"produtID": 4,
@@ -56,7 +56,7 @@
                         "precio": 30,
                         "descripcion": "Bolso gris de tres cremalleras",
                         "talla": "mediano",
-                        "stock": 4
+                        "stock": 14,
                         },
 
                         {"produtID": 5,
@@ -66,7 +66,7 @@
                         "precio": 70,
                         "descripcion": "Troley de color azul con 4 ruedas",
                         "talla": "mediano",
-                        "stock": 3
+                        "stock": 13,
                         },
 
                         
@@ -78,7 +78,7 @@
                         "precio": 25,
                         "descripcion": "Camisa azul con rayas verticales",
                         "talla": "L",
-                        "stock": 2
+                        "stock": 7,
                         },
 
                         {"produtID": 7,
@@ -88,7 +88,7 @@
                         "precio": 35,
                         "descripcion": "Camisa azul con estampado clasico en la parte superior",
                         "talla": "XL",
-                        "stock": 1
+                        "stock": 10,
                         },
 
                         {"produtID": 8,
@@ -98,7 +98,7 @@
                         "precio": 45,
                         "descripcion": "Camisa estampada en color verde",
                         "talla": "M",
-                        "stock": 5
+                        "stock": 5,
                         },
 
                         {"produtID": 9,
@@ -108,7 +108,7 @@
                         "precio": 30,
                         "descripcion": "Camisa negra con dos bolsillos",
                         "talla": "L",
-                        "stock": 4
+                        "stock": 7,
                         },
 
                         {"produtID": 10,
@@ -118,7 +118,7 @@
                         "precio": 65,
                         "descripcion": "Camisa mujer con rayas verticales y tonos azulados",
                         "talla": "S",
-                        "stock": 3
+                        "stock": 13,
                         },
 
 
@@ -130,7 +130,7 @@
                         "precio": 55,
                         "descripcion": "Pantalon de deporte en color azul marino",
                         "talla": "XL",
-                        "stock": 1
+                        "stock": 10,
                         },
 
                         {"produtID": 12,
@@ -140,7 +140,7 @@
                         "precio": 65,
                         "descripcion": "Pantalon de trekking en color granate para hombre",
                         "talla": "XL",
-                        "stock": 4
+                        "stock": 6,
                         },
 
                         {"produtID": 13,
@@ -150,7 +150,7 @@
                         "precio": 35,
                         "descripcion": "Pantalon de lino blanco para mujer",
                         "talla": "M",
-                        "stock": 3
+                        "stock": 6,
                         },
 
                         {"produtID": 14,
@@ -160,7 +160,7 @@
                         "precio": 85,
                         "descripcion": "Pantalon de esquiar para mujer color rosa",
                         "talla": "S",
-                        "stock": 2
+                        "stock": 12,
                         },
 
                         {"produtID": 15,
@@ -170,7 +170,7 @@
                         "precio": 55,
                         "descripcion": "Pantalon vaquero de color azul claro con algún roto",
                         "talla": "L",
-                        "stock": 1
+                        "stock": 10,
                         },
 
 
@@ -182,7 +182,7 @@
                         "precio": 45,
                         "descripcion": "Zapatillas blancas de deporte",
                         "talla": "40",
-                        "stock": 5
+                        "stock": 5,
                         },
 
                         {"produtID": 17,
@@ -192,7 +192,7 @@
                         "precio": 40,
                         "descripcion": "Zapatillas de color gris sin cordones",
                         "talla": "43",
-                        "stock": 4
+                        "stock": 4,
                         },
 
                         {"produtID": 18,
@@ -202,7 +202,7 @@
                         "precio": 45,
                         "descripcion": "Zapatillas de color rosa para mujer",
                         "talla": "38",
-                        "stock": 3
+                        "stock": 13,
                         },
 
                         {"produtID": 19,
