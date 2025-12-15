@@ -207,7 +207,6 @@ main {
 ------------------------------------------------------ */
 .subtitulo{
     font-size: 3rem;
-    text-shadow: 0px 0px 1rem #990909;
     margin-top: 5rem;
 }
 #products-destacados{
@@ -217,7 +216,6 @@ main {
     font-family: "Overpass Mono";
 }
 .card-tarjeta {
-    box-shadow: 0px 0px 30px rgba(0,0,0,.4);
     border: 3px dotted #7fbd1b;
     margin: 0.5rem;
     padding: 1rem;
@@ -242,10 +240,8 @@ main {
 .tarjeta-informacion {
     text-align: center;
     margin-top: 1rem;
-    text-shadow: 0px 0px 1rem black;
 }
 .agregar {
-    box-shadow: 0px 0px 30px rgba(0,0,0,.4);
     width: 70%;
     height: 3rem;
     border-radius: 2rem;
@@ -255,9 +251,7 @@ main {
     border: #7fbd1b;
     cursor: pointer;
 }
-.agregar:hover{
-    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
-}
+
 
 /*-------------------------------------------------------
         NUESTRO TALLER
@@ -270,7 +264,6 @@ main {
 }
 .taller-titulo{
     font-size: 3rem;
-    text-shadow: 0px 0px 1rem #990909;
     margin-top: 8rem; 
     text-align: center;
     margin-bottom: 1rem; 
