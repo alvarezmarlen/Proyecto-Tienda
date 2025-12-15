@@ -5,14 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--  MEJORAR EL SEO -->
-    <meta name="description"
-        content="Tienda de ropa vintage con prendas únicas. Moda retro, auténtica y sostenible que marca tu estilo. Ofertas exclusivas.">
+    <meta name="description"content="Tienda de ropa vintage con prendas únicas. Moda retro, auténtica y sostenible que marca tu estilo. Ofertas exclusivas.">
     <link rel="shortcut icon" href="assets/img/Logoretrodenda-provisional.webp" type="image/x-icon">
     <script src="https://kit.fontawesome.com/384e83612b.js" crossorigin="anonymous"></script>
+    
     <link rel="stylesheet" href="assets/css/modal.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>RetroDenda | Ropa Vintage y Retro</title>
-
 </head>
 
 <body>
@@ -24,17 +23,15 @@
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="pages/productos.html">Productos</a></li>
-                <li><a href="#">Quiénes somos</a></li>
             </ul>
             <div class="language-menu">
                 <ul>
+                    <li><a href="/pages/registro.html"><i class="fa-solid fa-circle-user"></i></a></li>
+                    <li class="carrit"><a href="/pages/cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
                     <li>EUS</li>
                     <li>ENG</li>
-                    <li><a href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
                 </ul>
-            </div>
-            <div class="basket-btn"> <!-- botón para ir al carrito -->
-                <img>
+                <div id="reloj">fgdgfgd</div>
             </div>
         </nav>
     </header>
@@ -49,16 +46,31 @@
         <section id="carrusel-container"></section>
 
        <!-- AQUI ESTOY COLOCANDO LA LINEA QUE LLAMA PRODUCTOS DESTACADOS -->
+        <h2 class="subtitulo">Productos destacados</h2>
         <section id="products-destacados"></section>
 
         
 
-        <section class="workshop-viewer">
-            <h2>Nuestro taller</h2>
-            <div class="workshop-gallery">
-                <img>
-            </div>
+        <section>
+            <h2 class="taller-titulo">Nuestro taller</h2>
+            <article class="subcontainer-taller">
+                <figure>
+                    <img class="taller-img" src="assets/img/nuestro-taller1.jpg" alt="nuestro taller">
+                </figure>
+                <figcaption class="taller-texto"><p> <strong>En este taller, no fabricamos moda: </strong>la descubrimos, la seleccionamos y la preparamos para ti. <br><br>            
+                    Nuestra tienda es un espacio donde la moda vintage cobra vida entre colores, texturas y estilos que se mezclan para crear una experiencia única. <br><br> 
+                    <strong>En RetoDenda</strong>, cada detalle importa. Queremos que cada visita sea un viaje por el pasado, lleno de piezas especiales que destacan por su autenticidad y que están listas para convertirse en tus nuevas favoritas.</p></figcaption>
+            </article>
         </section>
+
+            <article class="subcontainer-taller-dos">
+                <figure>
+                    <img class="taller-img-dos" src="assets/img/nuestro-taller3.jpeg" alt="nuestro taller">
+                </figure>
+                <figcaption class="taller-texto-dos"><p> <strong>Nuestro Taller</strong>, es el espacio donde cuidamos cada detalle antes de que nuestras prendas, calzado y bolsos lleguen a tu manos. <br><br>
+                    Aquí es donde revisamos, limpiamos, clasificamos y preparamos cada pieza para asegurarnos de que mantenga la calidad, el estilo y la esencia vintage que caracteriza a <strong>RetoDenda</strong>. <br><br>
+                    Nuestro entorno combina el encanto de lo antiguo con un ambiente cálido y ordenado. Entre estantes llenos de prendas únicas, mesas donde organizamos accesorios y zonas de selección cuidadosamente iluminadas, trabajamos para que cada artículo conserve su personalidad y esté listo para formar parte de tu estilo.</p></figcaption>
+            </article>
     </main>
 
     <!-- -------------------------------------------------------------------------------------------
@@ -108,7 +120,7 @@
     </footer>
 
 
-
+    <script src="assets/js/fecha.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/modal.js"></script>
     <script src="assets/js/carrusel.js"></script>

@@ -1,34 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RetroDenda</title>
+    <title>Checkout - RetroDenda</title>
+    <link rel="shortcut icon" href="/assets/img/Logoretrodenda-provisional.webp" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/384e83612b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/assets/css/checkout.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
 
     <header>
         <div class="header-logo">
-            <img src="assets/img/Logoretrodenda-provisional.webp">
+            <img src="/assets/img/Logoretrodenda-provisional.webp" alt="Logo RetroDenta">
         </div>
         <nav>
             <ul>
-                <li>Inicio</li>
-                <li>Productos</li>
-                <li>Quiénes somos</li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="pages/productos.html">Productos</a></li>
+                
             </ul>
             <div class="language-menu">
                 <ul>
                     <li>EUS</li>
                     <li>ENG</li>
+                    <li><a href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
                 </ul>
             </div>
-            <div class="basket-btn"> <!-- botón para ir al carrito -->
-                <img>
-            </div>
+                   
         </nav>
 
     </header>
@@ -37,77 +39,116 @@
         <h1>Formulario de compra </h1>
       
 
-        <div class="formCompra">
-              <!--Formulario Cliente-->
-            <div class="formCliente">
+        <section>
+              
 
-                <h4>Datos del Cliente</h4>
+             <form action="" class="formCompra" id="formCompra" method="post">
+               
+                <div class="formCliente">
 
-                <form action="" class="formCliente" id="formCliente" method="post">
+                    <!--Formulario Cliente-->
+                    <h4>Datos del Cliente</h4>
 
-                    <Label for="imputNombre">Nombre:</Label>
-                    <input type="text" name="nombre" id="nombre" placeholder="Ingresa tu Nombre">
-
-                    <Label for="imputApellido">Apellido:</Label>
-                    <input type="text" name="apellido" id="apellido" placeholder="Ingresa tu Apellido">
-
-                    <Label for="imputMail">Correo electrónico:</Label>
-                    <input type="email" name="email" id="email" placeholder="Ingresa tu e-mail">
-
-                    <Label for="imputTfno">Teléfono:</Label>
-                    <input type="tel" name="tfno" id="tfno" placeholder="Ingresa tu Teléfono">
                     
-                </form>
+                            <Label for="imputNombre">Nombre:</Label>
+                            <input type="text" name="nombre" id="nombre" placeholder="Ingresa tu Nombre">
+                       
 
-            </div>
-            <!--Formulario Envio-->
-            <div class="formEnvio">
+                      
+                            <Label for="imputApellido">Apellido:</Label>
+                            <input type="text" name="apellido" id="apellido" placeholder="Ingresa tu Apellido">
+                        
+                        
+                            <Label for="imputMail">Correo electrónico:</Label>
+                            <input type="email" name="email" id="email" placeholder="Ingresa tu e-mail">
+                        
 
-                <h4>Datos de Envio</h4>
+                       
+                            <Label for="imputTfno">Teléfono:</Label>
+                            <input type="tel" name="tfno" id="tfno" placeholder="Ingresa tu Teléfono">
+                       
+                   
+                       
+                </div>   
+                
+                <div class="formEnvio"> 
+                
+                    <!--Formulario Envio-->
+                    <h4>Datos de Envio</h4>
 
-                <form action="" class="formEnvio" id="formEnvio" method="post">
-
-                    <Label for="imputPais">Pais / Región:</Label>
-                    <input type="text" name="pais" id="pais" placeholder="Ingresa tu Pais">
-
-                    <Label for="imputDireccion">Dirección:</Label>
-                    <input type="text" name="direccion" id="direccion" placeholder="Ingresa tu Dirección">
-
-                    <Label for="imputCiudad">Ciudad:</Label>
-                    <input type="text" name="ciudad" id="ciudad" placeholder="Ingresa tu Ciudad">
-
-                    <Label for="imputCP">Código postal:</Label>
-                    <input type="number" name="cp" id="cp" placeholder="Código postal">
-
-                    <Label for="imputProvincia">Provincia:</Label>
-                    <input type="text" name="ciudad" id="ciudad" placeholder="Ingresa tu Ciudad">
                     
 
-                    <button type="submit">Enviar Formulario</button>
-                </form>
+                        <Label for="imputPais">Pais / Región:</Label>
+                        <input type="text" name="pais" id="pais" placeholder="Ingresa tu Pais">
 
-            </div>
-        </div>
+                        <Label for="imputDireccion">Dirección:</Label>
+                        <input type="text" name="direccion" id="direccion" placeholder="Ingresa tu Dirección">
+
+                        <Label for="imputCiudad">Ciudad:</Label>
+                        <input type="text" name="ciudad" id="ciudad" placeholder="Ingresa tu Ciudad">
+
+                        <Label for="imputCP">Código postal:</Label>
+                        <input type="number" name="cp" id="cp" placeholder="Código postal">
+
+                        <Label for="imputProvincia">Provincia:</Label>
+                        <input type="text" name="ciudad" id="ciudad" placeholder="Ingresa tu Provincia">
+                        
+                </div>
+                        <button type="submit">Enviar Datos</button>
+                
+               
+            </form>
+        </section>
 
     </main>
 
     <footer>
 
-        <div class="footer-logo">
+        <div class="footer-container">
+            <section class="footer-section-1">
+                <div>
+                    <h4 class="title-page">RetroDenda</h4>
+                    <figure class="header-logo">
+                        <img src="/assets/img/Logoretrodenda-provisional.webp" alt="Logo RetroDenda">
+                    </figure>
+                </div>  
+            </section>
 
+            <section class="footer-section-2">
+                <div>
+                    <ul>
+                        <li> <i class="fa-solid fa-angle-right"></i> <a href="/pages/legal.html#cookies">Cookies</a></li>
+                        <li> <i class="fa-solid fa-angle-right"></i> <a href="/pages/legal.html#aviso">Aviso Legal</a></li>
+                        <li> <i class="fa-solid fa-angle-right"></i> <a href="/pages/legal.html#privacidad">Privacidad</a></li>
+                    </ul>
+                </div>
+            </section>
         </div>
-        <div class="page-info">
-            <p>Contáctanos en nuestras redes sociales:</p>
-        </div>
-
-        <div class="endfooter">
-            <p>(c) 2025 Hilos i</p>
-        </div>
+        <section class="footer-section-3">
+            <div class="footer-socials">
+                <div style="border-right: #FFC59C 4px solid;padding-right: 1rem;">
+                    <a href="https://www.facebook.com/?locale=es_ES" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+                <div style="border-right: #FFC59C 4px solid;padding-right: 1rem;">
+                    <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <div style="border-right: #FFC59C 4px solid;padding-right: 1rem;">
+                    <a href="https://x.com/?lang=es" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+                <div style="border-right: #FFC59C 4px solid;padding-right: 1rem;">
+                    <a href="https://www.youtube.com/?app=desktop&hl=es" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <div>
+                    <a href="https://www.tiktok.com/" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            <p>Copyright 2025 | Hilos i</p>
+        </section>
 
     </footer>
 
 
-
+    <script src="../assets/js/checkout.js"></script>
 </body>
 
 </html>

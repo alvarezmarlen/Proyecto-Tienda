@@ -1,4 +1,5 @@
 
+
 ///////////////
 // // 1. VARIABLES
 
@@ -8,11 +9,77 @@
 // HAY QUE REVISAR SI ESTAS VARIABLES COINCIDEN CON LAS NOMENCLATURAS PROPIAS!!
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+/*
+if (carrito.length === 0) {
+    carrito = [
+
+{                       "productID": 0,
+                        "categoria": "bolsos",
+                        "productName": "Bolso Azul",
+                        "imagen": "../assets/img/bolsos/bolso-azul.png",
+                        "precio": 35,
+                        "descripcion": "Bolso azul con tres espacios",
+                        "talla": "pequeno",
+                        "stock": 10,
+                        "cantidad": 1,
+                        },
+
+                        {"productID": 1,
+                        "categoria": "bolsos",
+                        "productName": "Bolso Marron",
+                        "imagen": "../assets/img/bolsos/bolso-marron.png",
+                        "precio": 65,
+                        "descripcion": "Bolso marron con asa color beige",
+                        "talla": "grande",
+                        "stock": 3,
+                        "cantidad": 1,
+                        },
+
+                        {"productID": 2,
+                        "categoria": "bolsos",
+                        "productName": "Bolso Blanco",
+                        "imagen": "../assets/img/bolsos/bolso-media-luna-suave.png",
+                        "precio": 25,
+                        "descripcion": "Bolso blanco con forma de media luna",
+                        "talla": "mediano",
+                        "stock": 100,
+                        "cantidad": 1,
+                        },
+
+                        {"productID": 3,
+                        "categoria": "bolsos",
+                        "productName": "Mochila Azul",
+                        "imagen": "../assets/img/bolsos/mochila-azul.jpg",
+                        "precio": 45,
+                        "descripcion": "Mochila azul para ir al monte",
+                        "talla": "mediano",
+                        "stock": 1,
+                        "cantidad": 1,
+                        },
+
+                        {"productID": 4,
+                        "categoria": "bolsos",
+                        "productName": "Mochila Oscura",
+                        "imagen": "../assets/img/bolsos/mochila-oscura.jpg",
+                        "precio": 30,
+                        "descripcion": "Bolso gris de tres cremalleras",
+                        "talla": "mediano",
+                        "stock": 4,
+                        "cantidad": 1,
+                        },
+
+        
+    ];
+    
+}
+*/
+
 const divisa = '€'
 const DOMitems = document.querySelector('#cart-items');
-const DOMcarrito = document.querySelector('#carrito');
 const DOMtotal = document.querySelector('#total');
 const DOMbotonVaciar = document.querySelector('#btn-empty');
+const DOMbotonCheckout = document.querySelector('#btn-checkout');
 
 
 
@@ -62,7 +129,7 @@ function renderizarCarrito() {
 
         const cantidadEnCarrito = document.createElement('span');
         cantidadEnCarrito.textContent = info.cantidad;
-        cantidadEnCarrito.classList.add('quantity-display')   // habrá que crear esta clase también
+        cantidadEnCarrito.classList.add('quantity-display')   //  habrá que crear esta clase también
         
 
         // (extraer el precio subtotal de la cantidad seleccionada del mismo producto)
@@ -149,13 +216,40 @@ function renderizarCarrito() {
         function eliminarItem(event) {
             const id = parseInt(event.target.dataset.id);
             carrito = carrito.filter(item => item.productID !== id);
-        }
+        
 
         localStorage.setItem("carrito", JSON.stringify(carrito));
         renderizarCarrito();
-    
+
+    }
+
+
+        if (DOMbotonVaciar) {
+            DOMbotonVaciar.addEventListener('click', () => {
+                carrito = [];
+                localStorage.removeItem('carrito');
+            renderizarCarrito();
+            })
+        }
+
+
+
+        DOMbotonCheckout.addEventListener("click", () => {
+            if (carrito.length === 0) {
+                alert("Tu carrito está vacío.");
+                return;
+            }
+            window.location.href = "/pages/checkout.html";
+            
+        });
 
 renderizarCarrito();
+
+
+
+
+
+
 
 
 

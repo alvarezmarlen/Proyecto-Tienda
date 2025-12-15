@@ -8,10 +8,10 @@ botonf.addEventListener("click", obtenerValor);
 
 /* filtramos articulosJson */
 function obtenerValor() {
-    let valorSeleccionado = "zapatos";
-    const selectElement = document.getElementById("categoria");
+   
+    const selectElement  = document.getElementById("categoria");
 
-    valorSeleccionado = selectElement.value;
+    let valorSeleccionado = selectElement.value;
 
 
     const articulosfiltrados = articulosJSON.filter(filtrado);
@@ -40,6 +40,7 @@ articulosfiltrados.forEach((product, index) => {
                             <figcaption class="caja-informacion">
                                 <h5>${product.productName}</h5>
                                 <p><strong>€ ${product.precio}</strong></p>
+                                <button class="agregar" id="agregar-carrito">Agregar al carrito</button>
                             </figcaption>
                         </figure>
                     </div>   

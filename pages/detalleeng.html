@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>detalle de producto</title>
+    <link rel="stylesheet" href="../assets/css/Detalle.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <!--barra navegacion-->
+     <header>
+        <div class="header-logo">
+            <img src="/assets/img/Logoretrodenda-provisional.webp" alt="Logo RetroDenda">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../pages/productoseng.html">Store</a></li>
+                <li><a href="#">Team</a></li>
+            </ul>
+            <div class="language-menu">
+                <ul>
+                    <li>EUS</li>
+                    <li>ENG</li>
+                    <li><a href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
+                </ul>
+            </div>
+            <div class="basket-btn"> <!-- botón para ir al carrito -->
+                <img>
+            </div>
+        </nav>
+    </header>  
+
+
+
+    <div id="reloj">fgdgfgd</div>
+    <br>
+
+  <select id="idioma">
+    <option value="" disabled selected>Selecciona idioma</option>
+  <option value="eng">eng</option>
+  <option value="esp">esp</option>
+</select>
+
+
+    <!-- tarjeta del producto -->
+    <h2>your product</h2>
+
+    <div style="margin-left:1rem; margin-bottom: 1.5rem;">
+        <a href="productos.html" style="text-decoration: none;">Return to products</a>
+        <p style="display:inline; background-color: #9c5847; color: rgb(255, 255, 255);" id="categoria"></p>
+    </div>
+
+    <div class="contenedor">
+        <!--imagen-->
+        <div class="cuadrofoto">
+            <img src="" class="foto" id="foto" alt="">
+        </div>
+        <div class="cuadroinfo">
+            <!--informacion-->
+            <div class="cuadrotexto" id="cuadro">
+            </div>
+            <!--botones-->
+            <div class="cuadrotexto">
+                <h2>Amount:</h2>
+                <div>
+                    <button id="botonrestar" class="boton">-</button>
+                    <p id="cantidad" style="display: inline;">cantidad</p>
+                    <button id="botonsumar" class="boton">+</button>                    
+                </div>
+                <br>
+                <button id="añadir" class="boton2">add to the cart</button>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!--recomendaciones-->
+    <h2>you might also like</h2>
+    <div class="contenedor2" id="contenedor2">
+
+    </div>
+
+    <!-- Cuadro modal -->
+    <div id="modal" class="modal">
+
+        <div class="modal-content">
+            <div>
+                <p id="infocompra"></p>
+                <a href="nnn.html" class="boton3">go to cart</a>
+                <br>
+                <button id="borrarcarrito" class="boton">delete cart</button>
+                <button id="seguircompra" class="boton">Continue shopping</button>
+            </div>
+        </div>
+    </div>
+
+
+ <!-- -------------------------------------------------------------------------------------------
+            DESDE AQUI COMIENZA EL FOOTER 
+-------------------------------------------------------------------------------------------------->
+    <footer>
+        <div class="footer-container">
+            <section class="footer-section-1">
+                <div>
+                    <h4 class="title-page">RetroDenda</h4>
+                    <figure class="header-logo">
+                        <img src="/assets/img/Logoretrodenda-provisional.webp" alt="">
+                    </figure>
+                </div>  
+            </section>
+
+            <section class="footer-section-2">
+                <div>
+                    <ul>
+                        <li> <i class="fa-solid fa-angle-right"></i> <a href="/pages/legal.html#cookies">Cookies</a></li>
+                        <li> <i class="fa-solid fa-angle-right"></i> <a href="/pages/legal.html#aviso">Legal Notice</a></li>
+                        <li> <i class="fa-solid fa-angle-right"></i> <a href="/pages/legal.html#privacidad">Privacy</a></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <section class="footer-section-3">
+            <div class="footer-socials">
+                <div style="border-right: #FFC59C 4px solid;padding-right: 1rem;">
+                    <a href="https://www.facebook.com/?locale=es_ES" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+                <div style="border-right: #FFC59C 4px solid;padding-right: 1rem;">
+                    <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <div style="border-right: #FFC59C 4px solid;padding-right: 1rem;">
+                    <a href="https://x.com/?lang=es" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+                <div style="border-right: #FFC59C 4px solid;padding-right: 1rem;">
+                    <a href="https://www.youtube.com/?app=desktop&hl=es" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <div>
+                    <a href="https://www.tiktok.com/" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            <p>Copyright 2025 | Hilos i</p>
+        </section>
+    </footer>
+
+
+    <!--javascript-->
+    <script type="module" src="../assets/js/detalle.js"></script>
+    <script src="../assets/js/fecha.js"></script>
+    <script src="../assets/js/traduccion.js"></script>
+
+
+</body>
+
+</html>
