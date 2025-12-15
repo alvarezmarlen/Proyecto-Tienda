@@ -8,7 +8,7 @@ let compra = {
 import { articulosJSON } from './main.js';
 const articulo = JSON.parse(localStorage.getItem('productoSeleccionado'));
 
-//
+// linea para volver atras
 document.getElementById("categoria").textContent = articulo.categoria;
 
 // seleccionamos el cuadro de la foto y ponemos la imagen del articulo
@@ -51,9 +51,9 @@ botonabrirmodal.addEventListener("click", añadir);
 
 function añadir() {
     // asignar valores al objeto compra iniciado al principio
-    compra.productID = articulo.produtID;
+    compra.produtID = articulo.produtID;
     compra.cantidad = numero;
-    compra.precio = 25;
+    compra.precio = articulo.precio;
 
     // obtenemos el array carrito de localstorage, si no existe se crea uno vacio
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -61,8 +61,8 @@ function añadir() {
     /*comprobamos si la compra esta en el carrito. Si existe buscamos la compra, sumamos y comprobamos
     que no se supera el stock, si no esta la compra se añade al carrito*/
 
-    if (carrito.some (obj => obj.productID === compra.productID)) {
-        const compraencarrito = carrito.find (orden => orden.productID === compra.productID);
+    if (carrito.some (obj => obj.produtID === compra.produtID)) {
+        const compraencarrito = carrito.find (orden => orden.produtID === compra.produtID);
 
         //sumar la cantidad
         compraencarrito.cantidad = compraencarrito.cantidad + numero;
@@ -117,7 +117,7 @@ function filtrarcategoria(producto) {
 
 //crea las tarjetas y la añade a contenedor2 
 
-for (let i = 0; i < 4; i++) {
+/* for (let i = 0; i < 4; i++) {
     const nodoimg = document.createElement("img");
          const nododiv = document.createElement("div");
          nododiv.setAttribute("class", "cuadrofoto2");
@@ -130,4 +130,36 @@ for (let i = 0; i < 4; i++) {
 
     nododiv.appendChild(nodoimg);
     contenedor2.appendChild(nododiv);
+}*/
+
+for (let i = 0; i < 4; i++) {
+    const tarjeta = document.createElement('div');
+    tarjeta.className = 'tarjeta';
+    tarjeta.innerHTML = `
+                    <div class="card-tarjeta">
+                        <figure>
+                            <img class="tarjeta-img" src="${similares[i].imagen}" alt="${similares[i].productName}">
+                            <figcaption class="tarjeta-informacion">
+                                <h5>${similares[i].productName}</h5>
+                                <p><strong>€ ${similares[i].precio}</strong></p>
+                                <button class="agregar" id="agregar-carrito">Agregar al carrito</button>
+                            </figcaption>
+                        </figure>
+                    </div>   
+    
+    `;
+
+     // Click en la tarjeta → ir al detalle
+    tarjeta.querySelector('.card-tarjeta').addEventListener('click', function() {
+        localStorage.setItem('productoSeleccionado', JSON.stringify(similares[i]));
+        window.location.href = 'detalle.html';
+    });
+
+    // Click en el botón → NO ir al detalle
+    tarjeta.querySelector('.agregar').addEventListener('click', function(event) {
+        event.stopPropagation();
+        // Aquí tu compañero agrega el código del carrito
+    });
+
+    contenedor2.appendChild(tarjeta);
 }

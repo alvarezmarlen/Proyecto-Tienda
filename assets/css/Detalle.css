@@ -16,6 +16,14 @@ body {
     background-color: #f4f8f1;
 }
 
+.marca {
+    display:inline-block; 
+    background-color: #9c5847; 
+    color: rgb(255, 255, 255);
+    padding: 0.2rem;
+}
+
+
 .boton {
   background-color: #9c5847;
   color: white;    
@@ -24,8 +32,8 @@ body {
   padding: 0.8rem 1.2rem; 
   font-size: 1rem; 
   cursor: pointer;          
-  text-decoration: none;    
-  margin: 0.8rem;  
+  text-decoration: none;
+  border: 0.1rem solid transparent;   
 }
 
 .boton2 {
@@ -37,8 +45,17 @@ body {
   font-size: 1rem; 
   cursor: pointer;          
   text-decoration: none;    
-  margin: 0.8rem;  
   width: 100%;
+}
+
+.boton:hover {
+    border-style: solid;
+    border-color: black;
+    border-width: 0.1rem;
+}
+.boton2:hover {
+    background-color: #e4c6be;
+  color: rgb(87, 57, 57);    
 }
 
 .boton3 {
@@ -50,7 +67,6 @@ body {
   font-size: 1rem; 
   cursor: pointer;          
   text-decoration: none;    
-  margin: 0.8rem;  
   width: 100%;
   display:block;
 }
@@ -80,8 +96,9 @@ body {
     display: block;
     width: 100%;
     height: auto;
-    border-style: solid;
     transition: transform 0.4s ease;
+    border: 3px dotted #7fbd1b;
+    border-radius: 0.7rem;
 }
 
 .cuadroinfo {
