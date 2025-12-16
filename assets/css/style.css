@@ -5,13 +5,17 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+body, html {
+    width: 100%;
+    overflow-x: hidden; 
+}
 /* HEADER */
 header {
     background-color: #7fbd1b;
     display: flex;
     align-items: center;
     height: 6rem;
+    width: 100%;
 }
 
 .header-logo {
@@ -21,8 +25,7 @@ header {
 }
 
 .header-logo img {
-    width: 30%;
-    height: 30%;
+    width: 5rem;
     border-radius: 50%;
     margin-left: 4rem;
 }
@@ -38,6 +41,7 @@ nav {
 nav ul {
     display: flex;
     list-style: none;
+    margin-left: 5rem;
 }
 
 nav ul li a{
@@ -46,21 +50,23 @@ nav ul li a{
     padding: 1rem;
     font-size: 1.2rem;
 }
+.idioma{
 
+    color: rgb(240, 17, 17);
 
-
+}
 
 /* LANGUAGE MENU */
 .carrit{
     margin-right: 2rem;
 }
-.language-menu {
+.registro-cart {
     margin-left: auto;
     padding-right: 2.5rem;
     position: relative;
 }
 
-.language-menu ul {
+.regitro-cart ul {
     display: flex;
     gap: 0.3rem;
 }
@@ -75,31 +81,42 @@ nav ul li a{
     margin-top: 0.3rem;
     white-space: nowrap;
 }
-/* ----------------------------------------------------
-    AQUI EMPIEZA EL CUERPO DE LA PAGINA INDEX
-------------------------------------------------------*/
-main {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: "Montserrat";
+ /*--------------------------------------------
+   MENÚ HAMBURGUESA SOLO CON HTML + CSS
+-------------------------------------------- */
+/* Oculta checkbox */
+.menu-toggle {
+  display: none;
 }
+/* Icono de hamburguesa */
+.menu-icon {
+  display: none;
+  font-size: 2em;
+  cursor: pointer;
+  color: black;
+  position: fixed;
+  right: 20px;
+  z-index: 1001;
+}
+/* ----------------------------------------------------
 
 /*-------------------------------------------------------
         AQUI DEBO AGREGAR STYLE DEL CARRUSEL
 ------------------------------------------------------ */
+#carrusel-container {
+    width: 100%;
+}
 .carrusel {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
     width: 100%;
+    overflow: hidden;
     margin-bottom: 10rem;
     position: relative;
 }
 .imagenes {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -107,13 +124,15 @@ main {
     position: relative;
     z-index: 1;
 }
+#img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 .img{
-    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.85);
+    width: 100%;
     height: 45rem;
-    width: 120rem;
-    border-radius: 1rem;
     object-fit: cover;
-    transition: opacity 0.5s ease-in-out;
 }
 
 .iconos {
@@ -208,11 +227,13 @@ main {
 .subtitulo{
     font-size: 3rem;
     margin-top: 5rem;
+    text-align: center;
 }
 #products-destacados{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     padding: 1rem;
+    gap: 1rem;
     font-family: "Overpass Mono";
 }
 .card-tarjeta {
@@ -332,6 +353,16 @@ footer{
     justify-content: space-between;
     align-items: center;
 }
+.footer-logo {
+    padding-left: 2rem;
+    display: flex;
+    align-items: center;
+}
+.footer-logo img {
+    width: 5rem;
+    border-radius: 50%;
+    margin-left: 4rem;
+}
 footer a{
     color: black;
     text-decoration: none;
@@ -390,18 +421,156 @@ footer a{
 }
 
 
-@media screen and (max-width: 1024px) {
-    
-    
-
+/* --------------------------------------------
+   RESPONSIVE: TELÉFONOS Y TABLETAS PEQUEÑAS
+-------------------------------------------- */
+@media screen and (max-width: 1024px) {   
+    .header-logo {
+    padding-left: 0;
+    } 
+   .texto h1 {
+        font-size: 4rem;
+    }
+    .texto h4 {
+        font-size: 1.3rem;
+    }
+    .subcontainer-taller,
+    .subcontainer-taller-dos {
+        grid-template-columns: 1fr; 
+        padding: 0 1rem; 
+        margin-bottom: 2rem;
+    }
+    .taller-img, .taller-img-dos {
+        grid-area: auto; 
+        order: 1; 
+        margin: 1rem auto; 
+    }
+    .taller-texto, .taller-texto-dos {
+        grid-area: auto;
+        order: 2; 
+        margin: 1rem;
+    }
 }
-@media screen and (max-width: 768px) {
 
-  
-}
 
-@media screen and (max-width: 425px) {
+@media (max-width: 768px) {  
+    .header-logo img {
+    margin: 1.5rem;    
+    }
+      /* Mostrar hamburguesa */
+    .menu-icon {
+        display: block;         
+    }
+    nav{
+        align-items: center;
+    }
+    /* ICONOS: se quedan en la barra */
+  .registro-cart {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+  }
 
-  
+  .iconos-nav {
+    display: flex;
+    gap: 0.5rem;
+  }
+    nav ul {
+        flex-direction: column;
+        background-color: white;
+        position: absolute;
+        top: 6rem; 
+        right: 0;
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        z-index: 1000;        
+        display: none; 
+    }
+    nav ul li {
+        width: 100%;
+    }
+    nav ul li a {
+        display: block; 
+        border-bottom: 1px solid #e0e0e0;
+    }    
+    .menu-toggle:checked ~ nav ul {
+        display: flex; 
+    }
+    
+    .registro-cart {
+        padding-right: -10rem;
+        padding-top: 7rem;   
+    }
+    .iconos-nav{
+        background-color: transparent;
+        
+    }
 
+    #reloj {
+        right: 0.3rem;
+        font-size: 0.7rem;
+        top: 5rem;
+    }
+
+    /* CARRUSEL */
+    .img{
+        height: 20rem;
+    }
+    .iconos {
+    display: none;
+    }
+    .texto h1 {
+        font-size: 2.5rem;
+    }
+    .texto h4 {
+        font-size: 0.8rem;
+        margin-top: 0;
+    }
+    .imagenes .texto {
+        width: 80%; 
+        height: 120px;
+        margin-bottom: 2rem; 
+    }
+    .puntos p {
+        font-size: 50px; 
+        margin-top: -1rem;
+    }
+    /* seccion DESTACADOS */
+    .subtitulo {
+        font-size: 2rem;
+        margin-top: 3rem;
+    }
+    /* seccion NUESTRO TALLER */
+    .taller-titulo{
+    font-size: 2rem;
+    }
+    .taller-img,  .taller-img-dos  {
+    width: 23rem;
+    margin-left: 0;
+    }
+    .taller-texto, .taller-texto-dos {
+        grid-area: auto;
+        font-size: 1.3rem;
+        text-align: center;
+    }
+    
+    /* --- FOOTER: Apilar secciones --- */
+    .footer-container{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-logo img {
+    margin: 0rem;
+    }
+    .footer-container section{
+        width: 90%; 
+        margin-bottom: 2rem;
+    }
+    .footer-section-2>div{
+        width: 100%; /
+    }
+    .footer-section-2 ul li{
+        text-align: center; 
+    }
 }

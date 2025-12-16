@@ -1,127 +1,104 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - RetroDenda</title>
-    <link rel="shortcut icon" href="/assets/img/Logoretrodenda-provisional.webp" type="image/x-icon">
-    <script src="https://kit.fontawesome.com/384e83612b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/assets/css/checkout.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - RetroDenda</title>
+
+  <link rel="shortcut icon" href="/assets/img/Logoretrodenda-provisional.webp" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/384e83612b.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="/assets/css/checkout.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
+  <header>
+    <div class="header-logo">
+      <img src="/assets/img/Logoretrodenda-provisional.webp" alt="Logo RetroDenta">
+    </div>
 
-    <header>
-        <div class="header-logo">
-            <img src="/assets/img/Logoretrodenda-provisional.webp" alt="Logo RetroDenta">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="/index.html">Inicio</a></li>
-                <li><a href="/pages/productos.html">Productos</a></li>
-                
-            </ul>
-            <div class="language-menu">
-                <ul>
-                    <li>EUS</li>
-                    <li>ENG</li>
-                    <li><a href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
-                </ul>
-            </div>
-                   
-        </nav>
+    <nav>
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/productos.html">Productos</a></li>
+      </ul>
 
-    </header>
+      <div class="language-menu">
+        <ul>
+          <li>EUS</li>
+          <li>ENG</li>
+          <li><a href="/pages/cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-    <!--SECCIÓN PRINCIPAL-->
-    
-    <main>
-        <h2>Formulario de compra </h2>
-      
+  <main>
+    <h2>FORMULARIO DE COMPRA</h2>
 
-        <section class="checkout">
-             
-             <form action="" class="formCompra" id="formCompra" method="post">
+    <div class="checkout-container">
 
+      <section class="checkout-data">
+        <form action="" class="formCompra" id="formCompra" method="post">
 
+          <div class="formCliente">
+            <h3>Datos del Cliente</h3>
 
-                    <!--Formulario Cliente-->
-                    <div class="formCliente">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Ingresa tu Nombre" required>
 
-                    <h3>Datos del Cliente</h3>
+            <label for="apellido">Apellido:</label>
+            <input type="text" name="apellido" id="apellido" placeholder="Ingresa tu Apellido" required>
 
+            <label for="email">Correo electrónico:</label>
+            <input type="email" name="email" id="email" placeholder="Ingresa tu e-mail" required>
 
-                    
-                            <Label for="nombre">Nombre:</Label>
-                            <input type="text" name="nombre" id="nombre" placeholder="Ingresa tu Nombre">
-                       
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" name="tfno" id="telefono" placeholder="Ingresa tu Teléfono">
+          </div>
 
-                      
-                            <Label for="apellido">Apellido:</Label>
-                            <input type="text" name="apellido" id="apellido" placeholder="Ingresa tu Apellido">
-                        
-                        
-                            <Label for="email">Correo electrónico:</Label>
-                            <input type="email" name="email" id="email" placeholder="Ingresa tu e-mail">
-                        
+          <div class="formEnvio">
+            <h3>Datos de Envío</h3>
 
-                       
-                            <Label for="telefono">Teléfono:</Label>
-                            <input type="tel" name="tfno" id="telefono" placeholder="Ingresa tu Teléfono">
-                       
-                   
-                       
-                </div>   
-                
-                <div class="formEnvio"> 
-                
-                    <!--Formulario Envio-->
-                    <h3>Datos de Envio</h3>
+            <label for="pais">País / Región:</label>
+            <input type="text" name="pais" id="pais" placeholder="Ingresa tu País" required>
 
-                    
-                        <label for="pais">Pais / Región:</label>
-                        <input type="text" name="pais" id="pais" placeholder="Ingresa tu Pais">
+            <label for="direccion">Dirección:</label>
+            <input type="text" name="direccion" id="direccion" placeholder="Ingresa tu Dirección" required>
 
-                        <label for="direccion">Dirección:</label>
-                        <input type="text" name="direccion" id="direccion" placeholder="Ingresa tu Dirección">
+            <label for="ciudad">Ciudad:</label>
+            <input type="text" name="ciudad" id="ciudad" placeholder="Ingresa tu Ciudad" required>
 
-                        <label for="ciudad">Ciudad:</label>
-                        <input type="text" name="ciudad" id="ciudad" placeholder="Ingresa tu Ciudad">
+            <label for="zipcode">Código postal:</label>
+            <input type="text" name="cp" id="zipcode" placeholder="Código postal" required inputmode="numeric">
 
-                        <label for="zipcode">Código postal:</label>
-                        <input type="number" name="cp" id="zipcode" placeholder="Código postal">
-
-                        <label for="provincia">Provincia:</label>
-                        <input type="text" name="provincia" id="provincia" placeholder="Ingresa tu Provincia">
-                        
-                </div>
-                        <button type="submit">Enviar Datos</button>
-
-            </form>
-        </section>
+            <label for="provincia">Provincia:</label>
+            <input type="text" name="provincia" id="provincia" placeholder="Ingresa tu Provincia" required>
+          </div>
 
 
+          <div id="checkout-errors" aria-live="polite"></div>
+
+          <button type="submit">Enviar Datos</button>
+        </form>
+      </section>
+
+      <div class="checkout-right-column">
         <section class="cart-order" id="cart-order">
           <p>Resumen de tu compra</p>
+
         </section>
 
-
-      <section class="payment" id="payment">
-
-        <div>
+        <section class="payment" id="payment">
           <p>Pasarelas de pago</p>
-        </div>
-
         </section>
+      </div>
 
-    </main>
+    </div>
+  </main>
 
-
-
-
-
+  <script type="module" src="../assets/js/checkout.js"></script>
 
 
     <footer>

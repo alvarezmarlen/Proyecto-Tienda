@@ -115,3 +115,53 @@
 
 
 
+@media (max-width: 1024px) {
+    #container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    #container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .containerform {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 5px;
+        padding: 5px;
+    }
+    .filtro {
+        max-width: 200px;
+    }
+    .filtro label,
+    .filtro select,
+    .filtro input,
+    .filtro button,
+    #botonfiltro {
+        font-size: 0.8rem;
+        padding: 4px 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    #container {
+        grid-template-columns: 1fr;
+    }
+    .caja-img {
+        height: 200px;
+    }
+    .card {
+        height: auto;
+        padding: 0.5rem;
+    }
+    .filtro {
+        max-width: 150px;
+        flex-direction: row;
+        gap: 5px;
+    }
+    #botonfiltro {
+        width: auto;
+    }
+}
