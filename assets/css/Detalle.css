@@ -68,7 +68,7 @@ body {
   cursor: pointer;          
   text-decoration: none;    
   width: 100%;
-  display:block;
+
 }
 
 
@@ -116,6 +116,16 @@ body {
     margin-bottom: 10px;
 }
 
+.cuadrotexto2 {
+    width: 100%;
+    padding: 1.2rem;
+    background-color: #7fbd1b;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 1rem;
+}
+
 /*cuadro modal*/
 .modal {
     display: none;
@@ -142,6 +152,17 @@ body {
      box-shadow: 0.3rem 0.3rem 0.8rem 0.1rem rgba(12, 11, 11, 0.5);
 }
 
+.preview{
+    border-style: dotted;
+    border-color: #7fbd1b;
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+}
+.preview img {
+    width: 100%;
+     object-fit: cover;
+}
 /*recomendaciones*/
 .contenedor2 {
     background-color: white;

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/384e83612b.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Overpass+Mono:wght@300..700&family=Pacifico&display=swap');
+
+        .navcontenedor {
+            display: flex;
+            align-items: center;
+            background-color: rgb(94, 187, 91);
+            animation: slideDown 0.8s ease-out forwards;
+        }
+        
+@keyframes slideDown {
+    from {
+        transform: translateY(-150px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+        .navimagen {
+            width: 100%;
+            overflow: hidden;
+            mix-blend-mode: multiply;
+        }
+
+        .nav1 {
+            width: 20%;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+
+        }
+
+        .nav2 {
+            width: 60%;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            font-family: "Overpass Mono", monospace;
+            padding: 1rem;
+        }
+
+        .nav3 {
+            width: 20%;
+            display: flex;
+            justify-content: right;
+            gap: 1rem;
+            font-family: "Overpass Mono", monospace;
+            padding: 1rem;
+        }
+
+        .nav2 a {
+            color: rgb(0, 0, 0);
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+
+        .navlogo {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+        }
+
+        .navslogan1 {
+            font-size: 1.5rem;
+            margin: 0.5rem;
+            font-family: "pacifico", monserrat;
+        }
+
+        .navslogan2 {
+            font-size: 0.7rem;
+            margin: 0.5rem;
+            font-family: "Overpass Mono", monospace;
+        }
+
+        .nav3 a {
+            color: rgb(0, 0, 0);
+            padding: 0.5rem;
+            text-decoration: none;
+            font-size: 1.6rem;
+        }
+        
+        .footcontenedor {
+            display: flex;
+            align-items: center;
+            background-color: rgb(94, 187, 91);
+        }
+
+        .foot1 {
+            width: 33%;
+        }
+        .foot2 {
+            display: flex;
+            justify-content: center;
+            width: 33%;
+        }
+
+        .foot2 a{
+            font-size: 2rem;
+            color: black;
+            margin: 1.5rem;
+        }
+
+        .foot3 {
+            display: flex;
+            justify-content: right;
+            width: 33%;
+        }
+        
+        .foot3 ul {
+            list-style-type: none;
+        }
+        
+        .foot3 a {
+            font-family: "Overpass Mono", monospace;
+            padding: 1rem;
+            text-decoration: none;
+            color: black;
+        }
+        .footcopy{
+            background-color: rgb(207, 111, 32);
+            color: black;
+            font-family: "Overpass Mono", monospace;
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        .textocontenedor{
+            margin: 1rem;
+            display:flex;
+            gap: 1rem;
+            align-items: center;
+
+        }
+        .textoimagen {
+    width: 40%;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textoimagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+.separador{
+      font-family: "pacifico", monserrat;
+      text-align: center;
+      font-size: 4rem;
+      padding: 2rem;
+}
+
+        .texto {
+            border-radius: 10px;
+            width: 80%;
+            margin: auto;
+            padding: 3rem;
+            font-family: "Overpass Mono", monospace;
+            text-align: center;
+        }
+          
+.experimento{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/img/nuestro-taller1.jpg");
+
+  /* Set a specific height */
+  height: 50vh;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.experimento2{
+    text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: "Overpass Mono", monospace;
+  font-size: 2rem;
+}
+
+        @media (max-width: 768px) {
+            .nav1 {
+                width: 100%;
+            }
+
+            .navcontenedor {
+                flex-wrap: wrap;
+            }
+            
+            .foot1{
+                display:none;
+
+            }
+            .foot2 {
+                width: 60%;
+            }
+            .foot2 a{
+                font-size: 1.5rem;
+            }
+            .foot3{
+                width: 40%;
+            }
+
+            .textocontenedor{
+                flex-direction: column;
+            }
+            .texto{
+                width: 100%;
+            }
+            .textoimagen{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navcontenedor">
+        <div class="nav1">
+            <div class="navlogo">
+                <img class="navimagen" src="../assets/img/Logoretrodenda-provisional.webp" alt="">
+
+            </div>
+            <div>
+                <p class="navslogan1">RetroDenda</p>
+                <p class="navslogan2">estilo retro, aptitud moderna.</p>
+            </div>
+        </div>
+        <div class="nav2">
+            <a href="../index.html">Inicio</a>
+            <a href="productos.html">Productos</a>
+            <a href="#">Nosotros</a>
+        </div>
+        <div class="nav3">
+            <a href="registro.html"><i class="fa-solid fa-circle-user"></i></a>
+            <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+            
+        </div>
+        
+        <select id="idioma">
+            <option value="" disabled selected>idioma</option>
+            <option value="eng">eng</option>
+            <option value="esp">esp</option>
+        </select>
+    </div>
+
+           <div class="texto">
+            Nuestro Taller, es el espacio donde cuidamos cada detalle antes de que nuestras prendas, calzado y bolsos lleguen a tu manos.
+
+Aquí es donde revisamos, limpiamos, clasificamos y preparamos cada pieza para asegurarnos de que mantenga la calidad, el estilo y la esencia vintage que caracteriza a RetoDenda.
+
+Nuestro entorno combina el encanto de lo antiguo con un ambiente cálido y ordenado. Entre estantes llenos de prendas únicas, mesas donde organizamos accesorios y zonas de selección cuidadosamente iluminadas, trabajamos para que cada artículo conserve su personalidad y esté listo para formar parte de tu estilo.
+        </div>
+
+        <div class="experimento">    
+            <div class="experimento2">
+                <p>En este taller, no fabricamos moda: la descubrimos, la seleccionamos y la preparamos para ti. </p>
+            </div>
+        </div>
+        <div class="texto">
+            Nuestra tienda es un espacio donde la moda vintage cobra vida entre colores, texturas y estilos que se mezclan para crear una experiencia única.
+
+En RetoDenda, cada detalle importa. Queremos que cada visita sea un viaje por el pasado, lleno de piezas especiales que destacan por su autenticidad y que están listas para convertirse en tus nuevas favoritas.
+        </div>
+
+
+<div class="footcontenedor">
+        <div class="foot1">
+            <div class="navlogo">
+                <img class="navimagen" src="../assets/img/Logoretrodenda-provisional.webp" alt="">
+
+            </div>
+            <div>
+                <p class="navslogan1">RetroDenda</p>
+                <p class="navslogan2">estilo retro, aptitud moderna.</p>
+            </div>
+        </div>
+        <div class="foot2">
+            <a href="https://www.facebook.com/?locale=es_ES"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://x.com/?lang=es"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://www.youtube.com/?app=desktop&hl=es"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.tiktok.com/"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+        <div class="foot3">
+            <ul>
+                <li><i class="fa-solid fa-angle-right"></i> <a href="/pages/legal.html#cookies">Cookies</a></li>
+                <li><i class="fa-solid fa-angle-right"></i> <a href="/pages/legal.html#aviso">Aviso Legal</a></li>
+                <li><i class="fa-solid fa-angle-right"></i> <a href="/pages/legal.html#privacidad">Privacidad</a></li>
+
+            </ul>
+            
+        </div>
+       
+        
+    </div>
+
+ <div class="footcopy">
+            Copyright 2025 | Hilos i
+        </div>
+
+</body>
+
+</html>

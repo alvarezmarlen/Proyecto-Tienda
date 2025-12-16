@@ -19,8 +19,8 @@
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="pages/productos.html">Productos</a></li>
+                <li><a href="/index.html">Inicio</a></li>
+                <li><a href="/pages/productos.html">Productos</a></li>
                 
             </ul>
             <div class="language-menu">
@@ -34,38 +34,42 @@
         </nav>
 
     </header>
-    <!--Formulario de compra-->
+
+    <!--SECCIÓN PRINCIPAL-->
+    
     <main>
-        <h1>Formulario de compra </h1>
+        <h2>Formulario de compra </h2>
       
 
-        <section>
-              
-
+        <section class="checkout">
+             
              <form action="" class="formCompra" id="formCompra" method="post">
-               
-                <div class="formCliente">
+
+
 
                     <!--Formulario Cliente-->
-                    <h4>Datos del Cliente</h4>
+                    <div class="formCliente">
+
+                    <h3>Datos del Cliente</h3>
+
 
                     
-                            <Label for="imputNombre">Nombre:</Label>
+                            <Label for="nombre">Nombre:</Label>
                             <input type="text" name="nombre" id="nombre" placeholder="Ingresa tu Nombre">
                        
 
                       
-                            <Label for="imputApellido">Apellido:</Label>
+                            <Label for="apellido">Apellido:</Label>
                             <input type="text" name="apellido" id="apellido" placeholder="Ingresa tu Apellido">
                         
                         
-                            <Label for="imputMail">Correo electrónico:</Label>
+                            <Label for="email">Correo electrónico:</Label>
                             <input type="email" name="email" id="email" placeholder="Ingresa tu e-mail">
                         
 
                        
-                            <Label for="imputTfno">Teléfono:</Label>
-                            <input type="tel" name="tfno" id="tfno" placeholder="Ingresa tu Teléfono">
+                            <Label for="telefono">Teléfono:</Label>
+                            <input type="tel" name="tfno" id="telefono" placeholder="Ingresa tu Teléfono">
                        
                    
                        
@@ -74,33 +78,51 @@
                 <div class="formEnvio"> 
                 
                     <!--Formulario Envio-->
-                    <h4>Datos de Envio</h4>
+                    <h3>Datos de Envio</h3>
 
                     
-
-                        <Label for="imputPais">Pais / Región:</Label>
+                        <label for="pais">Pais / Región:</label>
                         <input type="text" name="pais" id="pais" placeholder="Ingresa tu Pais">
 
-                        <Label for="imputDireccion">Dirección:</Label>
+                        <label for="direccion">Dirección:</label>
                         <input type="text" name="direccion" id="direccion" placeholder="Ingresa tu Dirección">
 
-                        <Label for="imputCiudad">Ciudad:</Label>
+                        <label for="ciudad">Ciudad:</label>
                         <input type="text" name="ciudad" id="ciudad" placeholder="Ingresa tu Ciudad">
 
-                        <Label for="imputCP">Código postal:</Label>
-                        <input type="number" name="cp" id="cp" placeholder="Código postal">
+                        <label for="zipcode">Código postal:</label>
+                        <input type="number" name="cp" id="zipcode" placeholder="Código postal">
 
-                        <Label for="imputProvincia">Provincia:</Label>
-                        <input type="text" name="ciudad" id="ciudad" placeholder="Ingresa tu Provincia">
+                        <label for="provincia">Provincia:</label>
+                        <input type="text" name="provincia" id="provincia" placeholder="Ingresa tu Provincia">
                         
                 </div>
                         <button type="submit">Enviar Datos</button>
-                
-               
+
             </form>
         </section>
 
+
+        <section class="cart-order" id="cart-order">
+          <p>Resumen de tu compra</p>
+        </section>
+
+
+      <section class="payment" id="payment">
+
+        <div>
+          <p>Pasarelas de pago</p>
+        </div>
+
+        </section>
+
     </main>
+
+
+
+
+
+
 
     <footer>
 
@@ -148,7 +170,7 @@
     </footer>
 
 
-    <script src="../assets/js/checkout.js"></script>
+    <script type=module src="../assets/js/checkout.js"></script>
 </body>
 
 </html>

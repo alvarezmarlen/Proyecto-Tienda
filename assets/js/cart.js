@@ -1,255 +1,251 @@
 
 
-///////////////
-// // 1. VARIABLES
+import { articulosJSON } from './main.js';
 
 
 
 
-// HAY QUE REVISAR SI ESTAS VARIABLES COINCIDEN CON LAS NOMENCLATURAS PROPIAS!!
+let carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
 
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+carrito = aCarritoMinimo(carrito);
+guardarCarrito();
 
-/*
-if (carrito.length === 0) {
-    carrito = [
+// INICIO DEL ADAPTADOR DE CARRITO EN LOCAL STORAGE DESDE CATÁLOGO, DESTACADOS Y DETALLE //
 
-{                       "productID": 0,
-                        "categoria": "bolsos",
-                        "productName": "Bolso Azul",
-                        "imagen": "../assets/img/bolsos/bolso-azul.png",
-                        "precio": 35,
-                        "descripcion": "Bolso azul con tres espacios",
-                        "talla": "pequeno",
-                        "stock": 10,
-                        "cantidad": 1,
-                        },
+function aCarritoMinimo(lista) {
+  const map = new Map(); // id -> cantidad
 
-                        {"productID": 1,
-                        "categoria": "bolsos",
-                        "productName": "Bolso Marron",
-                        "imagen": "../assets/img/bolsos/bolso-marron.png",
-                        "precio": 65,
-                        "descripcion": "Bolso marron con asa color beige",
-                        "talla": "grande",
-                        "stock": 3,
-                        "cantidad": 1,
-                        },
+  for (const item of (Array.isArray(lista) ? lista : [])) {
+    const id = Number(item.productID ?? item.produtID ?? item.id);
+    if (!Number.isFinite(id)) continue;
 
-                        {"productID": 2,
-                        "categoria": "bolsos",
-                        "productName": "Bolso Blanco",
-                        "imagen": "../assets/img/bolsos/bolso-media-luna-suave.png",
-                        "precio": 25,
-                        "descripcion": "Bolso blanco con forma de media luna",
-                        "talla": "mediano",
-                        "stock": 100,
-                        "cantidad": 1,
-                        },
+    const cantidad = Number(item.cantidad ?? 1);
+    const cantidadSegura = Number.isFinite(cantidad) && cantidad > 0 ? cantidad : 1;
 
-                        {"productID": 3,
-                        "categoria": "bolsos",
-                        "productName": "Mochila Azul",
-                        "imagen": "../assets/img/bolsos/mochila-azul.jpg",
-                        "precio": 45,
-                        "descripcion": "Mochila azul para ir al monte",
-                        "talla": "mediano",
-                        "stock": 1,
-                        "cantidad": 1,
-                        },
+    map.set(id, (map.get(id) ?? 0) + cantidadSegura);
+  }
 
-                        {"productID": 4,
-                        "categoria": "bolsos",
-                        "productName": "Mochila Oscura",
-                        "imagen": "../assets/img/bolsos/mochila-oscura.jpg",
-                        "precio": 30,
-                        "descripcion": "Bolso gris de tres cremalleras",
-                        "talla": "mediano",
-                        "stock": 4,
-                        "cantidad": 1,
-                        },
-
-        
-    ];
-    
+  // esto devuelve un array mínimo (con ambos nombres de ID para compatibilidad)
+  return [...map.entries()].map(([id, cantidad]) => ({
+    productID: id, // para catalogo.js
+    produtID: id,  // para detalle.js
+    cantidad
+  }));
 }
-*/
 
-const divisa = '€'
+function guardarCarrito() {
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+
+// OBTENER PRODUCTO REAL DESDE MAIN
+
+
+function getId(item) {
+  return Number(item.productID ?? item.produtID);
+}
+
+function getProductoPorId(id) {
+  return articulosJSON.find(p => Number(p.produtID ?? p.productID) === id);
+}
+
+// IGUALADOR DE DIRECTORIOS DE IMÁGENES
+
+
+function resolverImagen(path) {
+  if (!path) return "";
+
+  if (
+    path.startsWith("http") ||
+    path.startsWith("/") ||
+    path.startsWith("../") ||
+    path.startsWith("./")
+  ) return path;
+
+  if (!path.includes("assets")) return `../assets/${path}`;
+  return `../${path}`;
+}
+
+
+//////////////////////////////////////////////////////////////////
+
+
+
+// ELEMENTOS DEL DOM
+
+const divisa = '€';
 const DOMitems = document.querySelector('#cart-items');
 const DOMtotal = document.querySelector('#total');
 const DOMbotonVaciar = document.querySelector('#btn-empty');
 const DOMbotonCheckout = document.querySelector('#btn-checkout');
 
-
-
-
-///////////////
-// // 2. FUNCIONES
-
+// RENDER Y CÁLCULOS
 
 function renderizarCarrito() {
-    DOMitems.textContent = '';
-    carrito.forEach((info) => {  
-   
-        // (crear la tarjeta)
-        const miProductoCard = document.createElement('div');
-        miProductoCard.classList.add('cart-item');
+  if (!DOMitems || !DOMtotal) return;
 
-        // (extraer el nombre)
-        const miProductoName = document.createElement('h5')   // (esto me obliga a que los nombres vayan en un h5, don't forget)
-        miProductoName.classList.add('cart-items-name');   // hay que crear esta clase en .css para estilizar los nombres de los productos
-        miProductoName.textContent = info.productName;
+  DOMitems.textContent = '';
 
-        // (extraer la foto)
-        const miProductoImagen = document.createElement('img')
-        miProductoImagen.classList.add('cart-items-image');
-        miProductoImagen.setAttribute('src', info.imagen);
+  carrito.forEach((compra) => {
+    const id = getId(compra);
+    const producto = getProductoPorId(id);
 
-        // (extraer el precio unitario)
-        const miProductoPrecio = document.createElement('p');
-        miProductoPrecio.classList.add('cart-items-precio');
-        miProductoPrecio.textContent = `${info.precio}${divisa}`;
+    // Si por alguna razón no existe el producto en main.js, mostramos algo “seguro”
+    const nombre = producto?.productName ?? `Producto #${id}`;
+    const precio = Number(producto?.precio ?? 0);
+    const stock = Number(producto?.stock ?? 999999);
+    const imagen = resolverImagen(producto?.imagen ?? "");
 
+    // Tarjeta
+    const miProductoCard = document.createElement('div');
+    miProductoCard.classList.add('cart-item');
 
+    const miProductoName = document.createElement('h5');
+    miProductoName.classList.add('cart-items-name');
+    miProductoName.textContent = nombre;
 
-        // (añadir o restar cantidad seleccionada del mismo producto)
+    const miProductoImagen = document.createElement('img');
+    miProductoImagen.classList.add('cart-items-image');
+    miProductoImagen.setAttribute('src', imagen);
+    miProductoImagen.setAttribute('alt', nombre);
 
-        const btnRestar = document.createElement('button');
-        btnRestar.textContent = '-';
-        btnRestar.classList.add('quantity-button');
-        btnRestar.dataset.id = info.productID;
-        btnRestar.addEventListener('click', disminuirCantidad);         // habrá que crear este evento
+    const miProductoPrecio = document.createElement('p');
+    miProductoPrecio.classList.add('cart-items-precio');
+    miProductoPrecio.textContent = `${precio.toFixed(2)}${divisa}`;
 
-        const btnSumar = document.createElement('button');
-        btnSumar.textContent = '+';
-        btnSumar.classList.add('quantity-button');
-        btnSumar.dataset.id = info.productID;      
-        btnSumar.addEventListener('click', aumentarCantidad);         
+    // Botones cantidad
+    const btnRestar = document.createElement('button');
+    btnRestar.textContent = '-';
+    btnRestar.classList.add('quantity-button');
+    btnRestar.dataset.id = String(id);
+    btnRestar.addEventListener('click', disminuirCantidad);
 
-        const cantidadEnCarrito = document.createElement('span');
-        cantidadEnCarrito.textContent = info.cantidad;
-        cantidadEnCarrito.classList.add('quantity-display')   //  habrá que crear esta clase también
-        
+    const btnSumar = document.createElement('button');
+    btnSumar.textContent = '+';
+    btnSumar.classList.add('quantity-button');
+    btnSumar.dataset.id = String(id);
+    btnSumar.addEventListener('click', aumentarCantidad);
 
-        // (extraer el precio subtotal de la cantidad seleccionada del mismo producto)
-        const miProductoSubtotal = document.createElement('p');
-        const cantidad = info.cantidad;
-        miProductoSubtotal.textContent = (info.precio * cantidad).toFixed(2) + ' €';
-        miProductoSubtotal.classList.add('item-subtotal')       // (hay que crear esta clase en .css)   
+    const cantidadEnCarrito = document.createElement('span');
+    cantidadEnCarrito.textContent = String(compra.cantidad);
+    cantidadEnCarrito.classList.add('quantity-display');
 
+    // Subtotal: se calcula con precio desde main.js
+    const miProductoSubtotal = document.createElement('p');
+    miProductoSubtotal.classList.add('item-subtotal');
+    miProductoSubtotal.textContent =
+      (precio * Number(compra.cantidad)).toFixed(2) + ` ${divisa}`;
 
-        // (botón para eliminar todos los items del mismo producto)
-        const btnEliminar = document.createElement('button');
-        btnEliminar.textContent = 'Eliminar del carrito' ;
-        btnEliminar.classList.add('remove-btn');     // (hay que crear esta clase)
-        btnEliminar.dataset.id = info.productID;
-        btnEliminar.addEventListener('click', eliminarItem);    // habrá que crear este evento
+    // Eliminar
+    const btnEliminar = document.createElement('button');
+    btnEliminar.textContent = 'Eliminar del carrito';
+    btnEliminar.classList.add('remove-btn');
+    btnEliminar.dataset.id = String(id);
+    btnEliminar.addEventListener('click', eliminarItem);
 
-
-    ////////////////
-    // // MONTAR LAS TARJETAS
-
+    // Montaje
     miProductoCard.appendChild(miProductoImagen);
     miProductoCard.appendChild(miProductoName);
     miProductoCard.appendChild(miProductoPrecio);
-    
+
     miProductoCard.appendChild(btnRestar);
     miProductoCard.appendChild(cantidadEnCarrito);
     miProductoCard.appendChild(btnSumar);
-    
+
     miProductoCard.appendChild(miProductoSubtotal);
     miProductoCard.appendChild(btnEliminar);
 
     DOMitems.appendChild(miProductoCard);
 
+    // (Opcional) Si quieres evitar que alguien supere stock si stock existe:
+    if (Number(compra.cantidad) > stock) {
+      compra.cantidad = stock;
+      guardarCarrito();
+      cantidadEnCarrito.textContent = String(compra.cantidad);
+      miProductoSubtotal.textContent =
+        (precio * Number(compra.cantidad)).toFixed(2) + ` ${divisa}`;
+    }
+  });
 
-    });
-
-
-    ////////////////
-    // // CALCULAR Y MOSTRAR EL TOTAL
-
-
-    DOMtotal.textContent = calcularTotal();
-
+  DOMtotal.textContent = calcularTotal();
 }
 
-    function calcularTotal() {
-        return carrito
-            .reduce((acumulador, item) => {
-                return acumulador + item.precio * item.cantidad;
-            }, 0)
-            .toFixed(2);
+function calcularTotal() {
+  return carrito
+    .reduce((acc, compra) => {
+      const id = getId(compra);
+      const producto = getProductoPorId(id);
+      const precio = Number(producto?.precio ?? 0);
+      return acc + precio * Number(compra.cantidad);
+    }, 0)
+    .toFixed(2);
 }
 
-    function aumentarCantidad(event) {
-        const id = parseInt(event.target.dataset.id);
-        const producto = carrito.find(item => item.productID === id);
-        if (!producto) return;
+// BOTONES DE COLUMNA IZQUIERDA
 
-        if (producto.cantidad < producto.stock) {
-            producto.cantidad++;
-        }
+function aumentarCantidad(event) {
+  const id = Number(event.target.dataset.id);
+  if (!Number.isFinite(id)) return;
 
-        localStorage.setItem("carrito", JSON.stringify(carrito));
-        renderizarCarrito();
-        
+  const compra = carrito.find(i => getId(i) === id);
+  if (!compra) return;
+
+  const producto = getProductoPorId(id);
+  const stock = Number(producto?.stock ?? 999999);
+
+  if (compra.cantidad < stock) {
+    compra.cantidad++;
+    guardarCarrito();
+    renderizarCarrito();
+  }
+}
+
+function disminuirCantidad(event) {
+  const id = Number(event.target.dataset.id);
+  if (!Number.isFinite(id)) return;
+
+  const compra = carrito.find(i => getId(i) === id);
+  if (!compra) return;
+
+  if (compra.cantidad > 1) {
+    compra.cantidad--;
+  } else {
+    carrito = carrito.filter(i => getId(i) !== id);
+  }
+
+  guardarCarrito();
+  renderizarCarrito();
+}
+
+function eliminarItem(event) {
+  const id = Number(event.target.dataset.id);
+  if (!Number.isFinite(id)) return;
+
+  carrito = carrito.filter(i => getId(i) !== id);
+  guardarCarrito();
+  renderizarCarrito();
+}
+
+// BOTONES DE COLUMNA DERECHA
+
+if (DOMbotonVaciar) {
+  DOMbotonVaciar.addEventListener('click', () => {
+    carrito = [];
+    localStorage.removeItem('carrito');
+    renderizarCarrito();
+  });
+}
+
+if (DOMbotonCheckout) {
+  DOMbotonCheckout.addEventListener("click", () => {
+    if (carrito.length === 0) {
+      alert("Tu carrito está vacío.");
+      return;
     }
+    window.location.href = "/pages/checkout.html";
+  });
+}
 
-    function disminuirCantidad(event) {
-        const id = parseInt(event.target.dataset.id);
-        const producto = carrito.find(item => item.productID === id);
-        if (!producto) return;
-
-        if (producto.cantidad > 1) {
-            producto.cantidad--;
-        } else {
-            carrito = carrito.filter(item => item.productID !== id);
-        }
-
-        localStorage.setItem("carrito", JSON.stringify(carrito));
-        renderizarCarrito();
-
-    }
-
-        function eliminarItem(event) {
-            const id = parseInt(event.target.dataset.id);
-            carrito = carrito.filter(item => item.productID !== id);
-        
-
-        localStorage.setItem("carrito", JSON.stringify(carrito));
-        renderizarCarrito();
-
-    }
-
-
-        if (DOMbotonVaciar) {
-            DOMbotonVaciar.addEventListener('click', () => {
-                carrito = [];
-                localStorage.removeItem('carrito');
-            renderizarCarrito();
-            })
-        }
-
-
-
-        DOMbotonCheckout.addEventListener("click", () => {
-            if (carrito.length === 0) {
-                alert("Tu carrito está vacío.");
-                return;
-            }
-            window.location.href = "/pages/checkout.html";
-            
-        });
+// RENDER
 
 renderizarCarrito();
-
-
-
-
-
-
-
-
-
