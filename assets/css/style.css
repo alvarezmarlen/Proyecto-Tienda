@@ -50,18 +50,23 @@ nav ul li a{
     padding: 1rem;
     font-size: 1.2rem;
 }
+.idioma{
+
+    color: rgb(240, 17, 17);
+
+}
 
 /* LANGUAGE MENU */
 .carrit{
     margin-right: 2rem;
 }
-.language-menu {
+.registro-cart {
     margin-left: auto;
     padding-right: 2.5rem;
     position: relative;
 }
 
-.language-menu ul {
+.regitro-cart ul {
     display: flex;
     gap: 0.3rem;
 }
@@ -88,9 +93,10 @@ nav ul li a{
   display: none;
   font-size: 2em;
   cursor: pointer;
-  color: white;
+  color: black;
+  position: fixed;
+  right: 20px;
   z-index: 1001;
-  padding: 10px 20px;
 }
 /* ----------------------------------------------------
 
@@ -418,7 +424,10 @@ footer a{
 /* --------------------------------------------
    RESPONSIVE: TELÉFONOS Y TABLETAS PEQUEÑAS
 -------------------------------------------- */
-@media screen and (max-width: 1024px) {    
+@media screen and (max-width: 1024px) {   
+    .header-logo {
+    padding-left: 0;
+    } 
    .texto h1 {
         font-size: 4rem;
     }
@@ -445,12 +454,71 @@ footer a{
 
 
 @media (max-width: 768px) {  
+    .header-logo img {
+    margin: 1.5rem;    
+    }
+      /* Mostrar hamburguesa */
+    .menu-icon {
+        display: block;         
+    }
+    nav{
+        align-items: center;
+    }
+    /* ICONOS: se quedan en la barra */
+  .registro-cart {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .iconos-nav {
+    display: flex;
+    gap: 0.5rem;
+  }
+    nav ul {
+        flex-direction: column;
+        background-color: white;
+        position: absolute;
+        top: 6rem; 
+        right: 0;
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        z-index: 1000;        
+        display: none; 
+    }
+    nav ul li {
+        width: 100%;
+    }
+    nav ul li a {
+        display: block; 
+        border-bottom: 1px solid #e0e0e0;
+    }    
+    .menu-toggle:checked ~ nav ul {
+        display: flex; 
+    }
+    
+    .registro-cart {
+        padding-right: -10rem;
+        padding-top: 7rem;   
+    }
+    .iconos-nav{
+        background-color: transparent;
+        
+    }
+
+    #reloj {
+        right: 0.3rem;
+        font-size: 0.7rem;
+        top: 5rem;
+    }
+
+    /* CARRUSEL */
     .img{
         height: 20rem;
     }
     .iconos {
     display: none;
-}
+    }
     .texto h1 {
         font-size: 2.5rem;
     }
@@ -467,11 +535,12 @@ footer a{
         font-size: 50px; 
         margin-top: -1rem;
     }
-    
+    /* seccion DESTACADOS */
     .subtitulo {
         font-size: 2rem;
         margin-top: 3rem;
     }
+    /* seccion NUESTRO TALLER */
     .taller-titulo{
     font-size: 2rem;
     }
@@ -484,6 +553,7 @@ footer a{
         font-size: 1.3rem;
         text-align: center;
     }
+    
     /* --- FOOTER: Apilar secciones --- */
     .footer-container{
         flex-direction: column;
