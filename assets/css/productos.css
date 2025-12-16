@@ -126,22 +126,35 @@
         grid-template-columns: repeat(2, 1fr);
     }
     .containerform {
+        display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;
+        flex-wrap: nowrap;
         gap: 5px;
         padding: 5px;
     }
     .filtro {
-        max-width: 200px;
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        max-width: none;
     }
-    .filtro label,
+    .filtro label{
+        font-size: 0.6rem;
+        margin-left: -0;
+        white-space: nowrap;
+    }
     .filtro select,
     .filtro input,
     .filtro button,
     #botonfiltro {
-        font-size: 0.8rem;
-        padding: 4px 6px;
+        font-size: 0.6rem;
+        padding: 4px 4px;
+    }
+    #botonfiltro {
+        width: auto;
+        margin-left: 0.2rem;
     }
 }
 
@@ -149,6 +162,7 @@
     #container {
         grid-template-columns: 1fr;
     }
+    
     .caja-img {
         height: 200px;
     }
@@ -160,8 +174,5 @@
         max-width: 150px;
         flex-direction: row;
         gap: 5px;
-    }
-    #botonfiltro {
-        width: auto;
     }
 }

@@ -8,14 +8,17 @@
     
         
     #pop-up{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: transparent;
         border: none;
         padding: 0;
-        max-width: none;
-        margin: 10rem 20rem ;
-    }
-
-    #pop-up::backdrop{
-            background: rgba(48, 48, 48, 0.5);
+        margin: 0 auto; 
+        max-width: 950px; 
+        width: 90%; 
+        box-sizing: border-box;
     }
 
     .pop-wrap{ 
@@ -23,8 +26,6 @@
         align-items: center;
         width: 100%;
         max-width: 950px;
-
-
     }
     .pop-up-title{
         background: #fff;
@@ -112,7 +113,7 @@
         height: 20px;
         background: #1f4068;
     }
-      #cerrar {
+    #cerrar {
         position: absolute;
         top: 40px;
         right: 25px;
@@ -121,8 +122,52 @@
         cursor: pointer;        
     }
 
-  @media screen and (max-width: 945px) {
-  #pop-up {
-    display: none;
-  }
+
+@media (max-width: 1024px) {    
+    #pop-up {
+        width: 85%;
+        max-width: 800px; 
+    }
+
+    .pop-up-title,
+    .subcripcion {
+        height: 380px;
+    }
+    
+    .pop-up-title h2 { font-size: 2.2rem; }
+    .sub-content h2 { font-size: 30px; margin-bottom: 2rem; }
+    .sub-content p { font-size: 1.2rem; }
+}
+
+
+@media (max-width: 768px) {    
+    #pop-up {
+        max-width: 480px; /
+    }
+
+    .pop-wrap {
+        flex-direction: column; 
+    }
+    .pop-up-title {
+        display: none; 
+    }
+    .subcripcion {
+        width: 100%;
+        height: auto; 
+        padding: 1.5rem 0;
+    }
+    .sub-content {
+        width: 80%;
+    }
+    #cerrar {
+        position: absolute; 
+        top: 15px;
+        right: 15px;
+        color: white;
+        font-size: 30px; 
+        z-index: 100; 
+        background: transparent; 
+    }
+    .sub-content h2 { font-size: 25px; margin-bottom: 1.5rem; }
+    .sub-content p { font-size: 1rem; }
 }
