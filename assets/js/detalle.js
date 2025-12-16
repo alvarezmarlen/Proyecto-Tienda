@@ -66,12 +66,15 @@ function añadir() {
 
         //sumar la cantidad
         compraencarrito.cantidad = compraencarrito.cantidad + numero;
-        document.getElementById("infocompra").innerText = "Articulo añadido al carrito.";
+       
+        
            
         //ver si supera el stock
         if (compraencarrito.cantidad > articulo.stock) {
             compraencarrito.cantidad = articulo.stock;
             document.getElementById("infocompra").innerText = "Stock maximo.";
+
+            
         }
 
         localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -80,11 +83,17 @@ function añadir() {
         //añadimos compra a carrito y lo guardamos en local storage
         carrito.push(compra);
         localStorage.setItem("carrito", JSON.stringify(carrito));
-        document.getElementById("infocompra").innerText = "Articulo añadido al carrito.";
+       
     }
+    
+    //poner la foto
+    document.getElementById("preview").src = `../assets/${articulo.imagen}`;
 
+    document.getElementById("infocompra2").innerText =`Has añadido ${articulo.productName}`;
     // mostrar la ventana
     modal.style.display = "block";
+
+   
 
 }
 
@@ -96,13 +105,15 @@ function cerrarmodal() {
     modal.style.display = "none";
 }
 
-/*borrar carrito*/
+/*ir a  carrito*/
 // añadimos escuchador al boton
-const botonborrar = document.getElementById("borrarcarrito");
+const botonborrar = document.getElementById("ircarrito");
 botonborrar.addEventListener("click", borrarcarrito);
 
+//cargamos pagina
 function borrarcarrito() {
-    localStorage.removeItem('carrito');
+     window.location.href = 'cart.html';
+
 }
 
 /* REcomendacion de 4 articulos*/
@@ -117,20 +128,6 @@ function filtrarcategoria(producto) {
 
 //crea las tarjetas y la añade a contenedor2 
 
-/* for (let i = 0; i < 4; i++) {
-    const nodoimg = document.createElement("img");
-         const nododiv = document.createElement("div");
-         nododiv.setAttribute("class", "cuadrofoto2");
-    nodoimg.setAttribute("src", `../assets/${similares[i].imagen}`);
-    nodoimg.setAttribute("class", "foto2")
-    nodoimg.addEventListener("click", function () {
-        localStorage.setItem('productoSeleccionado', JSON.stringify(similares[i]));
-        window.location.href = 'detalle.html';
-    });
-
-    nododiv.appendChild(nodoimg);
-    contenedor2.appendChild(nododiv);
-}*/
 
 for (let i = 0; i < 4; i++) {
     const tarjeta = document.createElement('div');
