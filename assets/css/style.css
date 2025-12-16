@@ -75,6 +75,61 @@ nav ul li a{
     margin-top: 0.3rem;
     white-space: nowrap;
 }
+
+
+/* Hamburguesa  Menu Registro */
+
+
+.user-menu {
+    position: relative;
+    display: inline-block;
+}
+
+
+.user-menu .dropdown {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 110%; 
+    left: 0;
+    background-color: white;
+    min-width: 150px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    flex-direction: column;
+    transform: translateY(-10px); 
+    transition: all 0.3s ease;   
+    z-index: 100;
+}
+
+.user-menu .dropdown a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: black;
+    display: block;
+    
+}
+
+.user-menu .dropdown a:hover {
+    background-color: #f0f0f0;
+}
+
+
+.user-menu:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); 
+}
+
+
+
+
+
+
+
+
+
+
 /* ----------------------------------------------------
     AQUI EMPIEZA EL CUERPO DE LA PAGINA INDEX
 ------------------------------------------------------*/
