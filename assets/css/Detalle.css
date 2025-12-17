@@ -18,14 +18,14 @@ body {
 
 .marca {
     display:inline-block; 
-    background-color: #9c5847; 
-    color: rgb(255, 255, 255);
+    background-color:rgb(245, 220, 90); 
+    color: rgb(20, 40, 120);
     padding: 0.2rem;
 }
 
 
 .boton {
-  background-color: #9c5847;
+  background-color:rgb(20, 40, 120);
   color: white;    
   border: none;       
   border-radius: 0.5rem;  
@@ -37,7 +37,7 @@ body {
 }
 
 .boton2 {
-  background-color: #9c5847;
+  background-color: rgb(20, 40, 120);
   color: white;    
   border: none;       
   border-radius: 0.5rem;  
@@ -55,11 +55,11 @@ body {
 }
 .boton2:hover {
     background-color: #e4c6be;
-  color: rgb(87, 57, 57);    
+    color:rgb(20, 40, 120);    
 }
 
 .boton3 {
-  background-color: #9c5847;
+  background-color:rgb(20, 40, 120);
   color: white;    
   border: none;       
   border-radius: 0.5rem;  
@@ -97,7 +97,7 @@ body {
     width: 100%;
     height: auto;
     transition: transform 0.4s ease;
-    border: 3px dotted #7fbd1b;
+    border: 3px dotted rgb(54, 163, 51);
     border-radius: 0.7rem;
 }
 
@@ -111,15 +111,20 @@ body {
 .cuadrotexto {
     width: 100%;
     padding: 1.2rem;
-    background-color: #7fbd1b;
+    background-color:rgb(54, 163, 51);
     border-radius: 10px;
     margin-bottom: 10px;
 }
-
+.cuadrotexto p {
+    color:white;
+}
+.cuadrotexto h2 {
+    color:white;
+}
 .cuadrotexto2 {
     width: 100%;
     padding: 1.2rem;
-    background-color: #7fbd1b;
+    background-color: rgb(54, 163, 51);
     border-radius: 10px;
     margin-bottom: 10px;
     display: flex;
@@ -149,12 +154,12 @@ body {
     border-radius: 10px;
     display:flex;
     justify-content: center;
-     box-shadow: 0.3rem 0.3rem 0.8rem 0.1rem rgba(12, 11, 11, 0.5);
+    box-shadow: 0.3rem 0.3rem 0.8rem 0.1rem rgba(12, 11, 11, 0.5);
 }
 
 .preview{
     border-style: dotted;
-    border-color: #7fbd1b;
+    border-color:rgb(54, 163, 51);
     width: 150px;
     height: 150px;
     display: inline-block;
