@@ -11,7 +11,22 @@
 
 
 
-/*REGISTRO EXITOSO*/
+ /*------------  MENÚ HAMBURGUESA SOLO CON HTML + CSS
+-------------------------------------------- */
+/* Oculta checkbox */
+.menu-toggle {
+  display: none;
+}
+/* Icono de hamburguesa */
+.menu-icon {
+  display: none;
+  font-size: 2em;
+  cursor: pointer;
+  color: white;
+  position: fixed;
+  right: 20px;
+  z-index: 1001;
+}
 
 
 
@@ -178,6 +193,65 @@
     right: 15px;
     font-size: 1.5rem;
     cursor: pointer;
+}
+
+
+/*--------------------------------------------
+   MENÚ HAMBURGUESA SOLO CON HTML + CSS
+/* CHECKBOX OCULTO */
+.menu-toggle {
+  display: none;
+}
+
+/* ICONO HAMBURGUESA */
+.menu-icon {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+}
+
+/* MENÚ NORMAL (ESCRITORIO) */
+.nav .menu {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav .menu a {
+  color: white;
+  text-decoration: none;
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+@media (max-width: 768px) {
+
+  /* Mostrar hamburguesa */
+  .menu-icon {
+    display: block;
+  }
+
+  /* Ocultar menú normal */
+  .nav .menu {
+    display: none;
+  }
+
+  /* Mostrar menú al hacer click */
+  .menu-toggle:checked ~ .nav .menu {
+    display: flex;
+    flex-direction: column;
+    background: #222;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    gap: 1rem;
+  }
 }
 
 
