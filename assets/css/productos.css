@@ -13,7 +13,7 @@
 
     .containerform {
         width: 100%;
-        background: linear-gradient(to bottom, #ffc595, #7fbd1b );
+        background: linear-gradient(to bottom, #ffc595, rgb(54, 163, 51));
         padding: 10px;
         border-radius: 10px;
         display: flex;
@@ -30,7 +30,7 @@
     }
 
     .card {
-         border: 3px dotted #7fbd1b;
+        border: 3px dotted rgb(54, 163, 51);
         margin: 2rem;
         padding: 1rem;
         display: flex;

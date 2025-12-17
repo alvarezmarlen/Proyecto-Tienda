@@ -11,7 +11,7 @@ body, html {
 }
 /* HEADER */
 header {
-    background-color: #7fbd1b;
+    background-color: rgb(54, 163, 51);
     display: flex;
     align-items: center;
     height: 6rem;
@@ -46,7 +46,8 @@ nav ul {
 
 nav ul li a{
     text-decoration: none;
-    color: black;
+    color: white;
+    font-weight: bold;
     padding: 1rem;
     font-size: 1.2rem;
 }
@@ -80,6 +81,7 @@ nav ul li a{
     font-size: 0.9rem;
     margin-top: 0.3rem;
     white-space: nowrap;
+    color: white;
 }
  /*--------------------------------------------
    MENÚ HAMBURGUESA SOLO CON HTML + CSS
@@ -93,7 +95,7 @@ nav ul li a{
   display: none;
   font-size: 2em;
   cursor: pointer;
-  color: black;
+  color: white;
   position: fixed;
   right: 20px;
   z-index: 1001;
@@ -218,7 +220,7 @@ nav ul li a{
     font-weight: 700;
     margin-left: 10px;
     margin-right: 10px;
-    color: #7fbd1b;
+    color: rgb(54, 163, 51);
 }
 
 /*-------------------------------------------------------
@@ -237,7 +239,7 @@ nav ul li a{
     font-family: "Overpass Mono";
 }
 .card-tarjeta {
-    border: 3px dotted #7fbd1b;
+    border: 3px dotted rgb(54, 163, 51);
     margin: 0.5rem;
     padding: 1rem;
     display: flex;
@@ -267,9 +269,10 @@ nav ul li a{
     height: 3rem;
     border-radius: 2rem;
     margin-top: 0.5rem;
-    background-color: #7fbd1b;
+    background-color: rgb(54, 163, 51);
     color: white;
-    border: #7fbd1b;
+    font-weight: bold;
+    border: rgb(54, 163, 51);
     cursor: pointer;
 }
 
@@ -343,7 +346,7 @@ segunda parte de Nuestro Taller
     STYLE DEL   FOOTER 
 ------------------------------------------------------------*/
 footer{
-    background-color:#7fbd1b;
+    background-color:rgb(54, 163, 51);
 }
 
 .footer-container{
@@ -364,10 +367,12 @@ footer{
     margin-left: 4rem;
 }
 footer a{
-    color: black;
+    color: white;
     text-decoration: none;
 }
-
+.fa-solid{
+    color: white;
+}
 .footer-container section{
     width: 30%;
 }
@@ -384,6 +389,7 @@ footer a{
     margin-left: -3rem;
     font-size: 2rem;
     font-family: "Pacifico";
+    color: white;
     }
 
 .footer-section-2{
@@ -404,6 +410,7 @@ footer a{
 .footer-section-3{
     text-align: center;
     justify-items: center;
+    color: white;
 }
 .footer-socials{
     display: flex;
@@ -414,6 +421,7 @@ footer a{
 }
 .footer-socials i {
     font-size: 1.5rem;
+    color: white;
 }
 
 .footer-section-3 p{
@@ -470,6 +478,9 @@ footer a{
     display: flex;
     align-items: center;
   }
+  .iconos-nav .fa-solid{
+    color: black;
+  }
 
   .iconos-nav {
     display: flex;
@@ -492,6 +503,7 @@ footer a{
     nav ul li a {
         display: block; 
         border-bottom: 1px solid #e0e0e0;
+        color: black;
     }    
     .menu-toggle:checked ~ nav ul {
         display: flex; 
