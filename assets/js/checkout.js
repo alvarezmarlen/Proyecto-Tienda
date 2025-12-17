@@ -1,19 +1,50 @@
 
+import { articulosJSON } from "./main.js";
 
-import { articulosJSON } from './main.js';
+/* =========================================================
+   1) DOM: cogemos lo que ya existe en el HTML
+========================================================= */
+const form = document.getElementById("formCompra");
+const resumen = document.getElementById("cart-order");
+const erroresBox = document.getElementById("checkout-errors");
+const paymentSection = document.getElementById("payment");
 
+/* =========================================================
+   2) UI de errores (mostrar / ocultar)
+========================================================= */
+function mostrarErrores(mensajes) {
+  if (!erroresBox) return;
 
+  if (!mensajes || mensajes.length === 0) {
+    erroresBox.classList.remove("is-visible");
+    erroresBox.innerHTML = "";
+    return;
+  }
 
+  erroresBox.classList.add("is-visible");
+  erroresBox.innerHTML = `
+    <strong>Revisa esto:</strong>
+    <ul>
+      ${mensajes.map(m => `<li>${m}</li>`).join("")}
+    </ul>
+  `;
+}
 
-let carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
+/* =========================================================
+   3) Carrito: leer y normalizar a { id, cantidad }
+   (soporta productID y produtID)
+========================================================= */
+function leerCarritoRaw() {
+  return JSON.parse(localStorage.getItem("carrito") || "[]");
+}
 
-carrito = aCarritoMinimo(carrito);
-guardarCarrito();
-
-function aCarritoMinimo(lista) {
+function normalizarCarrito(raw) {
+  // Convierte cualquier formato a: [{ id, cantidad }]
+  // y suma cantidades si hay el mismo producto repetido.
   const map = new Map(); // id -> cantidad
 
-  for (const item of (Array.isArray(lista) ? lista : [])) {
+  const lista = Array.isArray(raw) ? raw : [];
+  for (const item of lista) {
     const id = Number(item.productID ?? item.produtID ?? item.id);
     if (!Number.isFinite(id)) continue;
 
@@ -23,14 +54,237 @@ function aCarritoMinimo(lista) {
     map.set(id, (map.get(id) ?? 0) + cantidadSegura);
   }
 
-    return [...map.entries()].map(([id, cantidad]) => ({
-    productID: id, // para catalogo.js
-    produtID: id,  // para detalle.js
-    cantidad
-  }));
+  return [...map.entries()].map(([id, cantidad]) => ({ id, cantidad }));
 }
 
-function guardarCarrito() {
-  localStorage.setItem("carrito", JSON.stringify(carrito));
+/* =========================================================
+   4) Catálogo: buscar producto por ID en articulosJSON
+========================================================= */
+function getProductoPorId(id) {
+  return articulosJSON.find(p => Number(p.produtID ?? p.productID) === Number(id));
 }
 
+/* =========================================================
+   5) Pedido: construir líneas + total + errores
+========================================================= */
+function construirPedido(carritoMinimo) {
+  const errores = [];
+  const lineas = [];
+
+  for (const item of carritoMinimo) {
+    const producto = getProductoPorId(item.id);
+
+    if (!producto) {
+      errores.push(`No se encontró el producto con id ${item.id} en el catálogo.`);
+      continue;
+    }
+
+    const nombre = producto.productName ?? `Producto #${item.id}`;
+    const precio = Number(producto.precio ?? 0);
+    const stock = Number(producto.stock ?? 0);
+    const cantidad = Number(item.cantidad ?? 1);
+
+    if (!Number.isFinite(precio)) {
+      errores.push(`Precio inválido para "${nombre}".`);
+      continue;
+    }
+
+    if (!Number.isFinite(cantidad) || cantidad <= 0) {
+      errores.push(`Cantidad inválida para "${nombre}".`);
+      continue;
+    }
+
+    // Versión simple: si supera stock -> BLOQUEAMOS (no ajustamos)
+    if (Number.isFinite(stock) && stock > 0 && cantidad > stock) {
+      errores.push(`"${nombre}": pediste ${cantidad}, pero solo hay ${stock} en stock.`);
+      continue;
+    }
+
+    lineas.push({
+      id: item.id,
+      nombre,
+      precio,
+      cantidad,
+      subtotal: precio * cantidad
+    });
+  }
+
+  const total = lineas.reduce((acc, l) => acc + l.subtotal, 0);
+  return { errores, lineas, total };
+}
+
+/* =========================================================
+   6) Resumen: pintar en #cart-order
+========================================================= */
+function renderResumen(lineas, total) {
+  if (!resumen) return;
+
+  resumen.innerHTML = `<p>Resumen de tu compra</p>`;
+
+  if (!lineas || lineas.length === 0) {
+    resumen.innerHTML += `<p>Tu carrito está vacío.</p>`;
+    return;
+  }
+
+  for (const l of lineas) {
+    resumen.innerHTML += `
+      <div class="order-item">
+        <span>${l.nombre} x ${l.cantidad}</span>
+        <span>${l.subtotal.toFixed(2)} €</span>
+      </div>
+    `;
+  }
+
+  resumen.innerHTML += `
+    <div class="order-total">
+      <span>Total</span>
+      <span>${total.toFixed(2)} €</span>
+    </div>
+  `;
+}
+
+/* =========================================================
+   7) Pago: crear radios si no existen + leer método elegido
+========================================================= */
+function asegurarOpcionesDePago() {
+  if (!paymentSection) return;
+
+  const yaHay = paymentSection.querySelector('input[type="radio"][name="paymentMethod"]');
+  if (yaHay) return;
+
+  paymentSection.innerHTML = `
+    <p>Pasarelas de pago</p>
+
+    <label style="display:block; margin: 8px 0;">
+      <input type="radio" name="paymentMethod" value="tarjeta">
+      Tarjeta
+    </label>
+
+    <label style="display:block; margin: 8px 0;">
+      <input type="radio" name="paymentMethod" value="bizum">
+      Bizum
+    </label>
+
+    <label style="display:block; margin: 8px 0;">
+      <input type="radio" name="paymentMethod" value="paypal">
+      PayPal
+    </label>
+  `;
+}
+
+function obtenerMetodoPago() {
+  const radio = document.querySelector('input[type="radio"][name="paymentMethod"]:checked');
+  return radio ? radio.value : null;
+}
+
+/* =========================================================
+   8) Formulario: leer datos + validar
+========================================================= */
+function leerDatosFormulario() {
+  return {
+    nombre: document.getElementById("nombre")?.value.trim() || "",
+    apellido: document.getElementById("apellido")?.value.trim() || "",
+    email: document.getElementById("email")?.value.trim() || "",
+    telefono: document.getElementById("telefono")?.value.trim() || "",
+    pais: document.getElementById("pais")?.value.trim() || "",
+    direccion: document.getElementById("direccion")?.value.trim() || "",
+    ciudad: document.getElementById("ciudad")?.value.trim() || "",
+    cp: document.getElementById("zipcode")?.value.trim() || "",
+    provincia: document.getElementById("provincia")?.value.trim() || "",
+  };
+}
+
+function validarFormulario(data, metodoPago) {
+  const errores = [];
+
+  if (!data.nombre) errores.push("Falta el nombre.");
+  if (!data.apellido) errores.push("Falta el apellido.");
+  if (!data.email) errores.push("Falta el email.");
+
+  // Validación MUY básica de email
+  if (data.email && (!data.email.includes("@") || !data.email.includes("."))) {
+    errores.push("El email no parece válido.");
+  }
+
+  if (!data.pais) errores.push("Falta el país/región.");
+  if (!data.direccion) errores.push("Falta la dirección.");
+  if (!data.ciudad) errores.push("Falta la ciudad.");
+  if (!data.cp) errores.push("Falta el código postal.");
+  if (!data.provincia) errores.push("Falta la provincia.");
+
+  if (!metodoPago) errores.push("Selecciona un método de pago.");
+
+  return errores;
+}
+
+/* =========================================================
+   9) Confirmación: crear pedido, guardar, vaciar carrito
+========================================================= */
+function confirmarPedido(pedido, dataCliente, metodoPago) {
+  const pedidoFinal = {
+    idPedido: Date.now(),
+    fecha: new Date().toISOString(),
+    metodoPago,
+    cliente: dataCliente,
+    items: pedido.lineas,
+    total: pedido.total
+  };
+
+  localStorage.setItem("ultimoPedido", JSON.stringify(pedidoFinal));
+  localStorage.removeItem("carrito");
+}
+
+/* =========================================================
+   10) Flujo principal
+========================================================= */
+asegurarOpcionesDePago();
+
+function cargarCheckout() {
+  mostrarErrores([]);
+
+  const raw = leerCarritoRaw();
+  const carritoMinimo = normalizarCarrito(raw);
+
+  const pedido = construirPedido(carritoMinimo);
+  renderResumen(pedido.lineas, pedido.total);
+
+  // Si hay errores del pedido (producto no existe / stock insuficiente)
+  // los mostramos, pero NO confirmamos nada todavía.
+  if (pedido.errores.length > 0) {
+    mostrarErrores(pedido.errores);
+  }
+}
+
+cargarCheckout();
+
+form?.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const mensajes = [];
+
+  // 1) Pedido
+  const carritoMinimo = normalizarCarrito(leerCarritoRaw());
+  if (carritoMinimo.length === 0) {
+    mensajes.push("Tu carrito está vacío.");
+  }
+
+  const pedido = construirPedido(carritoMinimo);
+  mensajes.push(...pedido.errores);
+
+  // 2) Formulario + método de pago
+  const metodoPago = obtenerMetodoPago();
+  const dataCliente = leerDatosFormulario();
+  mensajes.push(...validarFormulario(dataCliente, metodoPago));
+
+  // 3) Si hay problemas, mostrar y parar
+  if (mensajes.length > 0) {
+    mostrarErrores(mensajes);
+    return;
+  }
+
+  // 4) Confirmar (simulado)
+  confirmarPedido(pedido, dataCliente, metodoPago);
+
+  alert(`¡Pedido confirmado! Total: ${pedido.total.toFixed(2)} €`);
+  window.location.href = "/pages/productos.html";
+});
