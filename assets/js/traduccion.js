@@ -1,9 +1,11 @@
+//obtenemos la pagina a traducir
 const listaidiomas = document.getElementById("idioma");
 
 const aa = window.location.pathname;
 const ruta = aa.split("/");
-//console.log(ruta[ruta.length-1]);
 
+
+//al elegir el idioma de la lista desplegable cambiamos la ruta de la pagina
  listaidiomas.addEventListener("change", function() {
 
     let valorSeleccionado = this.value;
