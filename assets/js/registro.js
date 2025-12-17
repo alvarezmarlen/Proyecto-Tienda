@@ -30,3 +30,11 @@ loginForm.addEventListener('submit', function (e) {
     loginModal.classList.add('hidden');
     loginForm.reset();
 });
+
+
+
+document.querySelector('.registro-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    window.open('https://www.youtube.com/watch?v=zZyVd0xCPEo&t=37s'); 
+     registroForm.reset();
+});
