@@ -1,17 +1,19 @@
 
+// 1. IMPORTAR EL CATÁLOGO (articulosJSON) PARA CONVERTIR IDs DEL CARRITO EN PRODUCTOS REALES:
+
 import { articulosJSON } from "./main.js";
 
-/* =========================================================
-   1) DOM: cogemos lo que ya existe en el HTML
-========================================================= */
+
+//  2. DOM: TOMAMOS LOS ELEMENTOS QUE YA ESTÁN EN EL HTML
+
 const form = document.getElementById("formCompra");
 const resumen = document.getElementById("cart-order");
 const erroresBox = document.getElementById("checkout-errors");
 const paymentSection = document.getElementById("payment");
 
-/* =========================================================
-   2) UI de errores (mostrar / ocultar)
-========================================================= */
+
+//  3. MOSTRAR U OCULTAR SI EXISTEN ERRORES DE LLENADO EN LOS INPUTS DE FORMULARIO
+
 function mostrarErrores(mensajes) {
   if (!erroresBox) return;
 
@@ -30,11 +32,9 @@ function mostrarErrores(mensajes) {
   `;
 }
 
-/* =========================================================
-   3) Carrito: leer y normalizar a { id, cantidad }
-   (soporta productID y produtID)
-========================================================= */
-function leerCarritoRaw() {
+//   3. CARRITO: LEERLO Y NORMALIZAR EN UN FORMATO ÚNICO:
+
+   function leerCarritoRaw() {
   return JSON.parse(localStorage.getItem("carrito") || "[]");
 }
 
@@ -57,16 +57,14 @@ function normalizarCarrito(raw) {
   return [...map.entries()].map(([id, cantidad]) => ({ id, cantidad }));
 }
 
-/* =========================================================
-   4) Catálogo: buscar producto por ID en articulosJSON
-========================================================= */
+// 4. CATÁLOGO: BUSCAR PRODUCTO REAL USANDO ID:
+
 function getProductoPorId(id) {
   return articulosJSON.find(p => Number(p.produtID ?? p.productID) === Number(id));
 }
 
-/* =========================================================
-   5) Pedido: construir líneas + total + errores
-========================================================= */
+//   5. PEDIDO: CONSTURIR LÍNEAS + TOTAL + ERRORES
+
 function construirPedido(carritoMinimo) {
   const errores = [];
   const lineas = [];
@@ -113,9 +111,8 @@ function construirPedido(carritoMinimo) {
   return { errores, lineas, total };
 }
 
-/* =========================================================
-   6) Resumen: pintar en #cart-order
-========================================================= */
+// 6. RESUMEN (PINTAR EN PANTALLA)
+
 function renderResumen(lineas, total) {
   if (!resumen) return;
 
@@ -143,9 +140,8 @@ function renderResumen(lineas, total) {
   `;
 }
 
-/* =========================================================
-   7) Pago: crear radios si no existen + leer método elegido
-========================================================= */
+// 7. PAGO (ASEGURAR RADIOS + LEER SELECCIÓN)
+
 function asegurarOpcionesDePago() {
   if (!paymentSection) return;
 
@@ -177,10 +173,10 @@ function obtenerMetodoPago() {
   return radio ? radio.value : null;
 }
 
-/* =========================================================
-   8) Formulario: leer datos + validar
-========================================================= */
-function leerDatosFormulario() {
+// 8. FORMULARIO: LEER Y VALIDAR DATOS:
+
+
+   function leerDatosFormulario() {
   return {
     nombre: document.getElementById("nombre")?.value.trim() || "",
     apellido: document.getElementById("apellido")?.value.trim() || "",
@@ -216,10 +212,8 @@ function validarFormulario(data, metodoPago) {
 
   return errores;
 }
+// 9. CONFIRMACIÓN DE PEDIDO
 
-/* =========================================================
-   9) Confirmación: crear pedido, guardar, vaciar carrito
-========================================================= */
 function confirmarPedido(pedido, dataCliente, metodoPago) {
   const pedidoFinal = {
     idPedido: Date.now(),
@@ -234,9 +228,8 @@ function confirmarPedido(pedido, dataCliente, metodoPago) {
   localStorage.removeItem("carrito");
 }
 
-/* =========================================================
-   10) Flujo principal
-========================================================= */
+//   10. FLUJO PRINCIPAL
+
 asegurarOpcionesDePago();
 
 function cargarCheckout() {
@@ -256,6 +249,8 @@ function cargarCheckout() {
 }
 
 cargarCheckout();
+
+// 11. SUBMIT, EFECTUACIÓN DEL PAGO
 
 form?.addEventListener("submit", (event) => {
   event.preventDefault();

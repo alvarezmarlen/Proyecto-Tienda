@@ -1,19 +1,25 @@
 
+// 1. el carrito no guarda toda la info del producto (solo "id + cantidad"),
+// obtiene los datos que están almacenados como objetos JSON en el main:
+
 
 import { articulosJSON } from './main.js';
 
 
-
+// 2.1. al abrir la página, se lee el carrito que ya está guardado en Local Storage, ya sea desde el catálogo o desde la ventana de detalles, y pasa de ser un JSON a ser un array de JavaScript:
 
 let carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
 
-carrito = aCarritoMinimo(carrito);
+// 2.2. debe "normalizarlo" para que funcione bien, debido a discordancias de nomenclaturas en las fuentes que guardan el carrito en el Local Storage (catálogo, detalle):
+
+carrito = normalizarCarrito(carrito);
 guardarCarrito();
 
-// INICIO DEL ADAPTADOR DE CARRITO EN LOCAL STORAGE DESDE CATÁLOGO, DESTACADOS Y DETALLE //
+// 2.3. con este map, saca el 'id' de todos los items y lo convierte en un número 
+// para evitar datos duplicados, limpiar cantidades raras (0, negativas):
 
-function aCarritoMinimo(lista) {
-  const map = new Map(); // id -> cantidad
+function normalizarCarrito(lista) {
+  const map = new Map();
 
   for (const item of (Array.isArray(lista) ? lista : [])) {
     const id = Number(item.productID ?? item.produtID ?? item.id);
@@ -25,7 +31,8 @@ function aCarritoMinimo(lista) {
     map.set(id, (map.get(id) ?? 0) + cantidadSegura);
   }
 
-  // esto devuelve un array mínimo (con ambos nombres de ID para compatibilidad)
+  // 2.4. esto devuelve el array "normalizado", ya con ambos nombres de 'id' igualados:
+  
   return [...map.entries()].map(([id, cantidad]) => ({
     productID: id, // para catalogo.js
     produtID: id,  // para detalle.js
@@ -33,24 +40,29 @@ function aCarritoMinimo(lista) {
   }));
 }
 
+// 3. GUARDA EL CARRITO EN LOCAL STORAGE, CONVIRTIENDO EL ARRAY ANTERIOR EN UN STRING JSON:
+
 function guardarCarrito() {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
+// 4. AQUÍ SE CONECTA EL CARRITO CON EL CATÁLOGO:
 
-// OBTENER PRODUCTO REAL DESDE MAIN
-
+// 4.1. empieza sacando el 'id' sin importar cómo se llame la forma en que fue guardado en el origen:
 
 function getId(item) {
   return Number(item.productID ?? item.produtID);
 }
 
+// 4.2. busca el producto real en articulosJSON, es decir, busca en el catálogo el objeto que tenga ese id:
+
 function getProductoPorId(id) {
   return articulosJSON.find(p => Number(p.produtID ?? p.productID) === id);
 }
 
-// IGUALADOR DE DIRECTORIOS DE IMÁGENES
 
+
+// 5. ESTA FUNCIÓN ES PARA RESOLVER DISCREPANCIAS ENTRE FORMATOS Y RUTAS DE LAS IMÁGENES
 
 function resolverImagen(path) {
   if (!path) return "";
@@ -67,11 +79,7 @@ function resolverImagen(path) {
 }
 
 
-//////////////////////////////////////////////////////////////////
-
-
-
-// ELEMENTOS DEL DOM
+// 6. AQUÍ SE RECOGEN LOS ELEMENTOS DEL DOM:
 
 const divisa = '€';
 const DOMitems = document.querySelector('#cart-items');
@@ -79,24 +87,35 @@ const DOMtotal = document.querySelector('#total');
 const DOMbotonVaciar = document.querySelector('#btn-empty');
 const DOMbotonCheckout = document.querySelector('#btn-checkout');
 
-// RENDER Y CÁLCULOS
+
+
+// 7. RENDERIZAR:
+
+// 7.1. acá busca que el sistema no trabaje si en el DOM no existen #cart-items o #total:
 
 function renderizarCarrito() {
   if (!DOMitems || !DOMtotal) return;
 
+// 7.2. acá vacía el contenedor, para que no se dupliquen productos al volver a renderizar:
   DOMitems.textContent = '';
+
+// 7.3. de cada 'compra' indicada por el usuario obtiene el id, busca el producto real y crea una tarjeta (div)
 
   carrito.forEach((compra) => {
     const id = getId(compra);
     const producto = getProductoPorId(id);
 
-    // Si por alguna razón no existe el producto en main.js, mostramos algo “seguro”
+// 7.4. esto pone un nombre y precio seguros si el producto no está en el catálogo, para no romper las operaciones de los botones:
     const nombre = producto?.productName ?? `Producto #${id}`;
     const precio = Number(producto?.precio ?? 0);
+ 
+ // 7.5. si acaso no se establece un stock, se asume uno enorme para no bloquear las sumas:
     const stock = Number(producto?.stock ?? 999999);
+
+  // 7.6. acá se activa la resolución de conflictos en origen de imágenes de productos:
     const imagen = resolverImagen(producto?.imagen ?? "");
 
-    // Tarjeta
+  // 7.7. crea las tarjetas:
     const miProductoCard = document.createElement('div');
     miProductoCard.classList.add('cart-item');
 
@@ -117,7 +136,7 @@ function renderizarCarrito() {
     const btnRestar = document.createElement('button');
     btnRestar.textContent = '-';
     btnRestar.classList.add('quantity-button');
-    btnRestar.dataset.id = String(id);
+    btnRestar.dataset.id = String(id); // se usa 'dataset.id' para que el botón sepa qué producto está tocando, según su id.
     btnRestar.addEventListener('click', disminuirCantidad);
 
     const btnSumar = document.createElement('button');
@@ -157,7 +176,7 @@ function renderizarCarrito() {
 
     DOMitems.appendChild(miProductoCard);
 
-    // (Opcional) Si quieres evitar que alguien supere stock si stock existe:
+    // Evitar que alguien supere stock si stock existe:
     if (Number(compra.cantidad) > stock) {
       compra.cantidad = stock;
       guardarCarrito();
@@ -170,6 +189,8 @@ function renderizarCarrito() {
   DOMtotal.textContent = calcularTotal();
 }
 
+// 8. CALCULA EL TOTAL, multiplicando precio por cantidad de cada item y ajustándolo a dos decimales:
+
 function calcularTotal() {
   return carrito
     .reduce((acc, compra) => {
@@ -181,7 +202,9 @@ function calcularTotal() {
     .toFixed(2);
 }
 
-// BOTONES DE COLUMNA IZQUIERDA
+// 9. BOTONES DE COLUMNA IZQUIERDA (PRODUCTOS SELECCIONADOS):
+
+// 9.1. botón para aumentar (lee el id, busca la compra en carrito, y si hay stock disponible aumenta la cantidad en 1):
 
 function aumentarCantidad(event) {
   const id = Number(event.target.dataset.id);
@@ -190,7 +213,7 @@ function aumentarCantidad(event) {
   const compra = carrito.find(i => getId(i) === id);
   if (!compra) return;
 
-  const producto = getProductoPorId(id);
+  const producto = getProductoPorId(id); 
   const stock = Number(producto?.stock ?? 999999);
 
   if (compra.cantidad < stock) {
@@ -199,6 +222,8 @@ function aumentarCantidad(event) {
     renderizarCarrito();
   }
 }
+
+// 9.2. botón para disminuir (lee el id, si la cantidad actual es mayor que 1 lo resta, si es 1 lo elimina):
 
 function disminuirCantidad(event) {
   const id = Number(event.target.dataset.id);
@@ -217,6 +242,8 @@ function disminuirCantidad(event) {
   renderizarCarrito();
 }
 
+// 9.3. botón para eliminar el item completo:
+
 function eliminarItem(event) {
   const id = Number(event.target.dataset.id);
   if (!Number.isFinite(id)) return;
@@ -226,7 +253,7 @@ function eliminarItem(event) {
   renderizarCarrito();
 }
 
-// BOTONES DE COLUMNA DERECHA
+// 10. BOTONES DE COLUMNA DERECHA (SUMARIO)
 
 if (DOMbotonVaciar) {
   DOMbotonVaciar.addEventListener('click', () => {
@@ -246,6 +273,6 @@ if (DOMbotonCheckout) {
   });
 }
 
-// RENDER
+// 11. RENDER 
 
 renderizarCarrito();
