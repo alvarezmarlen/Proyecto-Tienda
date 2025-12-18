@@ -6,7 +6,8 @@
 import { articulosJSON } from './main.js';
 
 
-// 2.1. al abrir la página, se lee el carrito que ya está guardado en Local Storage, ya sea desde el catálogo o desde la ventana de detalles, y pasa de ser un JSON a ser un array de JavaScript:
+// 2.1. al abrir la página, se lee el carrito que ya está guardado en Local Storage,
+// ya sea desde el catálogo o desde la ventana de detalles, y pasa de ser un JSON a ser un array de JavaScript:
 
 let carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
 
