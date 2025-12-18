@@ -38,12 +38,6 @@ articulosJSON.forEach((product, index) => {
 
 
 
-
-
-
-
-
-// PROPUESTA NUEVA INCORPORADA
 // Función para agregar al carrito
 function agregarAlCarritoYRedirigir(product) {
     // Obtener carrito actual

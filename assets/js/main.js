@@ -1,4 +1,4 @@
-/* const articulosJSON =`[{"produtID": 0,
+/* const articulosJSON =`[{"productID": 0,
                         "categoria": ["zapatos","camisas","bolsos","pantalones"],
                         "productName": "playera negra con rayas blancas",
                         "imagen": img/zapatillaNegra.jpg,

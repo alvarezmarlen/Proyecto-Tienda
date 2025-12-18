@@ -43,12 +43,6 @@ destacados.forEach(function(product)  {
 });
 
 
-
-
-
-// AQUÍ EMPIEZA LA PROPUESTA NUEVA DE FUNCIÓN
-
-
 // Función para agregar al carrito
 function agregarAlCarritoYRedirigir(product) {
 // Intentamos obtener el carrito del localStorage. Si no existe, usamos "[]" para que JSON.parse no falle.
