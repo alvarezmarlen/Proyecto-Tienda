@@ -270,6 +270,9 @@ main {
         align-items: center;  
         padding: 2rem;
     }
+    h2{
+        font-size: 1.3rem;
+    }
     .cart-items {
         width: 100%;
         max-width: 600px; 
@@ -289,6 +292,7 @@ main {
      .cart-items-name {
         width: auto;
         order: 1;
+        font-size: 1rem;
         flex-basis: 100%; 
         margin-top: 0.5rem;
     }

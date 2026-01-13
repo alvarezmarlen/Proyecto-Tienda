@@ -1,4 +1,9 @@
-import { articulosJSON } from './main.js';
+const url="http://localhost:8000/productos"
+
+fetch(url)
+  .then(response => response.json())
+  .then(articulosJSON => {
+   
 
 
 /* accedemos al boton por id y añadimos un escuchador*/
@@ -57,3 +62,7 @@ articulosfiltrados.forEach((product, index) => {
 });
 
 }
+
+
+
+  });
