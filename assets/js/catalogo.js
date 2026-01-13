@@ -1,5 +1,9 @@
-import { articulosJSON } from './main.js';
+/* import { articulosJSON } from './main.js'; */
 
+const url   ="http://localhost:8000/productos"
+fetch(url)
+    .then(Response => Response.json())
+    .then(articulosJSON => { 
 
 // obtenemos el elemento contenedor por su id
 const productList = document.getElementById('container');
@@ -34,10 +38,8 @@ articulosJSON.forEach((product, index) => {
     })
 
     productList.appendChild(col);
-});
-
-
-
+    });
+})
 
 
 

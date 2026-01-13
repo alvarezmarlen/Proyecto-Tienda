@@ -1,5 +1,9 @@
-import { articulosJSON } from './main.js';
-
+/* import { articulosJSON } from './main.js';
+ */
+const url   ="http://localhost:8000/productos"
+fetch(url)
+    .then(Response => Response.json())
+    .then(articulosJSON => { 
 
 const productDestacadosList = document.getElementById('products-destacados');
 
@@ -40,8 +44,8 @@ destacados.forEach(function(product)  {
     });
 
     productDestacadosList.appendChild(tarjeta);
-});
-
+    });
+})
 
 
 

@@ -1,4 +1,4 @@
-import { articulosJSON } from './main.js';
+ import { articulosJSON } from './main.js'; 
 
 
 /* accedemos al boton por id y añadimos un escuchador*/
@@ -15,7 +15,6 @@ function obtenerValor() {
 
 
     const articulosfiltrados = articulosJSON.filter(filtrado);
-
     function filtrado(articulo) {
         if (valorSeleccionado=="todas"){ return true} else{
         return articulo.categoria == valorSeleccionado;}
