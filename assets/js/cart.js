@@ -19,12 +19,12 @@ guardarCarrito();
 // 2.3. con este map, saca el 'id' de todos los items y lo convierte en un número 
 // para evitar datos duplicados, limpiar cantidades raras (0, negativas):
 
-function normalizarCarrito(lista) {
+function normalizarCarrito(carritoSinOrdenar) {
   const map = new Map();
 
-  for (const item of (Array.isArray(lista) ? lista : [])) {
+    for (const item of (Array.isArray(carritoSinOrdenar) ? carritoSinOrdenar : [])) {
     const id = Number(item.productID ?? item.produtID ?? item.id);
-    if (!Number.isFinite(id)) continue;
+ //  if (!Number.isFinite(id)) continue;
 
     const cantidad = Number(item.cantidad ?? 1);
     const cantidadSegura = Number.isFinite(cantidad) && cantidad > 0 ? cantidad : 1;
@@ -35,7 +35,7 @@ function normalizarCarrito(lista) {
   // 2.4. esto devuelve el array "normalizado", ya con ambos nombres de 'id' igualados:
   
   return [...map.entries()].map(([id, cantidad]) => ({
-    productID: id, // para catalogo.js
+ //   productID: id, // para catalogo.js
     produtID: id,  // para detalle.js
     cantidad
   }));
@@ -52,13 +52,15 @@ function guardarCarrito() {
 // 4.1. empieza sacando el 'id' sin importar cómo se llame la forma en que fue guardado en el origen:
 
 function getId(item) {
-  return Number(item.productID ?? item.produtID);
+//  return Number(item.productID ?? item.produtID);
+  return Number(item.produtID);
 }
 
 // 4.2. busca el producto real en articulosJSON, es decir, busca en el catálogo el objeto que tenga ese id:
 
 function getProductoPorId(id) {
-  return articulosJSON.find(p => Number(p.produtID ?? p.productID) === id);
+//  return articulosJSON.find(p => Number(p.produtID ?? p.productID) === id);
+  return articulosJSON.find(p => Number(p.produtID) === id);
 }
 
 
@@ -95,26 +97,33 @@ const DOMbotonCheckout = document.querySelector('#btn-checkout');
 // 7.1. acá busca que el sistema no trabaje si en el DOM no existen #cart-items o #total:
 
 function renderizarCarrito() {
-  if (!DOMitems || !DOMtotal) return;
+//  if (!DOMitems || !DOMtotal) return;
 
 // 7.2. acá vacía el contenedor, para que no se dupliquen productos al volver a renderizar:
   DOMitems.textContent = '';
 
-// 7.3. de cada 'compra' indicada por el usuario obtiene el id, busca el producto real y crea una tarjeta (div)
+// 7.3. de cada producto ingresado en el carrito por el usuario obtiene el id, busca el producto real y crea una tarjeta (div)
 
-  carrito.forEach((compra) => {
-    const id = getId(compra);
+  carrito.forEach((productoEnCarrito) => {
+    const id = getId(productoEnCarrito);
     const producto = getProductoPorId(id);
 
 // 7.4. esto pone un nombre y precio seguros si el producto no está en el catálogo, para no romper las operaciones de los botones:
-    const nombre = producto?.productName ?? `Producto #${id}`;
-    const precio = Number(producto?.precio ?? 0);
- 
+    const nombre = producto.productName;
+ //   const nombre = producto?.productName ?? `Producto #${id}`;
+    const precio = Number(producto.precio);
+//    const precio = Number(producto?.precio ?? 0);
+
+    
  // 7.5. si acaso no se establece un stock, se asume uno enorme para no bloquear las sumas:
-    const stock = Number(producto?.stock ?? 999999);
+    const stock = Number(producto.stock);
+//    const stock = Number(producto?.stock ?? 999999);
+
 
   // 7.6. acá se activa la resolución de conflictos en origen de imágenes de productos:
-    const imagen = resolverImagen(producto?.imagen ?? "");
+    const imagen = resolverImagen(producto.imagen);
+//    const imagen = resolverImagen(producto?.imagen ?? "");
+
 
   // 7.7. crea las tarjetas:
     const miProductoCard = document.createElement('div');
@@ -134,12 +143,13 @@ function renderizarCarrito() {
     miProductoPrecio.textContent = `${precio.toFixed(2)}${divisa}`;
 
     // Botones cantidad
+    
     const btnRestar = document.createElement('button');
     btnRestar.textContent = '-';
     btnRestar.classList.add('quantity-button');
     btnRestar.dataset.id = String(id); // se usa 'dataset.id' para que el botón sepa qué producto está tocando, según su id.
     btnRestar.addEventListener('click', disminuirCantidad);
-
+    
     const btnSumar = document.createElement('button');
     btnSumar.textContent = '+';
     btnSumar.classList.add('quantity-button');
@@ -147,14 +157,14 @@ function renderizarCarrito() {
     btnSumar.addEventListener('click', aumentarCantidad);
 
     const cantidadEnCarrito = document.createElement('span');
-    cantidadEnCarrito.textContent = String(compra.cantidad);
+    cantidadEnCarrito.textContent = String(productoEnCarrito.cantidad);
     cantidadEnCarrito.classList.add('quantity-display');
 
     // Subtotal: se calcula con precio desde main.js
     const miProductoSubtotal = document.createElement('p');
     miProductoSubtotal.classList.add('item-subtotal');
     miProductoSubtotal.textContent =
-      (precio * Number(compra.cantidad)).toFixed(2) + ` ${divisa}`;
+     (precio * Number(productoEnCarrito.cantidad)).toFixed(2) + ` ${divisa}`;
 
     // Eliminar
     const btnEliminar = document.createElement('button');
@@ -178,12 +188,12 @@ function renderizarCarrito() {
     DOMitems.appendChild(miProductoCard);
 
     // Evitar que alguien supere stock si stock existe:
-    if (Number(compra.cantidad) > stock) {
-      compra.cantidad = stock;
+    if (Number(productoEnCarrito.cantidad) > stock) {
+      productoEnCarrito.cantidad = stock;
       guardarCarrito();
-      cantidadEnCarrito.textContent = String(compra.cantidad);
+      cantidadEnCarrito.textContent = String(productoEnCarrito.cantidad);
       miProductoSubtotal.textContent =
-        (precio * Number(compra.cantidad)).toFixed(2) + ` ${divisa}`;
+        (precio * Number(productoEnCarrito.cantidad)).toFixed(2) + ` ${divisa}`;
     }
   });
 
@@ -197,7 +207,8 @@ function calcularTotal() {
     .reduce((acc, compra) => {
       const id = getId(compra);
       const producto = getProductoPorId(id);
-      const precio = Number(producto?.precio ?? 0);
+      const precio = Number(producto.precio);
+  //    const precio = Number(producto?.precio ?? 0);
       return acc + precio * Number(compra.cantidad);
     }, 0)
     .toFixed(2);
