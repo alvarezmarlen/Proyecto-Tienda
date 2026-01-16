@@ -1,10 +1,6 @@
 //iniciamos numero de articulos comprados
 let numero = 1;
 
-/*-------------------------------------------
-ponemos la informacion del producto
-----------------------------------------------
-*/
 
 
 const url="http://localhost:8000/productos"
@@ -95,8 +91,11 @@ for (let i = 0; i < 4; i++) {
     contenedor2.appendChild(tarjeta);
 }
   });
-
-
+  
+  
+/*-------------------------------------------
+ponemos la informacion del producto
+----------------------------------------------*/
 
 const articulo = JSON.parse(localStorage.getItem('productoSeleccionado'));
 
