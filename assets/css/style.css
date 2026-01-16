@@ -70,6 +70,7 @@ nav ul li a{
 .regitro-cart ul {
     display: flex;
     gap: 0.3rem;
+    color: white;
 }
 #reloj{
     position: absolute;
