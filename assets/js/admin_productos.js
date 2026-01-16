@@ -1,56 +1,4 @@
-/*const url = "http://localhost:8000/productos"
-
-fetch(url)
-    .then(response => response.json())
-    .then(data => {
-
-        console.log(data);
-
-        data.forEach((item) => {
-            const fila = document.createElement("tr");
-            const datos = document.createElement("td");
-            const botones = document.createElement("td");
-
-            const boton1 = document.createElement("button");
-            boton1.id = `borrar${item.id}`;
-            boton1.innerHTML = "borrar"
-            botones.appendChild(boton1);
-
-            boton1.addEventListener("click", () => {
-
-                const url2 = `http://localhost:8000/productos/${item.id}`
-                fetch(url2, {
-                    method: 'DELETE',
-                    headers: {
-                        "Content-type": "application/json; charset=UTF-8"
-                    }
-                })
-                fila.remove();
-            }
-            )
-
-
-            const boton2 = document.createElement("button");
-            boton2.id = `modificar${item.id}`;
-            boton2.innerHTML = "modificar"
-            botones.appendChild(boton2);
-            
-
-            datos.innerText = item.productName;
-
-            fila.appendChild(datos);
-            fila.appendChild(botones);
-
-            document.getElementById("salida").appendChild(fila);
-
-        });
-    })*/
-
-
-
-
-
-//Función para obtener datos
+// Función para obtener datos
 async function obtenerDatos(url) {
     try {
         const response = await fetch(url);
@@ -66,11 +14,11 @@ async function obtenerDatos(url) {
     }
 }
 
-// Funcion para borrar un artículo por ID
+// Función para borrar un artículo por ID
 async function borrarArticulo(id) {
     try {
         const response = await fetch(`http://localhost:8000/productos/${id}`, {
-            method: 'DELETE', // Usamos el método DELETE
+            method: 'DELETE',
         });
 
         if (!response.ok) {
@@ -78,13 +26,37 @@ async function borrarArticulo(id) {
         }
 
         alert('Artículo borrado correctamente');
-        // Actualizar la lista después de borrar
         const datos = await obtenerDatos('http://localhost:8000/productos');
         pintarDatos(datos);
 
     } catch (error) {
         console.error('Error al borrar el artículo:', error);
         alert('Error al borrar el artículo');
+    }
+}
+
+// Función para añadir un nuevo artículo
+async function añadirArticulo(nuevoArticulo) {
+    try {
+        const response = await fetch('http://localhost:8000/productos', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(nuevoArticulo)
+        });
+
+        if (!response.ok) {
+            throw new Error(`No se pudo añadir el artículo. Estado: ${response.status}`);
+        }
+
+        alert('Artículo añadido correctamente');
+        const datos = await obtenerDatos('http://localhost:8000/productos');
+        pintarDatos(datos);
+
+    } catch (error) {
+        console.error('Error al añadir el artículo:', error);
+        alert('Error al añadir el artículo');
     }
 }
 
@@ -98,13 +70,12 @@ function pintarDatos(datos) {
             const div = document.createElement('div');
             div.classList.add('producto');
             div.innerHTML = `
-                <span>${item.productName}</span>
+                <p>${item.productName}</p>
                 <button class="borrar-btn">Borrar</button>
             `;
 
-            // Asignamos el evento al botón de borrar
             div.querySelector('.borrar-btn').addEventListener('click', () => {
-                borrarArticulo(item.id); // Suponiendo que cada item tiene "id"
+                borrarArticulo(item.id);
             });
 
             contenedor.appendChild(div);
@@ -121,3 +92,26 @@ async function main() {
 }
 
 main();
+
+// Formulario para añadir artículo
+document.getElementById('formulario-articulo').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const nuevoArticulo = {
+        categoria: document.getElementById('categoria-articulo').value.trim(),
+        productName: document.getElementById('nombre-articulo').value.trim(),
+        precio: parseFloat(document.getElementById('precio-articulo').value),
+        descripcion: document.getElementById('descripcion-articulo').value.trim(),
+        talla: document.getElementById('talla-articulo').value.trim(),
+        stock: parseInt(document.getElementById('stock-articulo').value)
+    };
+
+    // Validaciones básicas
+    if (!nuevoArticulo.productName || !nuevoArticulo.categoria || !nuevoArticulo.descripcion || isNaN(nuevoArticulo.precio) || isNaN(nuevoArticulo.stock)) {
+        alert('Por favor, completa todos los campos correctamente');
+        return;
+    }
+
+    añadirArticulo(nuevoArticulo);
+    e.target.reset();
+});
