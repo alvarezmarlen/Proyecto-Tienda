@@ -35,6 +35,17 @@ function renderizarAdmin() {
         <p>Stock: ${producto.stock}</p>
         <p>Talla: ${producto.talla}</p>
       </div>
+
+    <div>
+        <input type="text" id="productName" placeholder="Nuevo nombre de producto"></input>
+        <input type="text" id="productName" placeholder="Nuevo nombre de producto"></input>
+        <input type="text" id="productName" placeholder="Nuevo nombre de producto"></input>        
+        <input type="text" id="productName" placeholder="Nuevo nombre de producto"></input>
+        <input type="text" id="productName" placeholder="Nuevo nombre de producto"></input>
+        <input type="text" id="productName" placeholder="Nuevo nombre de producto"></input>
+                                
+      </div>
+
     `;
 
     DOMitems.appendChild(card);
