@@ -1,8 +1,13 @@
 let carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
 
-
 carrito = normalizarCarrito(carrito);
 guardarCarrito();
+
+
+
+
+
+
 
 
 function normalizarCarrito(carritoSinOrdenar) {
@@ -21,11 +26,17 @@ function normalizarCarrito(carritoSinOrdenar) {
     cantidad
   }));
 }
-
+//
 
 function guardarCarrito() {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 }
+
+
+
+
+
+
 
 
 
@@ -51,6 +62,10 @@ function getId(item) {
 
 
 
+
+
+
+
 const divisa = '€';
 const DOMitems = document.querySelector('#cart-items');
 const DOMtotal = document.querySelector('#total');
@@ -59,7 +74,12 @@ const DOMbotonCheckout = document.querySelector('#btn-checkout');
 
 
 
-function calcularTotal() {
+
+
+
+
+// Resumen: total de carrito.
+/* function calcularTotal() {
   return carrito
     .reduce((acc, compra) => {
       const id = getId(compra);
@@ -69,8 +89,7 @@ function calcularTotal() {
     }, 0)
     .toFixed(2);
 }
-
-
+ */
 function aumentarCantidad(event) {
   const id = Number(event.target.dataset.id);
   if (!Number.isFinite(id)) return;
@@ -87,8 +106,6 @@ function aumentarCantidad(event) {
     renderizarCarrito();
   }
 }
-
-
 
 function disminuirCantidad(event) {
   const id = Number(event.target.dataset.id);
@@ -108,7 +125,6 @@ function disminuirCantidad(event) {
 }
 
 
-
 function eliminarItem(event) {
   const id = Number(event.target.dataset.id);
   if (!Number.isFinite(id)) return;
@@ -118,16 +134,18 @@ function eliminarItem(event) {
   renderizarCarrito();
 }
 
-
-if (DOMbotonVaciar) {
+//Resumen: Vaciar carrito
+/* if (DOMbotonVaciar) {
   DOMbotonVaciar.addEventListener('click', () => {
     carrito = [];
     localStorage.removeItem('carrito');
     renderizarCarrito();
   });
 }
+ */
 
-if (DOMbotonCheckout) {
+//Resumen: Pago - Checkout
+/* if (DOMbotonCheckout) {
   DOMbotonCheckout.addEventListener("click", () => {
     if (carrito.length === 0) {
       alert("Tu carrito está vacío.");
@@ -137,12 +155,11 @@ if (DOMbotonCheckout) {
   });
 }
 
-
+ */
 
 
 
 let catalogoActual = [];
-
 
 
 const url="http://localhost:8000/productos"
