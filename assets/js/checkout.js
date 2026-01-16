@@ -3,6 +3,14 @@
 
 import { articulosJSON } from "./main.js";
 
+/* const url = "http://localhost:8000/productos";
+
+fetch("url")
+  .then(response => response.json())
+  .then(articulosJSON => {
+ */
+
+
 
 //  2. DOM: TOMAMOS LOS ELEMENTOS QUE YA ESTÁN EN EL HTML
 
@@ -283,3 +291,9 @@ form?.addEventListener("submit", (event) => {
   alert(`¡Pedido confirmado! Total: ${pedido.total.toFixed(2)} €`);
   window.location.href = "/pages/productos.html";
 });
+
+  
+
+
+/* }
+  ); */
