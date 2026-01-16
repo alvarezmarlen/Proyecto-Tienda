@@ -249,7 +249,7 @@ function renderizarCarrito() {
     const miProductoCard = document.createElement('div');
     miProductoCard.classList.add('cart-item');
 
-    const miProductoName = document.createElement('h5');
+    const miProductoName = document.createElement('p');
     miProductoName.classList.add('cart-items-name');
     miProductoName.textContent = nombre;
 
