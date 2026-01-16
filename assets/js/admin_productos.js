@@ -60,6 +60,32 @@ async function añadirArticulo(nuevoArticulo) {
     }
 }
 
+// Función para actualizar un artículo por ID
+async function actualizarArticulo(id, articuloActualizado) {
+    try {
+        const response = await fetch(`http://localhost:8000/productos/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(articuloActualizado)
+        });
+
+        if (!response.ok) {
+            throw new Error(`No se pudo actualizar el artículo. Estado: ${response.status}`);
+        }
+
+        alert('Artículo actualizado correctamente');
+        const datos = await obtenerDatos('http://localhost:8000/productos');
+        pintarDatos(datos);
+
+    } catch (error) {
+        console.error('Error al actualizar el artículo:', error);
+        alert('Error al actualizar el artículo');
+    }
+}
+
+
 // Función para pintar los datos en la web
 function pintarDatos(datos) {
     const contenedor = document.getElementById('contenedor');
@@ -70,12 +96,39 @@ function pintarDatos(datos) {
             const div = document.createElement('div');
             div.classList.add('producto');
             div.innerHTML = `
-                <p>${item.productName}</p>
+                <p>${item.productName} - Precio: ${item.precio} - Stock: ${item.stock}</p>
                 <button class="borrar-btn">Borrar</button>
+                <button class="editar-btn">Editar</button>
             `;
 
             div.querySelector('.borrar-btn').addEventListener('click', () => {
                 borrarArticulo(item.id);
+            });
+
+            div.querySelector('.editar-btn').addEventListener('click', async () => {
+                // Pedimos los nuevos datos
+                const nuevoNombre = prompt('Nuevo nombre del producto:', item.productName);
+                const nuevaCategoria = prompt('Nueva categoría:', item.categoria);
+                const nuevoPrecio = parseFloat(prompt('Nuevo precio:', item.precio));
+                const nuevaDescripcion = prompt('Nueva descripción:', item.descripcion);
+                const nuevaTalla = prompt('Nueva talla:', item.talla);
+                const nuevoStock = parseInt(prompt('Nuevo stock:', item.stock));
+
+                if (!nuevoNombre || !nuevaCategoria || isNaN(nuevoPrecio) || !nuevaDescripcion || !nuevaTalla || isNaN(nuevoStock)) {
+                    alert('Datos inválidos. No se actualizó el artículo.');
+                    return;
+                }
+
+                const articuloActualizado = {
+                    productName: nuevoNombre,
+                    categoria: nuevaCategoria,
+                    precio: nuevoPrecio,
+                    descripcion: nuevaDescripcion,
+                    talla: nuevaTalla,
+                    stock: nuevoStock
+                };
+
+                await actualizarArticulo(item.id, articuloActualizado);
             });
 
             contenedor.appendChild(div);
@@ -84,6 +137,7 @@ function pintarDatos(datos) {
         contenedor.textContent = 'No hay datos para mostrar.';
     }
 }
+
 
 // Ejemplo de uso
 async function main() {
