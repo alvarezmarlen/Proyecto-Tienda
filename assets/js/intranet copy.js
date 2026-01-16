@@ -1,8 +1,6 @@
-/* Esta parte permite que los productos que estan en database.Json  
- se plasmen en la pagina Panel de Administracion en la tabla, 
- exactamente en el cuerpo de la tabla */
+
 const url = "http://localhost:8000/productos";
-const DOMitems = document.querySelector(".productos-items");
+const DOMitems = document.getElementById("cart-items");
 
 let productos = [];
 
@@ -13,12 +11,12 @@ fetch(url)
     renderizarAdmin();
     modificarAdmin();
   })
-  .catch(function(error) {
-    console.log(error);
+  .catch(error => {
+    console.error("Error al cargar productos:", error);
   });
 
-function pintarProductos() {
-  DOMitems.innerHTML = ""; 
+function renderizarAdmin() {
+  DOMitems.innerHTML = "";
 
   productos.forEach(producto => {
     const card = document.createElement("div");
@@ -332,99 +330,51 @@ function renderizarCarrito() {
     btnRestar.dataset.id = String(id); 
     btnRestar.addEventListener('click', disminuirCantidad);
     
-    btnEliminar.addEventListener("click", function()  {
-      if (confirm(`¿Borrar ${producto.descripcion}?`)) {
-        fetch(`http://localhost:8000/productos/${producto.id}`, {
-          method: 'DELETE'
-        })
-        .then(() => {
-          fila.remove(); 
-          alert("Producto eliminado");
-        });
-      }
-    });
-       
-    DOMitems.appendChild(fila);
+    const btnSumar = document.createElement('button');
+    btnSumar.textContent = '+';
+    btnSumar.classList.add('quantity-button');
+    btnSumar.dataset.id = String(id);
+    btnSumar.addEventListener('click', aumentarCantidad);
+
+    const cantidadEnCarrito = document.createElement('span');
+    cantidadEnCarrito.textContent = String(productoEnCarrito.cantidad);
+    cantidadEnCarrito.classList.add('quantity-display');
+
+    const miProductoSubtotal = document.createElement('p');
+    miProductoSubtotal.classList.add('item-subtotal');
+    miProductoSubtotal.textContent =
+     (precio * Number(productoEnCarrito.cantidad)).toFixed(2) + ` ${divisa}`;
+
+    const btnEliminar = document.createElement('button');
+    btnEliminar.textContent = 'Eliminar del carrito';
+    btnEliminar.classList.add('remove-btn');
+    btnEliminar.dataset.id = String(id);
+    btnEliminar.addEventListener('click', eliminarItem);
+
+    miProductoCard.appendChild(miProductoImagen);
+    miProductoCard.appendChild(miProductoName);
+    miProductoCard.appendChild(miProductoPrecio);
+
+    miProductoCard.appendChild(btnRestar);
+    miProductoCard.appendChild(cantidadEnCarrito);
+    miProductoCard.appendChild(btnSumar);
+
+    miProductoCard.appendChild(miProductoSubtotal);
+    miProductoCard.appendChild(btnEliminar);
+
+    DOMitems.appendChild(miProductoCard);
+
+
+    if (Number(productoEnCarrito.cantidad) > stock) {
+      productoEnCarrito.cantidad = stock;
+      guardarCarrito();
+      cantidadEnCarrito.textContent = String(productoEnCarrito.cantidad);
+      miProductoSubtotal.textContent =
+        (precio * Number(productoEnCarrito.cantidad)).toFixed(2) + ` ${divisa}`;
+    }
   });
-} 
 
-
-
-/* ----------------------------------------------
-    aqui funciona la modal que se muestra al dar click al BOTON CREAR
-    ----------------------------------------------*/
-var modal = document.getElementById("myModal");
-var abrir = document.getElementById("abrirModal");
-var cerrar = document.querySelector(".cerrar-modal");
-var cancelar = document.getElementById("cancelBtn");
-var guardar = document.getElementById("guardarBtn");
-
-// Mostrar modal
-abrir.addEventListener("click", function() {
-  modal.style.display = "flex";
-});
-
-// Cerrar con la X
-cerrar.addEventListener("click", function() {
-  modal.style.display = "none";
-});
-
-// Cerrar con Cancelar
-cancelar.addEventListener("click", function() {
-  modal.style.display = "none";
-});
-
-// Guardar
-guardar.addEventListener("click", function() {
-  modal.style.display = "none";
-});
-
-
-
-/*------------------------------------------------------------
-     CREAR    (dentro esta el formulario) 
---------------------------------------------------------------     
-*/
-function insertar() {
-/* declaro  const para preguntar si los valores cumplen y asi 
-no me guarde un producto vacio.
-*/
-  const numeroId = document.getElementById("productID").value;
-  const nombreDelProducto = document.getElementById("productName").value;
-  const precioDelProducto = document.getElementById("precio").value;
-
-/* Luego le pregunto con el IF si cumplen */
-      if (numeroId==="" || nombreDelProducto ==="" || precioDelProducto ==="") {
-        alert("Debes de llenar los campos");
-        return; // Detiene todo, si no lo coloco pasa a crear producto vacio
-      }
-  
-  const agregarProducto = {
-    produtID: document.getElementById("productID").value,
-    categoria: document.getElementById("categoria").value,
-    productName: document.getElementById("productName").value,
-    descripcion: document.getElementById("descripcion").value,
-    precio: document.getElementById("precio").value,
-    talla: document.getElementById("talla").value,
-    stock: document.getElementById("stock").value,
-    imagen: document.getElementById("imagen").value
-  }
-
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(agregarProducto),
-  };
-
-  let url2 = "http://localhost:8000/productos"
-
-    fetch(url2, options)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data)
-      alert("¡Perfecto agregado!");
-      location.reload();
-    }) ;
+  DOMtotal.textContent = calcularTotal();
 }
+
+ */
