@@ -1,7 +1,45 @@
-let carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
 
-carrito = normalizarCarrito(carrito);
-guardarCarrito();
+const url = "http://localhost:8000/productos";
+const DOMitems = document.getElementById("cart-items");
+
+let productos = [];
+
+fetch(url)
+  .then(res => res.json())
+  .then(data => {
+    productos = data; 
+    renderizarAdmin();
+  })
+  .catch(error => {
+    console.error("Error al cargar productos:", error);
+  });
+
+function renderizarAdmin() {
+  DOMitems.innerHTML = "";
+
+  productos.forEach(producto => {
+    const card = document.createElement("div");
+    card.style.border = "1px solid #ccc";
+    card.style.margin = "10px";
+    card.style.padding = "10px";
+    card.style.display = "flex";
+    card.style.gap = "10px";
+
+    card.innerHTML = `
+      <img src="${producto.imagen}" alt="${producto.productName}" width="80">
+
+      <div>
+        <h3>${producto.productName}</h3>
+        <p>Categoría: ${producto.categoria}</p>
+        <p>Precio: ${producto.precio} €</p>
+        <p>Stock: ${producto.stock}</p>
+        <p>Talla: ${producto.talla}</p>
+      </div>
+    `;
+
+    DOMitems.appendChild(card);
+  });
+}
 
 
 
@@ -10,7 +48,14 @@ guardarCarrito();
 
 
 
-function normalizarCarrito(carritoSinOrdenar) {
+
+
+
+
+
+
+
+/* function normalizarCarrito(carritoSinOrdenar) {
   const map = new Map();
 
     for (const item of (Array.isArray(carritoSinOrdenar) ? carritoSinOrdenar : [])) {
@@ -72,7 +117,7 @@ const DOMtotal = document.querySelector('#total');
 const DOMbotonVaciar = document.querySelector('#btn-empty');
 const DOMbotonCheckout = document.querySelector('#btn-checkout');
 
-
+ */
 
 
 
@@ -90,7 +135,7 @@ const DOMbotonCheckout = document.querySelector('#btn-checkout');
     .toFixed(2);
 }
  */
-function aumentarCantidad(event) {
+/* function aumentarCantidad(event) {
   const id = Number(event.target.dataset.id);
   if (!Number.isFinite(id)) return;
 
@@ -132,7 +177,7 @@ function eliminarItem(event) {
   carrito = carrito.filter(i => getId(i) !== id);
   guardarCarrito();
   renderizarCarrito();
-}
+} */
 
 //Resumen: Vaciar carrito
 /* if (DOMbotonVaciar) {
@@ -159,7 +204,7 @@ function eliminarItem(event) {
 
 
 
-let catalogoActual = [];
+/* let catalogoActual = [];
 
 
 const url="http://localhost:8000/productos"
@@ -178,11 +223,11 @@ fetch(url)
 function getProductoPorId(id) {
   return catalogoActual.find(p => Number(p.produtID) === id);
 }
+ */
 
 
 
-
-
+/* 
 
 function renderizarCarrito() {
 
@@ -271,4 +316,4 @@ function renderizarCarrito() {
   DOMtotal.textContent = calcularTotal();
 }
 
-
+ */
