@@ -1,4 +1,4 @@
-
+// Esta parte permite que los productos que estan en database.Json  se plasmen en la pagina Panel de Administracion
 const url = "http://localhost:8000/productos";
 const DOMitems = document.getElementById("cart-items");
 
@@ -41,6 +41,40 @@ function renderizarAdmin() {
   });
 }
 
+
+/* 
+---------------------------------------------------------------
+    AQUI ESTARA LA SECCION DE AÑADIR
+---------------------------------------------------------------
+*/
+
+function insertar() {
+
+  const update = {
+    produtID: 22,
+    categoria: "bolsos",
+    productName: "Cartera roja",
+    precio: 35,
+    descripcion: "Cartera de cuero en color roja",
+    talla: "grande",
+    stock: 3,
+  }
+
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(update),
+  };
+
+  let url2 = "http://localhost:8000/productos"
+
+    fetch(url2, options)
+    .then(response => response.json())
+    .then(data => console.log(data))
+
+}
 
 
 
