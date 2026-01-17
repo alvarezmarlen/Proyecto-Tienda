@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Overpass+Mono:wght@300..700&family=Pacifico&display=swap');
+
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+header {
+        font-family: "Overpass Mono", monospace;
+}
+
+
+/* INICIO DE LA SECCIÓN PRINCIPAL */
+
+main {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: "Montserrat";
+    gap: 2rem;
+    padding: 3rem 5vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+
+}
+/* ============================
+   CONTENEDOR DE LA COLUMNA IZQUIERDA
+   ============================ */
+.cart-items {
+    width: 60%;
+    padding: 2rem;
+}
+
+/* ============================
+   TARJETA INDIVIDUAL DEL PRODUCTO
+   ============================ */
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background-color: #ffffff;
+    border: 2px solid #FFD2B3;
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
+
+    /* Sombra suave */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+
+    /* Para que el contenido no se rompa */
+    flex-wrap: wrap;
+}
+
+/* ============================
+   IMAGEN DEL PRODUCTO
+   ============================ */
+.cart-items-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* ============================
+   NOMBRE DEL PRODUCTO
+   ============================ */
+.cart-items-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #444;
+    width: 180px;
+}
+
+/* ============================
+   PRECIO UNITARIO
+   ============================ */
+.cart-items-precio {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* ============================
+   CONTROLES DE CANTIDAD
+   ============================ */
+.quantity-button {
+    background-color: #FFB07C;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    font-size: 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.quantity-button:hover {
+    background-color: #ff9855;
+}
+
+.quantity-display {
+    padding: 0.3rem 0.8rem;
+    background-color: #FFF3E6;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* ============================
+   SUBTOTAL
+   ============================ */
+.item-subtotal {
+    margin-left: auto;
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+/* ============================
+   BOTÓN ELIMINAR
+   ============================ */
+.remove-btn {
+    background-color: #ff6b6b;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: background-color 0.2s;
+}
+
+.remove-btn:hover {
+    background-color: #e44b4b;
+}
+
+
+
+
+
+
+.cart-summary {
+    background-color: #F2E7D5;           /* tu beige suave */
+    border-radius: 1.5rem;
+    padding: 2rem 7rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+
+    min-width: 260px;
+    max-width: 380px;
+    box-sizing: border-box;
+}
+
+.cart-summary h2 {
+    font-family: "Pacifico", cursive;
+    font-size: 2rem;
+    margin: 0 0 0.5rem 0;
+    color: #4A2E2A;             /* marrón suave, rollo vintage */
+    text-align: center;
+}
+
+.summary-total {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    padding: 1rem 5rem;
+    border-radius: 1rem;
+    background-color: #FFF8EF;
+    border: 1px solid #F0D9BE;
+    font-size: 2rem;
+}
+
+.summary-label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #6D4C41;
+}
+
+.summary-amount {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #3E2723;
+    display: flex;
+    align-items: baseline;
+}
+
+.summary-amount p {
+    font-size: 1.2rem;
+}
+
+#btn-empty,
+#btn-checkout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15rem;
+    border: none;
+    border-radius: 999px;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: transform 0.1s ease, box-shadow 0.15s ease, background-color 0.2s ease;
+}
+
+#btn-empty {
+    background-color: #F28B82;
+    color: #fff;
+}
+
+#btn-empty:hover {
+    background-color: #E53935;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(229, 57, 53, 0.4);
+}
+
+#btn-checkout {
+    background-color: #E2FFB4;
+    color: #3B4A2F;
+}
+
+#btn-checkout:hover {
+    background-color: #3B4A2F;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(229, 57, 53, 0.4);
+}
+
+/* FIN DE LA SECCIÓN PRINCIPAL */
+@media (max-width: 1024px) {   
+    main {
+        padding: 2rem 3vw; 
+        gap: 1.5rem;
+    }
+    .cart-summary {
+        padding: 1.5rem 2rem; 
+        min-width: 240px;
+        max-width: 300px; 
+    }
+    .summary-total {
+        padding: 1rem 1rem;
+    }
+    #btn-empty,
+    #btn-checkout {
+        width: 100%; 
+        max-width: 250px;
+        font-size: 0.95rem;
+    }
+    .cart-item {
+        gap: 1rem;
+        padding: 1rem;
+    }
+    .cart-items-name {
+        width: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        align-items: center;  
+        padding: 2rem;
+    }
+    h2{
+        font-size: 1.3rem;
+    }
+    .cart-items {
+        width: 100%;
+        max-width: 600px; 
+        padding: 0;
+        margin-bottom: 2rem;
+    }
+    .cart-summary {
+        width: 100%;
+        max-width: 600px; 
+        padding: 1.5rem 1rem;
+    }
+
+    .cart-item {
+        flex-wrap: wrap; 
+        justify-content: space-between; 
+    }
+     .cart-items-name {
+        width: auto;
+        order: 1;
+        font-size: 1rem;
+        flex-basis: 100%; 
+        margin-top: 0.5rem;
+    }
+    .quantity-controls {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        order: 2;
+    }
+    .item-subtotal {
+        order: 3;
+        margin-left: 0;
+    }    
+    .remove-btn {
+        order: 4;
+        margin-left: 0.5rem;
+    }
+    .summary-total {
+        padding: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .summary-amount {
+        font-size: 2.2rem;
+    }
+}
