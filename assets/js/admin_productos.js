@@ -138,27 +138,18 @@ function pintarDatos(datos) {
     }
 }
 
-
-// Ejemplo de uso
-async function main() {
-    const datos = await obtenerDatos('http://localhost:8000/productos');
-    pintarDatos(datos);
-}
-
-main();
-
 // Formulario para añadir artículo
 document.getElementById('formulario-articulo').addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const nuevoArticulo = {
+        const nuevoArticulo = {
         categoria: document.getElementById('categoria-articulo').value.trim(),
         productName: document.getElementById('nombre-articulo').value.trim(),
         precio: parseFloat(document.getElementById('precio-articulo').value),
         descripcion: document.getElementById('descripcion-articulo').value.trim(),
         talla: document.getElementById('talla-articulo').value.trim(),
         stock: parseInt(document.getElementById('stock-articulo').value)
-    };
+        };
 
     // Validaciones básicas
     if (!nuevoArticulo.productName || !nuevoArticulo.categoria || !nuevoArticulo.descripcion || isNaN(nuevoArticulo.precio) || isNaN(nuevoArticulo.stock)) {
@@ -169,3 +160,11 @@ document.getElementById('formulario-articulo').addEventListener('submit', (e) =>
     añadirArticulo(nuevoArticulo);
     e.target.reset();
 });
+
+// Ejemplo de uso
+async function main() {
+    const datos = await obtenerDatos('http://localhost:8000/productos');
+    pintarDatos(datos);
+}
+
+main();
