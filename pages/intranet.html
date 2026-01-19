@@ -32,21 +32,100 @@
     </header> 
     
     <main>
-  
-        <!-- Columna izquierda: productos -->
-        <section class="cart-items">
-    
-            <h2>Panel de administración de Productos</h2>
-            <div id="cart-items">
-                <img id="cart-items-image" alt="">
-                <input type="text" id="cart-items-name">
-                <input type="text" id="cart-items-">
+        <h1>PANEL DE ADMINISTRACION </h1>
+
+         <!-- SECCION DE PRODUCTOSn(desde la cabecera hasta el final)-->
+     <section class="container-tabla">
+        <button id="abrirModal">Crear</button>
+        <table class="container-productos">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Id</th>
+                    <th class="descrip">Descripción</th>
+                    <th>Categoria</th>
+                    <th>Precio</th>
+                    <th>Talla</th>
+                    <th>Stock</th>
+                    <th class="acciones">Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody class="productos-items">
+            </tbody>
+        </table>
+     </section>
 
 
+<!-- AQUI COLOCO LA MODAL ENVOLVIENDO AL FORMULARIO 
+  "esta se abre para crear, añadir o agregar" -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="cerrar-modal">x</span>
 
-            </div>
-    
+    <section class="agregar-producto">
+      <h3>Agregar Producto</h3>
+
+      <form class="formulario-productos">
+        <input type="hidden" id="id-oculto" value="">
+        <section class="campos-formularios">
+
+          <div class="campo">
+            <label for="productID">Producto ID</label>
+            <input id="productID" name="productID" type="text">
+          </div>
+
+          <div class="campo">
+            <label for="productName">Nombre</label>
+            <input id="productName" name="productName" type="text">
+          </div>
+
+          <div class="campo">
+            <label for="categoria">Categoría</label>
+            <select name="categoria" id="categoria">
+              <option value="">-----</option>
+              <option value="bolsos">Bolsos</option>
+              <option value="camisas">Camisas</option>
+              <option value="pantalones">Pantalones</option>
+              <option value="zapatos">Zapatos</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="descripcion">Descripción</label>
+            <textarea name="descripcion" id="descripcion"></textarea>
+          </div>
+
+          <div class="campo">
+            <label for="precio">Precio</label>
+            <input id="precio" name="precio" type="number">
+          </div>
+
+          <div class="campo">
+            <label for="talla">Talla</label>
+            <input id="talla" name="talla" type="text">
+          </div>
+
+          <div class="campo">
+            <label for="stock">Stock</label>
+            <input id="stock" name="stock" type="number">
+          </div>
+
+          <div class="campo">
+            <label for="imagen">Imagen</label>
+            <input id="imagen" name="imagen" type="text" placeholder="ruta de la imagen">
+          </div>
         </section>
+      </form>
+      <div class="botones-modal">
+        <button id="cancelBtn" class="boton-modal">Cancelar</button>
+        <button id="guardarBtn"class="boton-modal"onclick="insertar()">Guardar</button>
+      </div>
+    </section>
+  </div>
+</div>
+
+
 
 
     </main>
