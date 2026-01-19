@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        /*formulario*/
         form {
             max-width: 300px;
             margin: 2rem;
@@ -18,14 +19,34 @@
             display: block;
             margin: 1rem;
         }
+
+
+        /*modal*/
+    .modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+}
+
+.modal-contenido {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    margin: 100px auto;
+    position: relative;
+}
+
+#cerrar-modal {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
     </style>
 </head>
 <body>
 
-     
-   <!--<table id="salida">
- 
-    </table>-->
+    
 
 <form id="formulario-articulo">
     <input type="text" id="nombre-articulo" placeholder="Nombre del artículo" required>
@@ -39,6 +60,27 @@
 
 <div id="contenedor"></div>
 
+<!-- MODAL EDITAR ARTICULO -->
+<div id="modal-editar" class="modal">
+    <div class="modal-contenido">
+        <span id="cerrar-modal">&times;</span>
+
+        <h3>Editar artículo</h3>
+
+        <form id="form-editar">
+            <input type="hidden" id="editar-id">
+
+            <input type="text" id="editar-categoria" placeholder="Categoría" required>
+            <input type="text" id="editar-nombre" placeholder="Nombre" required>
+            <input type="number" id="editar-precio" placeholder="Precio" required>
+            <input type="text" id="editar-descripcion" placeholder="Descripción" required>
+            <input type="text" id="editar-talla" placeholder="Talla" required>
+            <input type="number" id="editar-stock" placeholder="Stock" required>
+
+            <button type="submit">Guardar cambios</button>
+        </form>
+    </div>
+</div>
 
     
     <!--<script type="module" src="../assets/js/admin_productos.js"></script>-->
