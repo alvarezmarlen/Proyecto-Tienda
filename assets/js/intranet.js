@@ -51,6 +51,7 @@ function pintarProductos() {
         });
       }
     });
+    
        
     DOMitems.appendChild(fila);
   });
