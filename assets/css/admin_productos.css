@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Overpass+Mono:wght@300..700&family=Pacifico&display=swap');
+
+/*formulario*/
+        body {
+                font-family: montserrat;
+                background-color: #fff9f9;
+        }
+        form {
+            background-color: #ffffff;
+            max-width: 300px;
+            margin: 2rem;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        form input{
+            display: block;
+            margin: 1rem;
+        }
+        form button{
+            display: block;
+            margin: 1rem;
+        }
+
+        td {
+            padding: 1rem;
+        }
+
+        table {
+            background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            margin:auto
+        }
+
+        form{
+            margin: auto;
+        }
+
+     .celda {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background-color: #ffffff;
+    border: 2px solid #FFD2B3;
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
+
+    /* Sombra suave */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+
+    /* Para que el contenido no se rompa */
+    flex-wrap: wrap;
+}
+    .celda td{
+        width: 12rem;
+    }
+
+        /*modal*/
+    .modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+}
+
+.modal-contenido {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    margin: 100px auto;
+    position: relative;
+}
+
+#cerrar-modal {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+
+.borrar{
+
+    background-color: #ff6b6b;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: background-color 0.2s;
+}
+
+.borrar:hover {
+    background-color: #e44b4b;
+}
+
+.editar {
+
+    background-color: #6b86ff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: background-color 0.2s;
+}
+
+.editar:hover {
+    background-color: #6b86ff;
+;
+}
+
+.contenedorbotones{
+    display: flex;
+    justify-content: space-between;
+}
+
+.bordetabla{
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+#formulario-articulo {
+    display: none;
+}

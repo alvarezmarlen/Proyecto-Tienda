@@ -25,6 +25,7 @@ async function anadirArticulo(URL, nuevoArticulo) {
         },
         body: JSON.stringify(nuevoArticulo)
     });
+
     const datos = await obtenerArticulos(URL);
     pintarDatos(datos);
 }
@@ -57,11 +58,12 @@ function pintarDatos(datos) {
 
     datos.forEach((dato) => {
         contenedor.innerHTML += `
-                            <tr style="border: 1px solid black">
-                                <td style="border: 1px solid black">${dato.productName}</td>
-                                <td style="border: 1px solid black">${dato.stock} unidades</td>
-                                <td style="border: 1px solid black">${dato.precio} euros</td>
-                            <td style="border: 1px solid black"><button type="button" class="editar" data-id="${dato.id}">editar</button>
+                            <tr class="celda">
+                                <td><img src="${dato.imagen}" width=80px></td>
+                                <td>${dato.productName}</td>
+                                <td>${dato.stock} unidades</td>
+                                <td>${dato.precio} euros</td>
+                            <td class="contenedorbotones"><button type="button" class="editar" data-id="${dato.id}">editar</button>
                             <button type="button" class="borrar" data-id="${dato.id}">borrar</button></td>
                             </tr>`
     })
@@ -95,6 +97,7 @@ async function main() {
             produtID: document.getElementById('categoria-articulo').value.trim(),
             categoria: document.getElementById('categoria-articulo').value.trim(),
             productName: document.getElementById('nombre-articulo').value.trim(),
+            image: document.getElementById('editar-imagen').value.trim(),
             precio: parseFloat(document.getElementById('precio-articulo').value),
             descripcion: document.getElementById('descripcion-articulo').value.trim(),
             talla: document.getElementById('talla-articulo').value.trim(),
@@ -109,7 +112,9 @@ async function main() {
 
         anadirArticulo(URL, nuevoArticulo);
         e.target.reset();
+         document.getElementById('formulario-articulo').style.display = 'none';
     });
+
 
 
     //Abre la modal de editar producto
@@ -143,6 +148,7 @@ async function main() {
             produtID: document.getElementById('categoria-articulo').value.trim(),
             categoria: document.getElementById('editar-categoria').value.trim(),
             productName: document.getElementById('editar-nombre').value.trim(),
+            image: document.getElementById('editar-imagen').value.trim(),
             precio: parseFloat(document.getElementById('editar-precio').value),
             descripcion: document.getElementById('editar-descripcion').value.trim(),
             talla: document.getElementById('editar-talla').value.trim(),
@@ -160,6 +166,11 @@ async function main() {
         // Cerrar modal
         document.getElementById('modal-editar').style.display = 'none';
     });
+
+    document.getElementById("cuadroanadir").addEventListener("click", ()=>{
+        document.getElementById("formulario-articulo").style.display='block';
+
+    })
  
 }
 
