@@ -6,7 +6,7 @@ async function obtenerArticulos(URL) {
     return datos;
 }
 
-//funcion para borrar datos
+//funcion para borrar articulo por su id
 async function borrarArticulos(URL, ID) {
     const response = await fetch(URL + "/" + ID, {
         method: 'DELETE',
@@ -51,7 +51,7 @@ async function obtenerArticuloPorId(URL, ID) {
     return dato;
 }
 
-//funcion que pinta la lista de articulos, se añade un dataset con la id a los botones (delegacion de eventos)
+//funcion que pinta la lista de articulos, se añade un dataset (data-) con la id a los botones (delegacion de eventos)
 function pintarDatos(datos) {
     const contenedor = document.getElementById("contenedor");
     contenedor.innerHTML = '';
@@ -75,23 +75,30 @@ let datos = [];
 // programa principal
 async function main() {
 
-    //obtenemos datos
+    //obtenemos datos y los pintamos:
     const URL = 'http://localhost:8000/productos';
     datos = await obtenerArticulos(URL); //la funcion se detiene aqui hasta obener los datos
 
-    //pintamos los datos
     pintarDatos(datos);
 
-    //boton borrar datos, se selecciona el boton clickado usando delegacion de eventos y el dataset anterior
+
+    /*boton borrar datos, se selecciona el boton clickado usando delegacion de eventos:
+    1. se añade un escuchador de click al contenedor
+    2. se selecciona el boton con target.dataset*/
+
     document.getElementById('contenedor').addEventListener('click', function (e) {
         if (e.target.classList.contains('borrar')) {
             borrarArticulos(URL, e.target.dataset.id)
         }
     });
 
-    //formulario para añadir un articulo
+    /*formulario para añadir un articulo:
+    1. se añade un escuchador de envio al formulario. 
+    2. al enviar se lee el nuevo articulo.
+    3. se llama a la funcion anadir articulo*/
+
     document.getElementById("formulario-articulo").addEventListener('submit', (e) => {
-        e.preventDefault();
+        e.preventDefault(); //evita la recarga de la pagina al enviar el formulario
 
         const nuevoArticulo = {
             produtID: document.getElementById('categoria-articulo').value.trim(),
@@ -104,31 +111,39 @@ async function main() {
             stock: parseInt(document.getElementById('stock-articulo').value)
         };
 
-        // Validaciones básicas
+       
         if (!nuevoArticulo.productName || !nuevoArticulo.categoria || !nuevoArticulo.descripcion || isNaN(nuevoArticulo.precio) || isNaN(nuevoArticulo.stock)) {
             alert('Por favor, completa todos los campos correctamente');
             return;
-        }
+        } // Validaciones básicas
 
         anadirArticulo(URL, nuevoArticulo);
         e.target.reset();
-         document.getElementById('formulario-articulo').style.display = 'none';
+        document.getElementById('formulario-articulo').style.display = 'none';
     });
 
+    // abre el cuadro de añadir
+    document.getElementById("cuadroanadir").addEventListener("click", ()=>{
+        document.getElementById("formulario-articulo").style.display='block';
+
+    })
 
 
-    //Abre la modal de editar producto
+    /*Abre la modal de editar producto. se selecciona el boton clickado usando delegacion de eventos:
+    1. Se agrega un escuchador de clic al contenedor.
+    2. Se verifica qué elemento fue clickeado: 
+        e.target es el elemento exacto que recibió el clic.
+        Se comprueba si ese elemento tiene la clase editar. 
+    3. Se guarda un ID en un campo oculto*/
+
     document.getElementById('contenedor').addEventListener('click', function (e) {
         if (e.target.classList.contains('editar')) {
 
-            // Guardamos el ID
-            document.getElementById('editar-id').value = e.target.dataset.id;
+            document.getElementById('editar-id').value = e.target.dataset.id; // Guardamos el ID
 
-            // Limpiar formulario
-            document.getElementById('form-editar').reset();
+            document.getElementById('form-editar').reset(); // Limpiar formulario
 
-            // Abrir modal
-            document.getElementById('modal-editar').style.display = 'block';
+            document.getElementById('modal-editar').style.display = 'block'; // Abrir modal
         }
     });
 
@@ -138,9 +153,14 @@ async function main() {
     });
 
 
-    //Edita el producto
+    /*Edita el producto. se selecciona el boton clickado usando delegacion de eventos:
+    1. Escucha el envío del formulario
+    2. Recupera el ID del producto guardado previamente. Ese ID viene del botón "Editar" (data-id)
+    3. Se construye un objeto JavaScript con los nuevos valores del formulario.
+    4. Crea el objeto con los datos actualizados*/
+
     document.getElementById('form-editar').addEventListener('submit', function (e) {
-        e.preventDefault();
+        e.preventDefault(); //evita la recarga de la pagina al enviar el formulario
 
         const id = document.getElementById('editar-id').value;
 
@@ -155,22 +175,15 @@ async function main() {
             stock: parseInt(document.getElementById('editar-stock').value)
         };
 
-        // Validación básica
         if (!articuloActualizado.productName || isNaN(articuloActualizado.precio)) {
             alert('Completa los campos correctamente');
             return;
-        }
+        }// Validación básica
 
         modificarArticulos(URL, id, articuloActualizado);
 
-        // Cerrar modal
-        document.getElementById('modal-editar').style.display = 'none';
+        document.getElementById('modal-editar').style.display = 'none';        // Cerrar modal
     });
-
-    document.getElementById("cuadroanadir").addEventListener("click", ()=>{
-        document.getElementById("formulario-articulo").style.display='block';
-
-    })
  
 }
 
