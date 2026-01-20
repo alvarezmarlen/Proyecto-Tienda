@@ -47,6 +47,7 @@ function pintarProductos() {
 
 
  //EDITAR
+<<<<<<< HEAD
    const btnEditar = fila.querySelector('.editar');
 
     btnEditar.addEventListener("click", function(){  
@@ -65,6 +66,11 @@ function pintarProductos() {
         // Cambiamos el texto del título para saber que estamos editando
         document.querySelector(".agregar-producto h3").innerText = "Editar Producto";
     });
+=======
+
+
+
+>>>>>>> 3d5d344 (prueba)
 
 
 
