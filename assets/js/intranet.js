@@ -61,11 +61,11 @@ function pintarProductos() {
 /* ----------------------------------------------
     aqui funciona la modal que se muestra al dar click al BOTON CREAR
     ----------------------------------------------*/
-var modal = document.getElementById("myModal");
-var abrir = document.getElementById("abrirModal");
-var cerrar = document.querySelector(".cerrar-modal");
-var cancelar = document.getElementById("cancelBtn");
-var guardar = document.getElementById("guardarBtn");
+let modal = document.getElementById("myModal");
+let abrir = document.getElementById("abrirModal");
+let cerrar = document.querySelector(".cerrar-modal");
+let cancelar = document.getElementById("cancelBtn");
+let guardar = document.getElementById("guardarBtn");
 
 // Mostrar modal
 abrir.addEventListener("click", function() {
