@@ -88,8 +88,14 @@ function pintarProductos() {
           alert("Producto eliminado");
         });
       }
+<<<<<<< HEAD
     });  
       
+=======
+    });
+    
+       
+>>>>>>> f02f060 (PRUEBA)
     DOMitems.appendChild(fila);
   });
 } 
