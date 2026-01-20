@@ -49,6 +49,7 @@
     
 
 <form id="formulario-articulo">
+    <input type="text" id="editar-produtID" placeholder="produtID" required>
     <input type="text" id="nombre-articulo" placeholder="Nombre del artículo" required>
     <input type="text" id="categoria-articulo" placeholder="Categoría" required>
     <input type="text" id="talla-articulo" placeholder="Talla" required>
@@ -58,7 +59,9 @@
     <button type="submit">Añadir artículo</button>
 </form>
 
-<div id="contenedor"></div>
+<table id="contenedor" style="border: 1px solid black">
+ 
+</table>
 
 <!-- MODAL EDITAR ARTICULO -->
 <div id="modal-editar" class="modal">
@@ -70,6 +73,7 @@
         <form id="form-editar">
             <input type="hidden" id="editar-id">
 
+            <input type="text" id="editar-produtID" placeholder="produtID" required>
             <input type="text" id="editar-categoria" placeholder="Categoría" required>
             <input type="text" id="editar-nombre" placeholder="Nombre" required>
             <input type="number" id="editar-precio" placeholder="Precio" required>
