@@ -50,28 +50,37 @@ async function obtenerArticuloPorId(URL, ID) {
     return dato;
 }
 
-//funcion que pinta la lista de articulos, se añade un dataset a los botones
+//funcion que pinta la lista de articulos, se añade un dataset con la id a los botones (delegacion de eventos)
 function pintarDatos(datos) {
     const contenedor = document.getElementById("contenedor");
     contenedor.innerHTML = '';
 
     datos.forEach((dato) => {
         contenedor.innerHTML += `
-                            <p>${dato.productName}</p>
-                            <button type="button" class="editar" data-id="${dato.id}">editar</button>
-                            <button type="button" class="borrar" data-id="${dato.id}">borrar</button>`
+                            <tr style="border: 1px solid black">
+                                <td style="border: 1px solid black">${dato.productName}</td>
+                                <td style="border: 1px solid black">${dato.stock} unidades</td>
+                                <td style="border: 1px solid black">${dato.precio} euros</td>
+                            <td style="border: 1px solid black"><button type="button" class="editar" data-id="${dato.id}">editar</button>
+                            <button type="button" class="borrar" data-id="${dato.id}">borrar</button></td>
+                            </tr>`
     })
 }
+
+//datos es variable global (estado local)
+let datos = [];
 
 // programa principal
 async function main() {
 
-    //obtenemos datos y los pintamos
+    //obtenemos datos
     const URL = 'http://localhost:8000/productos';
-    const datos = await obtenerArticulos(URL);
+    datos = await obtenerArticulos(URL); //la funcion se detiene aqui hasta obener los datos
+
+    //pintamos los datos
     pintarDatos(datos);
 
-    //boton borrar datos, se selecciona el boton clickado con delegacion de eventos
+    //boton borrar datos, se selecciona el boton clickado usando delegacion de eventos y el dataset anterior
     document.getElementById('contenedor').addEventListener('click', function (e) {
         if (e.target.classList.contains('borrar')) {
             borrarArticulos(URL, e.target.dataset.id)
@@ -83,6 +92,7 @@ async function main() {
         e.preventDefault();
 
         const nuevoArticulo = {
+            produtID: document.getElementById('categoria-articulo').value.trim(),
             categoria: document.getElementById('categoria-articulo').value.trim(),
             productName: document.getElementById('nombre-articulo').value.trim(),
             precio: parseFloat(document.getElementById('precio-articulo').value),
@@ -102,7 +112,7 @@ async function main() {
     });
 
 
-    //abrir modal
+    //Abre la modal de editar producto
     document.getElementById('contenedor').addEventListener('click', function (e) {
         if (e.target.classList.contains('editar')) {
 
@@ -117,13 +127,20 @@ async function main() {
         }
     });
 
-    //actualizar articulo
+    //Cierra la modal clickando la x
+    document.getElementById('cerrar-modal').addEventListener('click', () => {
+        document.getElementById('modal-editar').style.display = 'none';
+    });
+
+
+    //Edita el producto
     document.getElementById('form-editar').addEventListener('submit', function (e) {
         e.preventDefault();
 
         const id = document.getElementById('editar-id').value;
 
         const articuloActualizado = {
+            produtID: document.getElementById('categoria-articulo').value.trim(),
             categoria: document.getElementById('editar-categoria').value.trim(),
             productName: document.getElementById('editar-nombre').value.trim(),
             precio: parseFloat(document.getElementById('editar-precio').value),
@@ -143,11 +160,7 @@ async function main() {
         // Cerrar modal
         document.getElementById('modal-editar').style.display = 'none';
     });
-
-    //cerrar modal con la x
-    document.getElementById('cerrar-modal').addEventListener('click', () => {
-        document.getElementById('modal-editar').style.display = 'none';
-    });
+ 
 }
 
 //ejecuta el programa principal
