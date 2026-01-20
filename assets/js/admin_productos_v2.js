@@ -25,6 +25,7 @@ async function anadirArticulo(URL, nuevoArticulo) {
         },
         body: JSON.stringify(nuevoArticulo)
     });
+    
     const datos = await obtenerArticulos(URL);
     pintarDatos(datos);
 }
@@ -57,11 +58,12 @@ function pintarDatos(datos) {
 
     datos.forEach((dato) => {
         contenedor.innerHTML += `
-                            <tr style="border: 1px solid black">
-                                <td style="border: 1px solid black">${dato.productName}</td>
-                                <td style="border: 1px solid black">${dato.stock} unidades</td>
-                                <td style="border: 1px solid black">${dato.precio} euros</td>
-                            <td style="border: 1px solid black"><button type="button" class="editar" data-id="${dato.id}">editar</button>
+                            <tr class="celda">
+                                <td><img src="${dato.imagen}" width=80px></td>
+                                <td>${dato.productName}</td>
+                                <td>${dato.stock} unidades</td>
+                                <td>${dato.precio} euros</td>
+                            <td class="contenedorbotones"><button type="button" class="editar" data-id="${dato.id}">editar</button>
                             <button type="button" class="borrar" data-id="${dato.id}">borrar</button></td>
                             </tr>`
     })
