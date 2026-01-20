@@ -26,6 +26,7 @@ function pintarProductos() {
         fila.innerHTML = `
             <td><img src="${producto.imagen}" alt="${producto.productName}" width="80"></td>
             <td>${producto.produtID}</td>
+            <td class="descrip">${producto.productName}</td>
             <td class="descrip">${producto.descripcion}</td>
             <td>${producto.categoria}</td>
             <td>${producto.precio} €</td>
@@ -36,6 +37,33 @@ function pintarProductos() {
                 <button class="eliminar">Eliminar</button>
             </td>
         `;
+
+
+        //EDITAR 
+
+        const btnEditar = fila.querySelector('.editar');
+
+        btnEditar.addEventListener("click", function() {
+
+          const modal = document.getElementById("myModal");
+          modal.style.display = "block";
+
+            document.getElementById("id-oculto").value = producto.id;
+            document.getElementById("productID").value = producto.produtID;
+            document.getElementById("categoria").value = producto.categoria;
+            document.getElementById("productName").value = producto.productName;
+            document.getElementById("descripcion").value = producto.descripcion;
+            document.getElementById("precio").value = producto.precio;
+            document.getElementById("talla").value = producto.talla;
+            document.getElementById("stock").value = producto.stock;
+            document.getElementById("imagen").value = producto.imagen;
+
+          //modifico titulo de la modal
+
+          document.querySelector(".agregar-producto h3").innerText = "Editar Producto";
+        })
+
+
 
         //BORRAR/ELIMINAR
         // Buscamos el botón ELIMINAR que acabamos de crear dentro de esta fila
@@ -52,8 +80,7 @@ function pintarProductos() {
                 });
             }
             });
-
-        //EDITAR    
+   
 
         
 
@@ -101,6 +128,9 @@ guardar.addEventListener("click", function() {
 --------------------------------------------------------------     
 */
 function insertar() {
+
+const idEditar = document.getElementById("id-oculto").value;
+
 /* declaro  const para preguntar si los valores cumplen y asi 
 no me guarde un producto vacio.
 */
@@ -123,23 +153,34 @@ no me guarde un producto vacio.
     talla: document.getElementById("talla").value,
     stock: document.getElementById("stock").value,
     imagen: document.getElementById("imagen").value
+  };
+
+  let url2 = "http://localhost:8000/productos"
+  let method = "POST"; // AGREGAR por defecto.
+
+  
+ 
+  if (idEditar) {
+    url2 = `http://localhost:8000/productos/$(idEditar)`;
+    method = "PUT"; // PARA Modificar
   }
+  
+ 
 
   const options = {
-    method: 'POST',
+    method: method,
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(agregarProducto),
   };
 
-  let url2 = "http://localhost:8000/productos"
 
     fetch(url2, options)
     .then(response => response.json())
     .then(data => {
       console.log(data)
-      alert("¡Perfecto agregado!");
+      alert(idEditar ? "Producto actualizado" : "¡Perfecto agregado!");
       location.reload();
     }) ;
 }
