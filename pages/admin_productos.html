@@ -4,13 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        /*formulario*/
+        form {
+            max-width: 300px;
+            margin: 2rem;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        form input{
+            display: block;
+            margin: 1rem;
+        }
+        form button{
+            display: block;
+            margin: 1rem;
+        }
+
+
+        /*modal*/
+    .modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+}
+
+.modal-contenido {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    margin: 100px auto;
+    position: relative;
+}
+
+#cerrar-modal {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+    </style>
 </head>
 <body>
 
-     
-    <table id="salida">
+    
 
-    </table>
-    <script type="module" src="../assets/js/admin_productos.js"></script>
+<form id="formulario-articulo">
+    <input type="text" id="editar-produtID" placeholder="produtID" required>
+    <input type="text" id="nombre-articulo" placeholder="Nombre del artículo" required>
+    <input type="text" id="categoria-articulo" placeholder="Categoría" required>
+    <input type="text" id="talla-articulo" placeholder="Talla" required>
+    <input type="text" id="descripcion-articulo" placeholder="Descripción" required>
+    <input type="number" id="precio-articulo" placeholder="Precio" step="0.01" required>
+    <input type="number" id="stock-articulo" placeholder="Stock" required>
+    <button type="submit">Añadir artículo</button>
+</form>
+
+<table id="contenedor" style="border: 1px solid black">
+ 
+</table>
+
+<!-- MODAL EDITAR ARTICULO -->
+<div id="modal-editar" class="modal">
+    <div class="modal-contenido">
+        <span id="cerrar-modal">&times;</span>
+
+        <h3>Editar artículo</h3>
+
+        <form id="form-editar">
+            <input type="hidden" id="editar-id">
+
+            <input type="text" id="editar-produtID" placeholder="produtID" required>
+            <input type="text" id="editar-categoria" placeholder="Categoría" required>
+            <input type="text" id="editar-nombre" placeholder="Nombre" required>
+            <input type="number" id="editar-precio" placeholder="Precio" required>
+            <input type="text" id="editar-descripcion" placeholder="Descripción" required>
+            <input type="text" id="editar-talla" placeholder="Talla" required>
+            <input type="number" id="editar-stock" placeholder="Stock" required>
+
+            <button type="submit">Guardar cambios</button>
+        </form>
+    </div>
+</div>
+
+    
+    <!--<script type="module" src="../assets/js/admin_productos.js"></script>-->
+    <script type="module" src="../assets/js/admin_productos_v2.js"></script>
+
+
 </body>
 </html>
