@@ -25,7 +25,7 @@ async function anadirArticulo(URL, nuevoArticulo) {
         },
         body: JSON.stringify(nuevoArticulo)
     });
-    
+
     const datos = await obtenerArticulos(URL);
     pintarDatos(datos);
 }
@@ -112,7 +112,9 @@ async function main() {
 
         anadirArticulo(URL, nuevoArticulo);
         e.target.reset();
+         document.getElementById('formulario-articulo').style.display = 'none';
     });
+
 
 
     //Abre la modal de editar producto
@@ -164,6 +166,11 @@ async function main() {
         // Cerrar modal
         document.getElementById('modal-editar').style.display = 'none';
     });
+
+    document.getElementById("cuadroanadir").addEventListener("click", ()=>{
+        document.getElementById("formulario-articulo").style.display='block';
+
+    })
  
 }
 
