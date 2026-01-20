@@ -1,5 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Overpass+Mono:wght@300..700&family=Pacifico&display=swap');
 
+
+.panel-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem;
+}
+
+.panel-header h1 {
+    padding: 3rem;
+}
+
+#cuadroanadir {
+    background-color: #ff6b6b;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: background-color 0.2s;
+}
+
+#cuadroanadir:hover {
+    background-color: #e44b4b;
+}
+
+
 /*formulario*/
         body {
                 font-family: montserrat;
