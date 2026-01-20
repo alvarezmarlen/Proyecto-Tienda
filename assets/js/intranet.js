@@ -40,8 +40,8 @@ function pintarProductos() {
       <td>${producto.talla}</td>
       <td>${producto.stock}</td>
       <td class="acciones">
-      <button class="editar">Editar</button>
-      <button class="eliminar">Eliminar</button>
+        <button class="editar"id="${producto.id}">Editar</button>
+        <button class="eliminar">Eliminar</button>
       </td>
     `;
 
@@ -52,6 +52,7 @@ function pintarProductos() {
 ------------------------------------------------------------------------------------------------------------------------*/
 =======
  //EDITAR
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> d623e08 (prueba)
    const btnEditar = fila.querySelector('.editar');
@@ -73,10 +74,11 @@ function pintarProductos() {
         document.querySelector(".agregar-producto h3").innerText = "Editar Producto";
     });
 =======
+=======
+>>>>>>> 45d2601 (intranet)
 
 
 
->>>>>>> 3d5d344 (prueba)
 
 
 
@@ -98,14 +100,9 @@ function pintarProductos() {
           alert("Producto eliminado");
         });
       }
-<<<<<<< HEAD
-    });  
-      
-=======
     });
     
        
->>>>>>> f02f060 (PRUEBA)
     DOMitems.appendChild(fila);
   });
 } 
