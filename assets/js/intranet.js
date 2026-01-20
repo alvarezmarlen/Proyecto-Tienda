@@ -35,6 +35,16 @@ function pintarProductos() {
         <button class="eliminar">Eliminar</button>
       </td>
     `;
+
+
+ //EDITAR
+
+
+
+
+
+
+
  
     //BORRAR/ELIMINAR
     // Buscamos el botón ELIMINAR que acabamos de crear dentro de esta fila
@@ -51,6 +61,7 @@ function pintarProductos() {
         });
       }
     });
+    
        
     DOMitems.appendChild(fila);
   });
