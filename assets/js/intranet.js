@@ -40,37 +40,16 @@ function pintarProductos() {
       <td>${producto.talla}</td>
       <td>${producto.stock}</td>
       <td class="acciones">
-      <button class="editar">Editar</button>
-      <button class="eliminar">Eliminar</button>
+        <button class="editar"id="${producto.id}">Editar</button>
+        <button class="eliminar">Eliminar</button>
       </td>
     `;
 
 
  //EDITAR
-<<<<<<< HEAD
-   const btnEditar = fila.querySelector('.editar');
-
-    btnEditar.addEventListener("click", function(){  
-        const modal = document.getElementById("myModal");
-        modal.style.display = 'block';
-
-        document.getElementById("id-oculto").value = producto.id;
-        document.getElementById("productID").value = producto.produtID;
-        document.getElementById("categoria").value = producto.categoria;
-        document.getElementById("productName").value = producto.productName;
-        document.getElementById("descripcion").value = producto.descripcion;
-        document.getElementById("precio").value = producto.precio;
-        document.getElementById("talla").value = producto.talla;
-        document.getElementById("stock").value = producto.stock;
-        document.getElementById("imagen").value = producto.imagen;
-        // Cambiamos el texto del título para saber que estamos editando
-        document.querySelector(".agregar-producto h3").innerText = "Editar Producto";
-    });
-=======
 
 
 
->>>>>>> 3d5d344 (prueba)
 
 
 
@@ -89,14 +68,9 @@ function pintarProductos() {
           alert("Producto eliminado");
         });
       }
-<<<<<<< HEAD
-    });  
-      
-=======
     });
     
        
->>>>>>> f02f060 (PRUEBA)
     DOMitems.appendChild(fila);
   });
 } 
