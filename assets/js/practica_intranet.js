@@ -7,17 +7,18 @@ const DOMitems = document.querySelector(".productos-items");
 let productos = [];
 
 fetch(url)
-    .then(res => res.json())
-    .then (data => {
-        productos = data;
-        pintarProductos();
-    })
-    .catch (function (error) {
-        console.log(error);
-    });
+  .then(res => res.json())
+  .then(data => {
+    productos = data; 
+    pintarProductos();
+  })
+  .catch(function(error) {
+    console.log(error);
+  });
 
 function pintarProductos() {
-    DOMitems.innerHTML = "";
+  DOMitems.innerHTML = ""; 
+
 
     productos.forEach(function(producto) {
         const fila = document.createElement("tr");
