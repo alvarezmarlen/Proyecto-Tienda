@@ -101,7 +101,7 @@ async function main() {
         e.preventDefault(); //evita la recarga de la pagina al enviar el formulario
 
         const nuevoArticulo = {
-            produtID: document.getElementById('categoria-articulo').value.trim(),
+            produtID: parseInt(document.getElementById('editar-produtID').value),
             categoria: document.getElementById('categoria-articulo').value.trim(),
             productName: document.getElementById('nombre-articulo').value.trim(),
             imagen: document.getElementById('editar-imagen').value.trim(),
@@ -165,7 +165,7 @@ async function main() {
         const id = document.getElementById('editar-id').value;
 
         const articuloActualizado = {
-            produtID: document.getElementById('categoria-articulo').value.trim(),
+            produtID: parseInt(document.getElementById('editar-produtID').value),
             categoria: document.getElementById('editar-categoria').value.trim(),
             productName: document.getElementById('editar-nombre').value.trim(),
             imagen: document.getElementById('editar-imagen').value.trim(),
