@@ -19,8 +19,16 @@ fetch(url)
 function pintarProductos() {
   DOMitems.innerHTML = ""; 
 
+
+  //FUNCIÓN PARA ORDENAR LOS PRODUCTOS POR ID
+    productos.sort((a, b) => {
+    return Number(a.produtID) - Number(b.produtID);
+  });
+
+ 
+
   productos.forEach(function(producto) {
-    const fila = document.createElement("tr");    
+    const fila = document.createElement("tr");  
 
     fila.innerHTML = `
       <td><img src="${producto.imagen}" alt="${producto.productName}" width="80"></td>
@@ -32,8 +40,8 @@ function pintarProductos() {
       <td>${producto.talla}</td>
       <td>${producto.stock}</td>
       <td class="acciones">
-        <button class="editar">Editar</button>
-        <button class="eliminar">Eliminar</button>
+      <button class="editar">Editar</button>
+      <button class="eliminar">Eliminar</button>
       </td>
     `;
 
