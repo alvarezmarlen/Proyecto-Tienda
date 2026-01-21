@@ -41,6 +41,7 @@ function pintarProductos() {
       <td>${producto.stock}</td>
       <td class="acciones">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <button class="editar"id="${producto.id}">Editar</button>
         <button class="eliminar">Eliminar</button>
 =======
@@ -52,11 +53,22 @@ function pintarProductos() {
       <button class="eliminar">Eliminar</button>
 >>>>>>> 059d491464f626c95c3c9b1b2810632bde1e1d0c
 >>>>>>> fdd574c4d2fd6c388a2564726ef1a172cf0e5822
+=======
+      <button class="editar">Editar</button>
+      <button class="eliminar">Eliminar</button>
+>>>>>>> fd8eb7b7a38061a1eb151945c2de171ea28580e3
       </td>
     `;
 
+/* -----------------------------------------------------------------------------------------------------------------------
 
+<<<<<<< HEAD
  //EDITAR
+=======
+                EDITAR
+------------------------------------------------------------------------------------------------------------------------*/
+   const btnEditar = fila.querySelector('.editar');
+>>>>>>> fd8eb7b7a38061a1eb151945c2de171ea28580e3
 
 
 
@@ -64,8 +76,11 @@ function pintarProductos() {
 
 
 
- 
-    //BORRAR/ELIMINAR
+ /* -----------------------------------------------------------------------------------------------------------------------
+
+                BORRAR/ELIMINAR
+------------------------------------------------------------------------------------------------------------------------*/
+    
     const btnEliminar = fila.querySelector('.eliminar');
     
     btnEliminar.addEventListener("click", function()  {
@@ -87,9 +102,9 @@ function pintarProductos() {
 
 
 
-/* ----------------------------------------------
+/* -------------------------------------------------------------------
     aqui funciona la modal que se muestra al dar click al BOTON CREAR
-    ----------------------------------------------*/
+    ------------------------------------------------------------------*/
 let modal = document.getElementById("myModal");
 let abrir = document.getElementById("abrirModal");
 let cerrar = document.querySelector(".cerrar-modal");
@@ -118,10 +133,10 @@ guardar.addEventListener("click", function() {
 
 
 
-/*------------------------------------------------------------
-     CREAR    (dentro esta el formulario) 
---------------------------------------------------------------     
-*/
+ /* -----------------------------------------------------------------------------------------------------------------------
+
+                AGREGAR PRODUCTOS
+------------------------------------------------------------------------------------------------------------------------*/
 function insertar() {
   // 1. RECOGEMOS EL ID OCULTO (El bolsillo secreto)
   const idEditar = document.getElementById("id-oculto").value;
