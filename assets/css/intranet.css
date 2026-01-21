@@ -6,20 +6,26 @@
         box-sizing: border-box;
     }
 
-header {
-        font-family: "Overpass Mono", monospace;
-}
-
 /* INICIO DE LA SECCIÓN PRINCIPAL */
 main {
     font-family: "Montserrat";
+    font-weight: 500;
     gap: 2rem;
     padding: 1rem 5vw;
     min-height: 100vh;
     background-color: #fcf5f5;
 }
-h1{
+h2{
     text-align: center;
+    font-size: 2.7rem;
+    padding: 3rem;
+    padding-top: 5rem;
+}
+
+.area-boton-agregar{
+    display: flex;
+    justify-content: end;
+    padding-right: 11rem;
 }
 
 /* TABLA DONDE ESTAN LOS PRODUCTOS*/
@@ -30,8 +36,18 @@ h1{
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+<<<<<<< HEAD
     margin: 2rem auto;
     width: 90%;
+=======
+    margin: 3rem auto;
+    width: 80%;
+    margin-bottom: 7rem;
+    margin-top: 1rem;
+    padding: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+>>>>>>> 059d491464f626c95c3c9b1b2810632bde1e1d0c
 }
 
 .container-productos{
@@ -42,7 +58,7 @@ h1{
 }
 
 .container-productos th{
-    background-color: rgb(8, 8, 138);
+    background-color: #641B2E;
     color: white;
 }
 .container-productos th,
@@ -59,7 +75,7 @@ h1{
   padding: 0.8rem 2rem;
   align-self: flex-start; 
   border-radius: 0.5rem;
-  background-color: #007BFF;
+  background-color: #8A2D3B;
   border: none;
   color: white;
   font-size: 1rem;
@@ -73,7 +89,7 @@ h1{
   padding: 0.8rem 1rem;
   align-self:flex-end; 
   border-radius: 0.5rem;
-  background-color: red;
+  background-color: #BE5B50;
   border: none;
   color: white;
   font-size: 1rem;
@@ -86,7 +102,11 @@ h1{
    margin: 0; 
 }
 #abrirModal:hover {
-  background-color: #0056b3; 
+  background-color: #BE5B50;
+}
+
+.eliminar:hover, .editar:hover {
+  transform: scale(1.05);
 }
 
 /* FONDO OSCURO DEL MODAL */
@@ -170,7 +190,17 @@ h1{
 
 .boton-modal{
   padding: 0.8rem 2rem;
-  background-color: #007BFF;
+  background-color: #BE5B50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+
+.boton-modal:hover{
+  padding: 0.8rem 2rem;
+  background-color: #641B2E;
   color: white;
   border: none;
   cursor: pointer;

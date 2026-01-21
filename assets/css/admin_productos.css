@@ -1,5 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Overpass+Mono:wght@300..700&family=Pacifico&display=swap');
 
+
+.panel-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem;
+}
+
+.panel-header h1 {
+    padding: 3rem;
+}
+
+#cuadroanadir {
+    background-color: #ff6b6b;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: background-color 0.2s;
+}
+
+#cuadroanadir:hover {
+    background-color: #e44b4b;
+}
+
+
 /*formulario*/
         body {
                 font-family: montserrat;
@@ -27,7 +55,7 @@
 
         table {
             background-color: #ffffff;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
             margin:auto
         }
 
@@ -75,37 +103,72 @@
     cursor: pointer;
 }
 
+#cuadroanadir {
+    display: block;
+    border-radius: 6px;
+    margin: 2rem auto;          
+    padding: 0.9rem 2.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #4CAF50;
+    cursor: pointer;
+    color: white;
+    box-shadow: 0 8px 18px rgba(36, 4, 4, 0.18);
+    
+}
+
+#cuadroanadir:hover {
+    transform: translateY(-2px);
+    
+}
+
+#cuadroanadir:active {
+    transform: scale(0.96);
+}
+
+
+
+
 .borrar{
 
     background-color: #ff6b6b;
-    border: none;
+    
     padding: 0.5rem 1rem;
     border-radius: 6px;
     color: white;
     cursor: pointer;
     margin-left: 1rem;
     transition: background-color 0.2s;
+     box-shadow: 0 8px 18px rgba(36, 4, 4, 0.18);
 }
 
 .borrar:hover {
     background-color: #e44b4b;
+     transform: translateY(-1px);
+}
+.borrar:active {
+    transform: scale(0.96);
 }
 
 .editar {
 
     background-color: #6b86ff;
-    border: none;
+   
     padding: 0.5rem 1rem;
     border-radius: 6px;
     color: white;
     cursor: pointer;
     margin-left: 1rem;
     transition: background-color 0.2s;
+     box-shadow: 0 8px 18px rgba(36, 4, 4, 0.18);
 }
 
 .editar:hover {
     background-color: #6b86ff;
-;
+    transform: translateY(-1px);
+}
+.editar:active {
+    transform: scale(0.96);
 }
 
 .contenedorbotones{
