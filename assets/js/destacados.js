@@ -40,7 +40,6 @@ destacados.forEach(function(product)  {
         event.stopPropagation();
         agregarAlCarritoYRedirigir(product);
         console.log('Producto para agregar:', product);
-        // Aquí tu compañero agrega el código del carrito
     });
 
     productDestacadosList.appendChild(tarjeta);
