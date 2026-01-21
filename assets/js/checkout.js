@@ -1,15 +1,24 @@
 
-// 1. IMPORTAR EL CATÁLOGO (articulosJSON) PARA CONVERTIR IDs DEL CARRITO EN PRODUCTOS REALES:
+// 1. CATÁLOGO: En lugar de importación estática, lo cargamos dinámicamente
 
-import { articulosJSON } from "./main.js";
+let articulosJSON = [];
 
-/* const url = "http://localhost:8000/productos";
-
-fetch("url")
-  .then(response => response.json())
-  .then(articulosJSON => {
- */
-
+// Función para cargar productos desde JSON server
+function cargarProductosDesdeServer() {
+  return fetch("http://localhost:8000/productos")
+    .then(response => {
+      if (!response.ok) throw new Error("Error al cargar productos");
+      return response.json();
+    })
+    .then(productos => {
+      articulosJSON = productos;
+      return productos;
+    })
+    .catch(error => {
+      console.error("Error cargando productos:", error);
+      return [];
+    });
+}
 
 
 //  2. DOM: TOMAMOS LOS ELEMENTOS QUE YA ESTÁN EN EL HTML
@@ -243,57 +252,67 @@ asegurarOpcionesDePago();
 function cargarCheckout() {
   mostrarErrores([]);
 
-  const raw = leerCarritoRaw();
-  const carritoMinimo = normalizarCarrito(raw);
+   // AHORA CARGAMOS LOS PRODUCTOS DESDE EL SERVIDOR
+  cargarProductosDesdeServer()
+    .then(() => {
+      const raw = leerCarritoRaw();
+      const carritoMinimo = normalizarCarrito(raw);
 
-  const pedido = construirPedido(carritoMinimo);
-  renderResumen(pedido.lineas, pedido.total);
+      const pedido = construirPedido(carritoMinimo);
+      renderResumen(pedido.lineas, pedido.total);
 
-  // Si hay errores del pedido (producto no existe / stock insuficiente)
-  // los mostramos, pero NO confirmamos nada todavía.
-  if (pedido.errores.length > 0) {
-    mostrarErrores(pedido.errores);
-  }
+      // Si hay errores del pedido (producto no existe / stock insuficiente)
+      // los mostramos, pero NO confirmamos nada todavía.
+      if (pedido.errores.length > 0) {
+        mostrarErrores(pedido.errores);
+      }
+    })
+    .catch(error => {
+      console.error("Error al cargar el checkout:", error);
+      mostrarErrores(["Error al cargar los productos. Por favor, intenta de nuevo."]);
+    });
 }
 
 cargarCheckout();
 
-// 11. SUBMIT, EFECTUACIÓN DEL PAGO
+// 12. SUBMIT, EFECTUACIÓN DEL PAGO
 
 form?.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const mensajes = [];
+  // RECARGAR PRODUCTOS ANTES DE PROCESAR EL PAGO
+  cargarProductosDesdeServer()
+    .then(() => {
+      const mensajes = [];
 
-  // 1) Pedido
-  const carritoMinimo = normalizarCarrito(leerCarritoRaw());
-  if (carritoMinimo.length === 0) {
-    mensajes.push("Tu carrito está vacío.");
-  }
+      // 1) Pedido
+      const carritoMinimo = normalizarCarrito(leerCarritoRaw());
+      if (carritoMinimo.length === 0) {
+        mensajes.push("Tu carrito está vacío.");
+      }
 
-  const pedido = construirPedido(carritoMinimo);
-  mensajes.push(...pedido.errores);
+      const pedido = construirPedido(carritoMinimo);
+      mensajes.push(...pedido.errores);
 
-  // 2) Formulario + método de pago
-  const metodoPago = obtenerMetodoPago();
-  const dataCliente = leerDatosFormulario();
-  mensajes.push(...validarFormulario(dataCliente, metodoPago));
+      // 2) Formulario + método de pago
+      const metodoPago = obtenerMetodoPago();
+      const dataCliente = leerDatosFormulario();
+      mensajes.push(...validarFormulario(dataCliente, metodoPago));
 
-  // 3) Si hay problemas, mostrar y parar
-  if (mensajes.length > 0) {
-    mostrarErrores(mensajes);
-    return;
-  }
+      // 3) Si hay problemas, mostrar y parar
+      if (mensajes.length > 0) {
+        mostrarErrores(mensajes);
+        return;
+      }
 
-  // 4) Confirmar (simulado)
-  confirmarPedido(pedido, dataCliente, metodoPago);
+      // 4) Confirmar (simulado)
+      confirmarPedido(pedido, dataCliente, metodoPago);
 
-  alert(`¡Pedido confirmado! Total: ${pedido.total.toFixed(2)} €`);
-  window.location.href = "/pages/productos.html";
+      alert(`¡Pedido confirmado! Total: ${pedido.total.toFixed(2)} €`);
+      window.location.href = "/pages/productos.html";
+    })
+    .catch(error => {
+      console.error("Error al procesar el pago:", error);
+      mostrarErrores(["Error al procesar el pedido. Por favor, intenta de nuevo."]);
+    });
 });
-
-  
-
-
-/* }
-  ); */
