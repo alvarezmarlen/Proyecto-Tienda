@@ -37,6 +37,7 @@ h2{
     align-items: center;
     gap: 1rem;
 <<<<<<< HEAD
+<<<<<<< HEAD
     margin: 3rem auto;
     width: 80%;
     margin-bottom: 7rem;
@@ -44,6 +45,10 @@ h2{
     padding: auto;
     padding-top: 1rem;
     padding-bottom: 1rem;
+=======
+    margin: 2rem auto;
+    width: 90%;
+>>>>>>> f66d298 (eliminar pruebas innecesarias)
 =======
     margin: 2rem auto;
     width: 90%;
