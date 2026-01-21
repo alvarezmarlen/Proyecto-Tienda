@@ -40,8 +40,18 @@ function pintarProductos() {
       <td>${producto.talla}</td>
       <td>${producto.stock}</td>
       <td class="acciones">
+<<<<<<< HEAD
         <button class="editar"id="${producto.id}">Editar</button>
         <button class="eliminar">Eliminar</button>
+=======
+<<<<<<< HEAD
+        <button class="editar">Editar</button>
+        <button class="eliminar">Eliminar</button>
+=======
+      <button class="editar">Editar</button>
+      <button class="eliminar">Eliminar</button>
+>>>>>>> 059d491464f626c95c3c9b1b2810632bde1e1d0c
+>>>>>>> fdd574c4d2fd6c388a2564726ef1a172cf0e5822
       </td>
     `;
 

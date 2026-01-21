@@ -37,6 +37,12 @@ h2{
     align-items: center;
     gap: 1rem;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    margin: 2rem auto;
+    width: 90%;
+=======
+>>>>>>> fdd574c4d2fd6c388a2564726ef1a172cf0e5822
     margin: 3rem auto;
     width: 80%;
     margin-bottom: 7rem;
@@ -44,10 +50,14 @@ h2{
     padding: auto;
     padding-top: 1rem;
     padding-bottom: 1rem;
+<<<<<<< HEAD
 =======
     margin: 2rem auto;
     width: 90%;
 >>>>>>> f66d298 (eliminar pruebas innecesarias)
+=======
+>>>>>>> 059d491464f626c95c3c9b1b2810632bde1e1d0c
+>>>>>>> fdd574c4d2fd6c388a2564726ef1a172cf0e5822
 }
 
 .container-productos{
