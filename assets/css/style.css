@@ -4,17 +4,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Montserrat;
 }
 body, html {
     width: 100%;
-    overflow-x: hidden; 
+    overflow-x: hidden;
+    background-color: #f8efdb;
 }
+
 /* HEADER */
 header {
-    background-color: rgb(54, 163, 51);
+    background-color: #8A2D3B;
     display: flex;
     align-items: center;
-    height: 6rem;
+    height: 6.5rem;
     width: 100%;
 }
 
@@ -36,12 +39,14 @@ nav {
     flex-direction: row;
     flex: 1;
     justify-content: space-between;
+    padding-left: 1.5rem;
 }
 
 nav ul {
     display: flex;
     list-style: none;
     margin-left: 5rem;
+    gap: 3rem;
 }
 
 nav ul li a{
@@ -51,37 +56,39 @@ nav ul li a{
     padding: 1rem;
     font-size: 1.2rem;
 }
-.idioma{
 
-    color: rgb(240, 17, 17);
 
-}
+
 
 /* LANGUAGE MENU */
 .carrit{
     margin-right: 2rem;
 }
 .registro-cart {
-    margin-left: auto;
-    padding-right: 2.5rem;
-    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
 }
 
-.regitro-cart ul {
+.registro-cart ul {
     display: flex;
     gap: 0.3rem;
     color: white;
 }
-#reloj{
-    position: absolute;
-    bottom: -1.5rem;
-    right: 2.5rem;
+
+.iconos-nav {
+    align-items: center;
     margin: 0;
-    font-weight: bold;
+    padding: 0;
+    padding-left: 4rem;
+}
+
+#reloj{
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
     font-size: 0.9rem;
-    margin-top: 0.3rem;
-    white-space: nowrap;
     color: white;
 }
 /*--------------------------------------------
@@ -101,6 +108,12 @@ nav ul li a{
   right: 20px;
   z-index: 1001;
 }
+
+
+main {
+    color: #641B2E;
+}
+
 /*-------------------------------------------------------
         AQUI DEBO AGREGAR STYLE DEL CARRUSEL
 ------------------------------------------------------ */
@@ -121,7 +134,7 @@ nav ul li a{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
     position: relative;
     z-index: 1;
 }
@@ -159,39 +172,35 @@ nav ul li a{
 #atras{
     left: 2rem;
 }
-.iconos:hover{
-    background-color: rgba(0, 0, 0, 0.8);
-}
+
+
 .img-iconos{
     width: 1.5rem;
     height: 1.5rem;
     filter: brightness(0) invert(1);
 }
 .texto {
-    overflow: hidden;
     position: absolute;
     flex-direction: column;
-    transform: translateY(0px);
-    margin-bottom: 9px;
-    backdrop-filter: blur(8px);
-    background-color: rgba(63, 106, 138, 0.21);
+    backdrop-filter: blur(2px);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 2rem;
+    text-shadow: 0px 0px 10px black;
+    margin-top: 2rem;
 }
 .texto h1 {
     font-family: "Pacifico";
-    text-shadow: 0px 0px 15px black;
     color: white;
     font-weight: 300;
-    font-size: 6rem;
+    font-size: 9rem;
     }
 
-.texto  h4 {
-    font-family: "Overpass Mono";
+.texto h4 {
+    font-family: "Montserrat";
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: white;
     margin-top: -1rem;
     font-weight: 300;
@@ -213,32 +222,35 @@ nav ul li a{
     font-size: 100px;
     font-weight: 500;
     margin-top: -50px;
-    color: black;
+    color: #F1DFB5;
 }
 .puntos .bold{
     font-weight: 700;
     margin-left: 10px;
     margin-right: 10px;
-    color: rgb(54, 163, 51);
+    color: #BE5B50;
 }
 
 /*-------------------------------------------------------
         AQUI TENEMOS LOS PRODUCTOS DESTACADOS
 ------------------------------------------------------ */
 .subtitulo{
-    font-size: 3rem;
-    margin-top: 5rem;
+    font-size: 4rem;
+    margin-top: 4rem;
     text-align: center;
+    color: #8A2D3B;
+    font-family: "Pacifico";
+    margin-bottom: 2rem;
+ 
 }
 #products-destacados{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     padding: 1rem;
     gap: 1rem;
-    font-family: "Overpass Mono";
 }
 .card-tarjeta {
-    border: 3px dotted rgb(54, 163, 51);
+    background-color: #f1dfb5;
     margin: 0.5rem;
     padding: 1rem;
     display: flex;
@@ -272,13 +284,17 @@ nav ul li a{
     height: 3rem;
     border-radius: 2rem;
     margin-top: 0.5rem;
-    background-color: rgb(54, 163, 51);
+    background-color: #BE5B50;
     color: white;
     font-weight: bold;
-    border: rgb(54, 163, 51);
     cursor: pointer;
 }
 
+.agregar:hover {
+    transform: scale(1.03);
+    background-color: #FBDB93;
+    color: #641B2E;
+}
 
 /*-------------------------------------------------------
         NUESTRO TALLER
@@ -290,25 +306,30 @@ nav ul li a{
     margin-bottom: 5rem;
 }
 .taller-titulo{
-    font-size: 3rem;
-    margin-top: 8rem; 
+    font-size: 4rem;
+    margin-top: 6rem;
     text-align: center;
-    margin-bottom: 1rem; 
+    color: #8A2D3B;
+    font-family: "Pacifico";
+    margin-bottom: 3rem;
 }
+
 .taller-img {
     grid-area: 1 / 1 / 2 / 2;
     width: 45rem;
     margin-left: 4rem;
     border-radius: 2rem;
-    box-shadow: 0px 0px 30px rgba(0,0,0,.4);
+    box-shadow: 0px 0px 30px rgba(0,0,0,.2);
 }
 .taller-texto{
     grid-area: 1 / 2 / 2 / 3;
     margin: 2rem 5rem 8rem 2rem;
+    padding: 1rem;
     border-radius: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-align: justify;
-    border: 3px dotted #ffc595;
+    background-color: #f0e1c0;
+    box-shadow: 0px 0px 30px rgba(0,0,0,.2);
 }
 .taller-texto p{
     margin: 2rem;
@@ -325,12 +346,14 @@ segunda parte de Nuestro Taller
 
 .taller-texto-dos{
     grid-area: 1 / 1 / 2 / 2;
-    margin-left: 2rem;
+    margin-left: 3rem;
     margin-right: 2rem;
+    padding: 2rem;
     border-radius: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-align: justify;
-    border: 3px dotted #ffc595;
+    background-color: #f0e1c0;
+    box-shadow: 0px 0px 30px rgba(0,0,0,.2);
 }
 .taller-texto-dos p{
     margin: 2rem;
@@ -341,7 +364,7 @@ segunda parte de Nuestro Taller
     width: 35rem;
     margin-right: 3rem;
     border-radius: 2rem;
-    box-shadow: 0px 0px 30px rgba(0,0,0,.4);
+    box-shadow: 0px 0px 30px rgba(0,0,0,.2);
 }
 
 
@@ -349,7 +372,7 @@ segunda parte de Nuestro Taller
     STYLE DEL   FOOTER 
 ------------------------------------------------------------*/
 footer{
-    background-color:rgb(54, 163, 51);
+    background-color:#BE5B50;
 }
 
 .footer-container{
