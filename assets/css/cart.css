@@ -123,7 +123,7 @@ main {
    BOTÓN ELIMINAR
    ============================ */
 .remove-btn {
-    background-color: #ff6b6b;
+    background-color: #8a2d3b;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 6px;
@@ -213,23 +213,24 @@ main {
 }
 
 #btn-empty {
-    background-color: #F28B82;
-    color: #fff;
+    background-color: #f1dfb5;
+    color: #8a2d3b;
 }
 
 #btn-empty:hover {
-    background-color: #E53935;
+    background-color: #8A2D3B;
+    color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(229, 57, 53, 0.4);
 }
 
 #btn-checkout {
-    background-color: #E2FFB4;
-    color: #3B4A2F;
+    background-color: #641B2E;
+    color: white;
 }
 
 #btn-checkout:hover {
-    background-color: #3B4A2F;
+    background-color: #8A2D3B;
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(229, 57, 53, 0.4);
