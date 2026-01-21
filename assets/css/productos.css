@@ -4,7 +4,7 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: "Overpass Mono", monospace;
+        color: #641B2E;
     }
 
 
@@ -13,9 +13,8 @@
 
     .containerform {
         width: 100%;
-        background: linear-gradient(to bottom, #ffc595, rgb(54, 163, 51));
-        padding: 10px;
-        border-radius: 10px;
+        background: #641B2E;
+        padding: 1.2rem;
         display: flex;
     }
 
@@ -30,7 +29,6 @@
     }
 
     .card {
-        border: 3px dotted rgb(54, 163, 51);
         margin: 2rem;
         padding: 1rem;
         display: flex;
@@ -40,8 +38,8 @@
         height: 450px;
         border-radius: 0.7rem;
                 box-shadow: 
-        0 8px 15px rgba(0, 0, 0, 0.35),
-        0 15px 35px rgba(0, 0, 0, 0.25);    
+        0 8px 15px rgba(0, 0, 0, 0.15),
+        0 15px 35px rgba(0, 0, 0, 0.15);    
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -83,15 +81,16 @@
     /*--FORMULARIO DE FILTROS--> */
     .filtro label {
         font-weight: bold;
-        margin-left: 50px;
+        margin-left: 5rem;
+        margin-right: 3rem;
+        color: white;
     }
 
 
     .filtro input,
     .filtro select {
         padding: 5px;
-        border-radius: 5px;
-        border: 1px solid #999;
+        width: 12rem;
     }
 
     .filtro button {
@@ -111,10 +110,10 @@
     border-radius: 0.5rem;
     width: 5%;
     margin-left: 0.5rem;
-    background: transparent;
 }
 #botonfiltro:hover{
     background-color: white;
+    font-weight: 600;
 }
 
 
