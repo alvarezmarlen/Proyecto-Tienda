@@ -40,14 +40,39 @@ function pintarProductos() {
       <td>${producto.talla}</td>
       <td>${producto.stock}</td>
       <td class="acciones">
+<<<<<<< HEAD
         <button class="editar"id="${producto.id}">Editar</button>
         <button class="eliminar">Eliminar</button>
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <button class="editar"id="${producto.id}">Editar</button>
+        <button class="eliminar">Eliminar</button>
+=======
+<<<<<<< HEAD
+        <button class="editar">Editar</button>
+        <button class="eliminar">Eliminar</button>
+=======
+      <button class="editar">Editar</button>
+      <button class="eliminar">Eliminar</button>
+>>>>>>> 059d491464f626c95c3c9b1b2810632bde1e1d0c
+>>>>>>> fdd574c4d2fd6c388a2564726ef1a172cf0e5822
+=======
+      <button class="editar">Editar</button>
+      <button class="eliminar">Eliminar</button>
+>>>>>>> fd8eb7b7a38061a1eb151945c2de171ea28580e3
+>>>>>>> 35b2ed73a3160231980d0f80082967714bfba650
       </td>
     `;
 
 /* -----------------------------------------------------------------------------------------------------------------------
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+ //EDITAR
+=======
+>>>>>>> 35b2ed73a3160231980d0f80082967714bfba650
                 EDITAR
 ------------------------------------------------------------------------------------------------------------------------*/
 =======
@@ -56,11 +81,11 @@ function pintarProductos() {
 <<<<<<< HEAD
 >>>>>>> d623e08 (prueba)
    const btnEditar = fila.querySelector('.editar');
+>>>>>>> fd8eb7b7a38061a1eb151945c2de171ea28580e3
 
-    btnEditar.addEventListener("click", function(){  
-        const modal = document.getElementById("myModal");
-        modal.style.display = 'block';
 
+
+<<<<<<< HEAD
         document.getElementById("id-oculto").value = producto.id;
         document.getElementById("productID").value = producto.produtID;
         document.getElementById("categoria").value = producto.categoria;
@@ -79,6 +104,8 @@ function pintarProductos() {
 
 
 
+=======
+>>>>>>> 35b2ed73a3160231980d0f80082967714bfba650
 
 
 
