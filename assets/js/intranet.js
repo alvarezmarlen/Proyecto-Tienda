@@ -45,8 +45,10 @@ function pintarProductos() {
       </td>
     `;
 
+/* -----------------------------------------------------------------------------------------------------------------------
 
- //EDITAR
+                EDITAR
+------------------------------------------------------------------------------------------------------------------------*/
    const btnEditar = fila.querySelector('.editar');
 
     btnEditar.addEventListener("click", function(){  
@@ -69,8 +71,11 @@ function pintarProductos() {
 
 
 
- 
-    //BORRAR/ELIMINAR
+ /* -----------------------------------------------------------------------------------------------------------------------
+
+                BORRAR/ELIMINAR
+------------------------------------------------------------------------------------------------------------------------*/
+    
     const btnEliminar = fila.querySelector('.eliminar');
     
     btnEliminar.addEventListener("click", function()  {
@@ -91,9 +96,9 @@ function pintarProductos() {
 
 
 
-/* ----------------------------------------------
+/* -------------------------------------------------------------------
     aqui funciona la modal que se muestra al dar click al BOTON CREAR
-    ----------------------------------------------*/
+    ------------------------------------------------------------------*/
 let modal = document.getElementById("myModal");
 let abrir = document.getElementById("abrirModal");
 let cerrar = document.querySelector(".cerrar-modal");
@@ -122,10 +127,10 @@ guardar.addEventListener("click", function() {
 
 
 
-/*------------------------------------------------------------
-     CREAR    (dentro esta el formulario) 
---------------------------------------------------------------     
-*/
+ /* -----------------------------------------------------------------------------------------------------------------------
+
+                AGREGAR PRODUCTOS
+------------------------------------------------------------------------------------------------------------------------*/
 function insertar() {
   // 1. RECOGEMOS EL ID OCULTO (El bolsillo secreto)
   const idEditar = document.getElementById("id-oculto").value;
